@@ -1,0 +1,315 @@
+{
+  "contest": "OIPCE - Oficial Investigador de Polícia Civil do Ceará",
+  "sources": [
+    {
+      "id": "edital-01",
+      "title": "Edital nº 1 – PC/CE (abertura)",
+      "file": "raw/edital-OIPCE.md"
+    },
+    {
+      "id": "edital-02",
+      "title": "Edital nº 2 – PC/CE (vagas: 500 imediatas + 250 CR)",
+      "file": "raw/edital-alt-OIPCE.md"
+    },
+    {
+      "id": "edital-16",
+      "title": "Edital nº 16/2026 – PC/CE (cadastro de reserva ampliado)",
+      "file": "raw/edital-16-OIPCE.md"
+    },
+    {
+      "id": "lei-19706",
+      "title": "Lei nº 19.706/2026",
+      "file": "raw/lei-19706.md"
+    },
+    {
+      "id": "comunicado-166",
+      "title": "Comunicado nº 166/2026-CEV/UECE (notas + classificação preliminar)",
+      "file": "raw/comunicado-166-oipce.md"
+    },
+    {
+      "id": "edital-17",
+      "title": "Edital nº 17 – PC/CE (resultado 1ª turma / Situação)",
+      "file": "raw/chamada-T1-DOE-OIPCE.md"
+    },
+    {
+      "id": "chamada-t1",
+      "title": "Comunicado inspeção/docs T1 (500 imediatas + 250 CR ≈ 750)",
+      "file": "raw/chamada-T1-OIPCE.md"
+    },
+    {
+      "id": "chamada-complementar",
+      "title": "Chamada complementar (~54 remanescentes por desistência)",
+      "file": "raw/chamada-complementar-OIPCE.md"
+    },
+    {
+      "id": "overrides-called",
+      "title": "Overrides manuais (nomeação/curso) com fonte citada",
+      "file": "raw/overrides-already-called.json"
+    }
+  ],
+  "rules": {
+    "ranking": {
+      "summary": "Ordem decrescente da nota final (objetiva + discursiva).",
+      "cite": "Edital 17, itens 5 e 6; Comunicado 166, itens 2 e 3"
+    },
+    "tiebreak": {
+      "order": [
+        "60+ anos (Estatuto do Idoso)",
+        "maior nota na prova objetiva",
+        "maior nota na prova discursiva",
+        "maior nota em Língua Portuguesa",
+        "maior nota em Raciocínio Lógico",
+        "maior nota em Legislação Estadual",
+        "função de jurado (comprovada na inscrição)",
+        "maior idade"
+      ],
+      "cite": "Edital 17, item 7; Comunicado 166, item 4"
+    },
+    "quotas": {
+      "pcd_pct": 5,
+      "negro_pct": 20,
+      "women_floor_pct": 15,
+      "negro_in_ampla": "Negro com nota suficiente para ampla entra pela ampla e não consome vaga da cota racial.",
+      "cite_negro_ampla": "Edital nº 1, subitens 5.2.5 a 5.2.5.2",
+      "cite_women": "Edital nº 1, subitem 5.3; Lei 16.826/2019 art. 2º; Edital 17 item 11",
+      "cite_alternancia": "Edital nº 1, subitem 5.2.7 (alternância e proporcionalidade)"
+    },
+    "t1_vacancies": {
+      "imediata": {
+        "ampla": 375,
+        "pcd": 25,
+        "negro": 100,
+        "total": 500
+      },
+      "cr": {
+        "ampla": 187,
+        "pcd": 13,
+        "negro": 50,
+        "total": 250
+      },
+      "turma1_total": 750
+    },
+    "calling_model": {
+      "summary": "A T1 reuniu 500 vagas imediatas + 250 do cadastro de reserva (Edital 02). Quem está como Classificado no Edital 17 são as imediatas; os 250 CR constam no comunicado de inspeção/docs da T1. A complementar (~54) só repôs desistência/vaga não preenchida. A simulação de T2 parte de quem sobrou DEPOIS disso.",
+      "caveat": "Sem lista pública de quem da T1/complementar ficou inapto ou desistiu de fato, a fila restante é a do papel. Também não temos (ainda) a lista de nomeação / matrícula no curso de formação: quem entrou no curso fora da chamada de inspeção/docs e da complementar só entra no desconto via raw/overrides-already-called.json com fonte citada."
+    }
+  },
+  "stats": {
+    "total_candidates": 2317,
+    "parsed_166": 2317,
+    "parsed_edital17": 2317,
+    "missing_detailed_scores": 0,
+    "rank_mismatches_166_vs_17": 0,
+    "t1_call_list_parsed": 750,
+    "t1_imediata": 500,
+    "t1_cr": 261,
+    "t1_total": 761,
+    "complementar_matched": 55,
+    "complementar_unmatched": [],
+    "t1_call_unmatched": [],
+    "t1_call_unmatched_count": 0,
+    "t1_structural_cr_added": 0,
+    "already_called": 816,
+    "remaining": 1501,
+    "women_in_t1": 243,
+    "override_called": 1
+  },
+  "t1_boundaries": {
+    "t1_call_rows": 750,
+    "counts_from_call_meta": {
+      "Ampla": 562,
+      "Negro": 150,
+      "PcD": 38
+    },
+    "last_from_call_meta": {
+      "Ampla": {
+        "pedido": 12877,
+        "name": "Ana Carolina Ferreira",
+        "rank_geral": 596,
+        "segment": "Ampla",
+        "score": 103.25
+      },
+      "Negro": {
+        "pedido": 5559,
+        "name": "Wellyngton Sallo Sousa de Oliveira",
+        "rank_geral": 1461,
+        "segment": "Negro",
+        "score": 98.25
+      },
+      "PcD": {
+        "pedido": 610,
+        "name": "Felipe Tavora de Oliveira",
+        "rank_geral": 2131,
+        "segment": "PcD",
+        "score": 91.5
+      }
+    },
+    "first_remaining_ampla_regular_apto": {
+      "pedido": 39897,
+      "name": "Joao Marcelo Costa da Silva de Melo",
+      "rank_geral": 616,
+      "segment": "Ampla",
+      "score": 103.0
+    },
+    "ampla_skips_inside_t1_window": [
+      {
+        "pedido": 412,
+        "name": "Maria Clara Lira Dias Aragao",
+        "rank_geral": 547,
+        "segment": "Ampla",
+        "score": 103.75,
+        "reason": "sub_judice",
+        "queue_status": "sub_judice",
+        "situation": "cadastro_reserva",
+        "already_called": false,
+        "taf": "Apto",
+        "condition": "Sub judice"
+      },
+      {
+        "pedido": 2662,
+        "name": "Thiago Alves Quintela",
+        "rank_geral": 518,
+        "segment": "Ampla",
+        "score": 104.0,
+        "reason": "sub_judice",
+        "queue_status": "sub_judice",
+        "situation": "cadastro_reserva",
+        "already_called": false,
+        "taf": "Apto",
+        "condition": "Sub judice"
+      },
+      {
+        "pedido": 2794,
+        "name": "Ana Clara Almeida Mangueira",
+        "rank_geral": 281,
+        "segment": "Ampla",
+        "score": 106.25,
+        "reason": "sub_judice",
+        "queue_status": "sub_judice",
+        "situation": "classificado",
+        "already_called": true,
+        "taf": "Apto",
+        "condition": "Sub judice"
+      },
+      {
+        "pedido": 9987,
+        "name": "Manuel de Souza Nascimento",
+        "rank_geral": 392,
+        "segment": "Ampla",
+        "score": 105.0,
+        "reason": "sub_judice",
+        "queue_status": "sub_judice",
+        "situation": "cadastro_reserva",
+        "already_called": false,
+        "taf": "Apto",
+        "condition": "Sub judice"
+      },
+      {
+        "pedido": 16439,
+        "name": "Dayara Kelly Farias Ferreira",
+        "rank_geral": 583,
+        "segment": "Ampla",
+        "score": 103.5,
+        "reason": "gestante",
+        "queue_status": "gestante_fim_fila",
+        "situation": "cadastro_reserva",
+        "already_called": false,
+        "taf": "Gestante",
+        "condition": "Regular"
+      },
+      {
+        "pedido": 18694,
+        "name": "Caio Graco Araujo de Holanda",
+        "rank_geral": 354,
+        "segment": "Ampla",
+        "score": 105.5,
+        "reason": "sub_judice",
+        "queue_status": "sub_judice",
+        "situation": "classificado",
+        "already_called": true,
+        "taf": "Apto",
+        "condition": "Sub judice"
+      },
+      {
+        "pedido": 27542,
+        "name": "Lucicleia Miranda de Carvalho Machado",
+        "rank_geral": 302,
+        "segment": "Ampla",
+        "score": 106.0,
+        "reason": "sub_judice",
+        "queue_status": "sub_judice",
+        "situation": "classificado",
+        "already_called": true,
+        "taf": "Apto",
+        "condition": "Sub judice"
+      },
+      {
+        "pedido": 28606,
+        "name": "Elto Vinicius Diniz Nunes de Queiroz",
+        "rank_geral": 83,
+        "segment": "Ampla",
+        "score": 111.0,
+        "reason": "sub_judice",
+        "queue_status": "sub_judice",
+        "situation": "classificado",
+        "already_called": true,
+        "taf": "Apto",
+        "condition": "Sub judice"
+      },
+      {
+        "pedido": 29387,
+        "name": "Luciano Pires de Sousa",
+        "rank_geral": 6,
+        "segment": "Ampla",
+        "score": 116.75,
+        "reason": "sub_judice",
+        "queue_status": "sub_judice",
+        "situation": "classificado",
+        "already_called": true,
+        "taf": "Apto",
+        "condition": "Sub judice"
+      }
+    ],
+    "ampla_skips_summary": {
+      "total": 9,
+      "sub_judice": 8,
+      "gestante": 1,
+      "still_in_queue": 4,
+      "marked_called_via_edital_or_override": 5
+    },
+    "queue_status_remaining": {
+      "gestante_fim_fila": 14,
+      "sub_judice": 44
+    },
+    "skip_hypothesis": "Na lista Ampla da inspeção/docs, Sub judice e Gestante com rank dentro da janela preenchida (#1 até o último Ampla chamado) não aparecem. As vagas continuam as mesmas (562 Ampla); a lista só foi mais fundo. Gestante sem TAF completo é tratada no app como 'gestante/fim de fila' (hipótese operacional; sem DOE explícito de pedido de fim de fila).",
+    "beatriz_carvalho_de_morais_6906": {
+      "pedido": 6906,
+      "name": "Beatriz Carvalho de Morais",
+      "rank_geral": 597,
+      "segment": "Ampla",
+      "score": 103.25,
+      "in_t1_call_list": false,
+      "already_called": true,
+      "called_override": true,
+      "in_remaining_queue": false,
+      "situation": "cadastro_reserva",
+      "override_meta": {
+        "reason": "Relato confirmado: entrou no curso de formação da T1. Nome não aparece na chamada de inspeção/docs nem na complementar; documento de nomeação/matrícula ainda não está no repositório.",
+        "source": "confirmação comunitária (sem DOE anexado ainda)"
+      }
+    },
+    "note": "Últimos da chamada de inspeção/docs (raw/chamada-T1-OIPCE.md). Não é lista de nomeação/matrícula no curso."
+  },
+  "calling_model_observed": {
+    "description": "T1 = 500 imediatas (Situação Classificado no Edital 17: 375 ampla + 100 negro + 25 PcD) + 250 CR (187 ampla + 50 negro + 13 PcD, conforme Edital 02), convocados no comunicado de inspeção/entrega de documentos. A complementar puxou ~54 nomes seguintes por segmento para cobrir buraco. Simular T2 usa só quem ainda não entrou nessas listas.",
+    "cite": "Edital 02 (tabela de vagas); Edital 17 Anexo I; comunicado de convocação T1; chamada complementar",
+    "t1_ampla_rule": "imediatas: Classificado (Ampla); CR ampla: próximos por rank_geral",
+    "t1_negro_rule": "imediatas Classificado (Negro) + CR pelos próximos rank_negro",
+    "t1_pcd_rule": "imediatas Classificado (PcD) + CR pelos próximos rank_pcd",
+    "complementar": "Listas oficiais por segmento no comunicado complementar.",
+    "women_floor_pct": 15,
+    "women_t1_pct": 31.9
+  },
+  "rank_mismatch_samples": [],
+  "missing_score_pedidos": []
+}

@@ -1,0 +1,4502 @@
+[
+  {
+    "name": "Maria de Lourdes da Silva Moraes",
+    "name_norm": "maria de lourdes da silva moraes",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 1
+  },
+  {
+    "name": "Tiago Hercules Carneiro de Farias",
+    "name_norm": "tiago hercules carneiro de farias",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 2
+  },
+  {
+    "name": "Paulo Felipe Pessoa Targino",
+    "name_norm": "paulo felipe pessoa targino",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 3
+  },
+  {
+    "name": "Silvio Hemerson Castro Feitosa",
+    "name_norm": "silvio hemerson castro feitosa",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 4
+  },
+  {
+    "name": "Alan Bruno do Nascimento de Sousa",
+    "name_norm": "alan bruno do nascimento de sousa",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 5
+  },
+  {
+    "name": "Icaro Isaias Alves de Sousa",
+    "name_norm": "icaro isaias alves de sousa",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 7
+  },
+  {
+    "name": "Francisco Jardel Arruda Camara",
+    "name_norm": "francisco jardel arruda camara",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 8
+  },
+  {
+    "name": "Francisco dos Santos Paulino",
+    "name_norm": "francisco dos santos paulino",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 9
+  },
+  {
+    "name": "George Alves do Nascimento Junior",
+    "name_norm": "george alves do nascimento junior",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 10
+  },
+  {
+    "name": "Suianny Lima da Silva",
+    "name_norm": "suianny lima da silva",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 11
+  },
+  {
+    "name": "Pedro Henrique Martins Arruda",
+    "name_norm": "pedro henrique martins arruda",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 12
+  },
+  {
+    "name": "Raysa Pamela Oliveira Sena",
+    "name_norm": "raysa pamela oliveira sena",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 13
+  },
+  {
+    "name": "Antonio Lourival de Lima Neto",
+    "name_norm": "antonio lourival de lima neto",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 14
+  },
+  {
+    "name": "Asael Petrus de Lima Macedo",
+    "name_norm": "asael petrus de lima macedo",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 15
+  },
+  {
+    "name": "Irisleide de Abreu Brazilino",
+    "name_norm": "irisleide de abreu brazilino",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 16
+  },
+  {
+    "name": "Pedro Henrique Fortaleza Dias",
+    "name_norm": "pedro henrique fortaleza dias",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 17
+  },
+  {
+    "name": "Juliana Aguilar Guimaraes",
+    "name_norm": "juliana aguilar guimaraes",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 18
+  },
+  {
+    "name": "Clayrton Victor Leite Macedo",
+    "name_norm": "clayrton victor leite macedo",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 19
+  },
+  {
+    "name": "Marcos Honorio de Sousa",
+    "name_norm": "marcos honorio de sousa",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 20
+  },
+  {
+    "name": "Joao Lima de Albuquerque Neto",
+    "name_norm": "joao lima de albuquerque neto",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 21
+  },
+  {
+    "name": "Filipe Jose da Rocha Passos Sobral",
+    "name_norm": "filipe jose da rocha passos sobral",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 22
+  },
+  {
+    "name": "Ruan Matheus Arruda Maciel",
+    "name_norm": "ruan matheus arruda maciel",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 23
+  },
+  {
+    "name": "Caio Henrique de Sousa Leao Araujo",
+    "name_norm": "caio henrique de sousa leao araujo",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 24
+  },
+  {
+    "name": "Ana Beatriz Soares Nunes",
+    "name_norm": "ana beatriz soares nunes",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 25
+  },
+  {
+    "name": "Marco Antonio Silva Rios de Almeida",
+    "name_norm": "marco antonio silva rios de almeida",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 26
+  },
+  {
+    "name": "Nicole Rabelo Braga",
+    "name_norm": "nicole rabelo braga",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 27
+  },
+  {
+    "name": "Lana Ravena Alves Leal",
+    "name_norm": "lana ravena alves leal",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 28
+  },
+  {
+    "name": "Felipe Henrique Moreira Maia",
+    "name_norm": "felipe henrique moreira maia",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 29
+  },
+  {
+    "name": "Max Ronni da Silva Sousa",
+    "name_norm": "max ronni da silva sousa",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 30
+  },
+  {
+    "name": "Joao Victor Braga Teixeira",
+    "name_norm": "joao victor braga teixeira",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 31
+  },
+  {
+    "name": "Elizabeth Regina Alves Freire",
+    "name_norm": "elizabeth regina alves freire",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 32
+  },
+  {
+    "name": "Caio Teixeira e Silveira",
+    "name_norm": "caio teixeira e silveira",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 33
+  },
+  {
+    "name": "Ysmael Batista Freitas dos Santos",
+    "name_norm": "ysmael batista freitas dos santos",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 34
+  },
+  {
+    "name": "Thomaz Jose Goersch Accioly",
+    "name_norm": "thomaz jose goersch accioly",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 35
+  },
+  {
+    "name": "Thayna Dara Soares Vieira",
+    "name_norm": "thayna dara soares vieira",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 36
+  },
+  {
+    "name": "George Lucas Carvalho Goncalves",
+    "name_norm": "george lucas carvalho goncalves",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 37
+  },
+  {
+    "name": "Igor Aguiar Vasconcelos da Silva",
+    "name_norm": "igor aguiar vasconcelos da silva",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 38
+  },
+  {
+    "name": "Eliabe Torja dos Santos",
+    "name_norm": "eliabe torja dos santos",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 39
+  },
+  {
+    "name": "Lucas Farias da Costa",
+    "name_norm": "lucas farias da costa",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 40
+  },
+  {
+    "name": "Diego Felipe Rodrigues",
+    "name_norm": "diego felipe rodrigues",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 41
+  },
+  {
+    "name": "Igor Bezerra Martins",
+    "name_norm": "igor bezerra martins",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 42
+  },
+  {
+    "name": "Caio Anderson Ponte Lopes",
+    "name_norm": "caio anderson ponte lopes",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 43
+  },
+  {
+    "name": "Braz Gomes de Amorim",
+    "name_norm": "braz gomes de amorim",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 44
+  },
+  {
+    "name": "Vitor Emanuel de Souza",
+    "name_norm": "vitor emanuel de souza",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 45
+  },
+  {
+    "name": "Erilandia Vieira Gomes Brito",
+    "name_norm": "erilandia vieira gomes brito",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 46
+  },
+  {
+    "name": "Adalberto Bezerra Gomes",
+    "name_norm": "adalberto bezerra gomes",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 47
+  },
+  {
+    "name": "Francisco Jardel Roseira de Sousa",
+    "name_norm": "francisco jardel roseira de sousa",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 48
+  },
+  {
+    "name": "Clara Catharinne Huanna Costa Bezerra",
+    "name_norm": "clara catharinne huanna costa bezerra",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 49
+  },
+  {
+    "name": "Milena Marjorie de Lima Campos",
+    "name_norm": "milena marjorie de lima campos",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 50
+  },
+  {
+    "name": "Joao Victor Alves dos Santos",
+    "name_norm": "joao victor alves dos santos",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 51
+  },
+  {
+    "name": "Mateus Eduardo da Silva Pereira",
+    "name_norm": "mateus eduardo da silva pereira",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 52
+  },
+  {
+    "name": "Gabriel Soares e Silva",
+    "name_norm": "gabriel soares e silva",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 53
+  },
+  {
+    "name": "Tassiane Elaine Peixoto de Oliveira",
+    "name_norm": "tassiane elaine peixoto de oliveira",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 54
+  },
+  {
+    "name": "Fernando Luiz Firmino da Silva",
+    "name_norm": "fernando luiz firmino da silva",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 55
+  },
+  {
+    "name": "Lucas Alves Sampaio",
+    "name_norm": "lucas alves sampaio",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 56
+  },
+  {
+    "name": "Yuri Teixeira de Oliveira",
+    "name_norm": "yuri teixeira de oliveira",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 57
+  },
+  {
+    "name": "Alex Cardoso de Sousa",
+    "name_norm": "alex cardoso de sousa",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 58
+  },
+  {
+    "name": "Alisson Alves Fernandes",
+    "name_norm": "alisson alves fernandes",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 59
+  },
+  {
+    "name": "Klerysson Lins Cavalcante",
+    "name_norm": "klerysson lins cavalcante",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 60
+  },
+  {
+    "name": "Jose Carlos de Oliveira",
+    "name_norm": "jose carlos de oliveira",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 61
+  },
+  {
+    "name": "Joao Paulo Sampaio Magalhaes",
+    "name_norm": "joao paulo sampaio magalhaes",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 62
+  },
+  {
+    "name": "Emanoel Moreira Rocha",
+    "name_norm": "emanoel moreira rocha",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 63
+  },
+  {
+    "name": "Natalia Holanda Ponte",
+    "name_norm": "natalia holanda ponte",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 64
+  },
+  {
+    "name": "Jose Heleno Lopes Viana Neto",
+    "name_norm": "jose heleno lopes viana neto",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 65
+  },
+  {
+    "name": "Guilherme Andrade dos Reis Costa",
+    "name_norm": "guilherme andrade dos reis costa",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 66
+  },
+  {
+    "name": "Maik da Silva Souza",
+    "name_norm": "maik da silva souza",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 67
+  },
+  {
+    "name": "Filipe Nascimento Maia Freire",
+    "name_norm": "filipe nascimento maia freire",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 68
+  },
+  {
+    "name": "Cosme Matheus Nunes do Vale",
+    "name_norm": "cosme matheus nunes do vale",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 69
+  },
+  {
+    "name": "Maria Elizabete Freitas Arruda",
+    "name_norm": "maria elizabete freitas arruda",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 70
+  },
+  {
+    "name": "Flavio Renato Silva Araujo",
+    "name_norm": "flavio renato silva araujo",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 71
+  },
+  {
+    "name": "Wagner Davi Costa Lima",
+    "name_norm": "wagner davi costa lima",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 72
+  },
+  {
+    "name": "Amanda Kelly da Silva Carvalho",
+    "name_norm": "amanda kelly da silva carvalho",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 73
+  },
+  {
+    "name": "Isadora Portugal de Carvalho",
+    "name_norm": "isadora portugal de carvalho",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 74
+  },
+  {
+    "name": "Joao Emanuel Souza de Siqueira",
+    "name_norm": "joao emanuel souza de siqueira",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 75
+  },
+  {
+    "name": "Rafael Brasil",
+    "name_norm": "rafael brasil",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 76
+  },
+  {
+    "name": "Francisco Moura Pinto",
+    "name_norm": "francisco moura pinto",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 77
+  },
+  {
+    "name": "Elisa Moreira Ary",
+    "name_norm": "elisa moreira ary",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 78
+  },
+  {
+    "name": "Josue Marcos Mendes",
+    "name_norm": "josue marcos mendes",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 79
+  },
+  {
+    "name": "Djalma Brito Bezerra Neto",
+    "name_norm": "djalma brito bezerra neto",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 80
+  },
+  {
+    "name": "Jayane Aissa Andrade de Oliveira Gomes",
+    "name_norm": "jayane aissa andrade de oliveira gomes",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 81
+  },
+  {
+    "name": "Ytalo Yure Azevedo Silva",
+    "name_norm": "ytalo yure azevedo silva",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 82
+  },
+  {
+    "name": "Monique dos Reis Goncalves",
+    "name_norm": "monique dos reis goncalves",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 84
+  },
+  {
+    "name": "Kelle Maria Saraiva Rosendo Nogueira",
+    "name_norm": "kelle maria saraiva rosendo nogueira",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 85
+  },
+  {
+    "name": "Cintia Mariele Freire Beserra Rodrigues",
+    "name_norm": "cintia mariele freire beserra rodrigues",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 86
+  },
+  {
+    "name": "Gabriel Lima Sousa",
+    "name_norm": "gabriel lima sousa",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 87
+  },
+  {
+    "name": "Larissa Maria Carvalho Santana",
+    "name_norm": "larissa maria carvalho santana",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 88
+  },
+  {
+    "name": "Cicero Maciel dos Santos Avilino",
+    "name_norm": "cicero maciel dos santos avilino",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 89
+  },
+  {
+    "name": "Francisco Daniel Paiva Aguiar",
+    "name_norm": "francisco daniel paiva aguiar",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 90
+  },
+  {
+    "name": "Isac Braga de Sales",
+    "name_norm": "isac braga de sales",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 91
+  },
+  {
+    "name": "Wagner Camillo Lopes Pereira",
+    "name_norm": "wagner camillo lopes pereira",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 92
+  },
+  {
+    "name": "Fernando Andrade Holanda",
+    "name_norm": "fernando andrade holanda",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 93
+  },
+  {
+    "name": "Alisson da Silva Oliveira",
+    "name_norm": "alisson da silva oliveira",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 94
+  },
+  {
+    "name": "Adriano de Souza Silva",
+    "name_norm": "adriano de souza silva",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 95
+  },
+  {
+    "name": "Marcus Vinicius Lins Silva",
+    "name_norm": "marcus vinicius lins silva",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 96
+  },
+  {
+    "name": "Sandro Ribeiro Lima",
+    "name_norm": "sandro ribeiro lima",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 97
+  },
+  {
+    "name": "David Willian Goncalves Silveira",
+    "name_norm": "david willian goncalves silveira",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 98
+  },
+  {
+    "name": "Braulio Bitu Bezerra Ferreira",
+    "name_norm": "braulio bitu bezerra ferreira",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 99
+  },
+  {
+    "name": "Joao Victor Freitas Martins Brasil",
+    "name_norm": "joao victor freitas martins brasil",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 100
+  },
+  {
+    "name": "Francisco Bruno dos Santos Marques",
+    "name_norm": "francisco bruno dos santos marques",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 101
+  },
+  {
+    "name": "Maria Maclene Bezerra Lima",
+    "name_norm": "maria maclene bezerra lima",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 102
+  },
+  {
+    "name": "Thalita Torquato Lins",
+    "name_norm": "thalita torquato lins",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 103
+  },
+  {
+    "name": "Camila Normando",
+    "name_norm": "camila normando",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 104
+  },
+  {
+    "name": "Larissa dos Santos Nunes",
+    "name_norm": "larissa dos santos nunes",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 105
+  },
+  {
+    "name": "Emanuel Victor Silva Braga",
+    "name_norm": "emanuel victor silva braga",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 106
+  },
+  {
+    "name": "Aiumi Isabelle Castro Forte",
+    "name_norm": "aiumi isabelle castro forte",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 107
+  },
+  {
+    "name": "Joao Guilherme Lustosa da Costa Nunes",
+    "name_norm": "joao guilherme lustosa da costa nunes",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 108
+  },
+  {
+    "name": "Salomao Croce Herminio Leitao",
+    "name_norm": "salomao croce herminio leitao",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 109
+  },
+  {
+    "name": "Rafaella Alves de Sousa",
+    "name_norm": "rafaella alves de sousa",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 110
+  },
+  {
+    "name": "Priscyla de Castro Cordeiro Brito",
+    "name_norm": "priscyla de castro cordeiro brito",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 111
+  },
+  {
+    "name": "Gabriel Chaves Bezerra",
+    "name_norm": "gabriel chaves bezerra",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 112
+  },
+  {
+    "name": "Rayonasna Loruama Filgueira da Silva",
+    "name_norm": "rayonasna loruama filgueira da silva",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 113
+  },
+  {
+    "name": "Marcelo Vitor Girao Pinheiro Barros",
+    "name_norm": "marcelo vitor girao pinheiro barros",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 114
+  },
+  {
+    "name": "Francisco Marden Alves de Souza",
+    "name_norm": "francisco marden alves de souza",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 115
+  },
+  {
+    "name": "Maria Janaina Silva Santos Jacinto",
+    "name_norm": "maria janaina silva santos jacinto",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 116
+  },
+  {
+    "name": "Andressa Bandeira de Sousa Alves",
+    "name_norm": "andressa bandeira de sousa alves",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 117
+  },
+  {
+    "name": "Joao Victor Pinto do Nascimento",
+    "name_norm": "joao victor pinto do nascimento",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 118
+  },
+  {
+    "name": "Paloma Morais Luz",
+    "name_norm": "paloma morais luz",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 119
+  },
+  {
+    "name": "Edilvania Ferreira Cardoso",
+    "name_norm": "edilvania ferreira cardoso",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 120
+  },
+  {
+    "name": "Patricia Rosa Manso Nobre",
+    "name_norm": "patricia rosa manso nobre",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 121
+  },
+  {
+    "name": "Jose Andrielisson da Silva Monteiro",
+    "name_norm": "jose andrielisson da silva monteiro",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 122
+  },
+  {
+    "name": "Carlos Henrique Queiroz Nascimento",
+    "name_norm": "carlos henrique queiroz nascimento",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 123
+  },
+  {
+    "name": "Patricia Rafaela Chaves Brito",
+    "name_norm": "patricia rafaela chaves brito",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 124
+  },
+  {
+    "name": "Brenda Ivila Carvalho de Oliveira",
+    "name_norm": "brenda ivila carvalho de oliveira",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 125
+  },
+  {
+    "name": "Bruna Rodrigues de Franca",
+    "name_norm": "bruna rodrigues de franca",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 126
+  },
+  {
+    "name": "Sergio Evandro de Abreu Pinheiro",
+    "name_norm": "sergio evandro de abreu pinheiro",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 127
+  },
+  {
+    "name": "Thiago Barros da Costa",
+    "name_norm": "thiago barros da costa",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 128
+  },
+  {
+    "name": "Irone Gilberto de Sousa",
+    "name_norm": "irone gilberto de sousa",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 129
+  },
+  {
+    "name": "Wendel Willer Feitosa Barbosa",
+    "name_norm": "wendel willer feitosa barbosa",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 130
+  },
+  {
+    "name": "Vanessa Maria Nogueira Magalhaes",
+    "name_norm": "vanessa maria nogueira magalhaes",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 131
+  },
+  {
+    "name": "Thomaz Sousa Gomes",
+    "name_norm": "thomaz sousa gomes",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 132
+  },
+  {
+    "name": "Eduardo Mauricio Gadelha",
+    "name_norm": "eduardo mauricio gadelha",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 133
+  },
+  {
+    "name": "Thiago Queiroz Santos",
+    "name_norm": "thiago queiroz santos",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 134
+  },
+  {
+    "name": "Maria Suyanne de Sousa Gomes",
+    "name_norm": "maria suyanne de sousa gomes",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 135
+  },
+  {
+    "name": "Augusto Gleidstone de Queiroz Rodrigues",
+    "name_norm": "augusto gleidstone de queiroz rodrigues",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 136
+  },
+  {
+    "name": "Gustavo Igor de Moraes Bezerra",
+    "name_norm": "gustavo igor de moraes bezerra",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 137
+  },
+  {
+    "name": "Rayssa Suellen Feitosa da Silva",
+    "name_norm": "rayssa suellen feitosa da silva",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 138
+  },
+  {
+    "name": "Filipe Silveira Torres Costa",
+    "name_norm": "filipe silveira torres costa",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 139
+  },
+  {
+    "name": "Paula Renata de Souza Goncalves Batista",
+    "name_norm": "paula renata de souza goncalves batista",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 140
+  },
+  {
+    "name": "Cleto Delta Mattos",
+    "name_norm": "cleto delta mattos",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 141
+  },
+  {
+    "name": "Denis Pontes Queiroz",
+    "name_norm": "denis pontes queiroz",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 142
+  },
+  {
+    "name": "Francisco Renan de Moura Dias",
+    "name_norm": "francisco renan de moura dias",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 143
+  },
+  {
+    "name": "Ussycarlos Alves de Sa Sobrinho",
+    "name_norm": "ussycarlos alves de sa sobrinho",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 144
+  },
+  {
+    "name": "Vinicius Patriota Andrade",
+    "name_norm": "vinicius patriota andrade",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 145
+  },
+  {
+    "name": "Ricardo Jose Ramos Macedo",
+    "name_norm": "ricardo jose ramos macedo",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 146
+  },
+  {
+    "name": "Renata Hellen de Sousa Lima",
+    "name_norm": "renata hellen de sousa lima",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 147
+  },
+  {
+    "name": "Lucas Rafael Alcantara",
+    "name_norm": "lucas rafael alcantara",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 148
+  },
+  {
+    "name": "Sara Gomes de Oliveira Silva",
+    "name_norm": "sara gomes de oliveira silva",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 149
+  },
+  {
+    "name": "Yuri Nunes Saraiva",
+    "name_norm": "yuri nunes saraiva",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 150
+  },
+  {
+    "name": "Monica Viana Gomes Girao",
+    "name_norm": "monica viana gomes girao",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 151
+  },
+  {
+    "name": "Mara Naiara Cabral da Costa Assis",
+    "name_norm": "mara naiara cabral da costa assis",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 152
+  },
+  {
+    "name": "Maria Luisa Firmino de Morais",
+    "name_norm": "maria luisa firmino de morais",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 153
+  },
+  {
+    "name": "Wemerson Carvalho Sena",
+    "name_norm": "wemerson carvalho sena",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 154
+  },
+  {
+    "name": "Matheus Edson Santana Batista",
+    "name_norm": "matheus edson santana batista",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 155
+  },
+  {
+    "name": "Leon Diniz Uchoa Farias",
+    "name_norm": "leon diniz uchoa farias",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 156
+  },
+  {
+    "name": "Suellen Duarte de Mesquita",
+    "name_norm": "suellen duarte de mesquita",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 157
+  },
+  {
+    "name": "Thaissa Pessoa Ribeiro",
+    "name_norm": "thaissa pessoa ribeiro",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 158
+  },
+  {
+    "name": "Maykon Wender de Souza Santos",
+    "name_norm": "maykon wender de souza santos",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 159
+  },
+  {
+    "name": "Lilian Maria Araujo de Flores",
+    "name_norm": "lilian maria araujo de flores",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 160
+  },
+  {
+    "name": "Karina Holanda Farias",
+    "name_norm": "karina holanda farias",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 161
+  },
+  {
+    "name": "Vitoria Jessica Rodrigues Alcantara",
+    "name_norm": "vitoria jessica rodrigues alcantara",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 162
+  },
+  {
+    "name": "Guilherme Queiroz da Silva",
+    "name_norm": "guilherme queiroz da silva",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 163
+  },
+  {
+    "name": "Maria Gabriela Rabelo de Matos",
+    "name_norm": "maria gabriela rabelo de matos",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 164
+  },
+  {
+    "name": "Renan Almeida Neri",
+    "name_norm": "renan almeida neri",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 165
+  },
+  {
+    "name": "Alessandra Lima de Vasconcelos Tavares",
+    "name_norm": "alessandra lima de vasconcelos tavares",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 166
+  },
+  {
+    "name": "Lucas Batista Girao",
+    "name_norm": "lucas batista girao",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 167
+  },
+  {
+    "name": "Vitoria Gabriele Pereira",
+    "name_norm": "vitoria gabriele pereira",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 168
+  },
+  {
+    "name": "Luis Fernando Matos Mafaldo",
+    "name_norm": "luis fernando matos mafaldo",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 169
+  },
+  {
+    "name": "Fernanda Mikaeli Ximenes Damasceno",
+    "name_norm": "fernanda mikaeli ximenes damasceno",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 170
+  },
+  {
+    "name": "Gabriel Viana Moreira",
+    "name_norm": "gabriel viana moreira",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 171
+  },
+  {
+    "name": "Francisco Satiro de Alcantara Junior",
+    "name_norm": "francisco satiro de alcantara junior",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 172
+  },
+  {
+    "name": "Tatyane Mendes de Sousa",
+    "name_norm": "tatyane mendes de sousa",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 173
+  },
+  {
+    "name": "Alexandre Rodrigues Pereira",
+    "name_norm": "alexandre rodrigues pereira",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 174
+  },
+  {
+    "name": "Yuri de Freitas Vasconcelos",
+    "name_norm": "yuri de freitas vasconcelos",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 175
+  },
+  {
+    "name": "Tailany Fernanda Silva Vitorino",
+    "name_norm": "tailany fernanda silva vitorino",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 176
+  },
+  {
+    "name": "Gerlania da Silva Nogueira",
+    "name_norm": "gerlania da silva nogueira",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 177
+  },
+  {
+    "name": "Mauro Edmilson de Holanda Vieira Filho",
+    "name_norm": "mauro edmilson de holanda vieira filho",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 178
+  },
+  {
+    "name": "Ana Vitoria Carvalho Moreira Araujo",
+    "name_norm": "ana vitoria carvalho moreira araujo",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 179
+  },
+  {
+    "name": "Gileno Fernando Chagas da Silva",
+    "name_norm": "gileno fernando chagas da silva",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 180
+  },
+  {
+    "name": "Fabricio de Almeida Cavalcante",
+    "name_norm": "fabricio de almeida cavalcante",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 181
+  },
+  {
+    "name": "Cleber Mateus Goncalves Rodrigues",
+    "name_norm": "cleber mateus goncalves rodrigues",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 182
+  },
+  {
+    "name": "Airton da Costa Zela Junior",
+    "name_norm": "airton da costa zela junior",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 183
+  },
+  {
+    "name": "Mariana da Silva Bastos",
+    "name_norm": "mariana da silva bastos",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 184
+  },
+  {
+    "name": "Paulo Ricardo Carlos Amorim",
+    "name_norm": "paulo ricardo carlos amorim",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 185
+  },
+  {
+    "name": "Stepherson Mattheus Portela Tavares",
+    "name_norm": "stepherson mattheus portela tavares",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 186
+  },
+  {
+    "name": "Erick Avila de Araujo",
+    "name_norm": "erick avila de araujo",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 187
+  },
+  {
+    "name": "Jefferson Santos Daniel",
+    "name_norm": "jefferson santos daniel",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 188
+  },
+  {
+    "name": "Helton Lucas Araujo Caetano",
+    "name_norm": "helton lucas araujo caetano",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 189
+  },
+  {
+    "name": "Francisco Luciano Neto",
+    "name_norm": "francisco luciano neto",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 190
+  },
+  {
+    "name": "Leiliane dos Santos Castro",
+    "name_norm": "leiliane dos santos castro",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 191
+  },
+  {
+    "name": "Guilherme de Vasconcelos Medeiros",
+    "name_norm": "guilherme de vasconcelos medeiros",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 192
+  },
+  {
+    "name": "David Oliveira de Lucena",
+    "name_norm": "david oliveira de lucena",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 193
+  },
+  {
+    "name": "Marivalto Cavalcante Almeida Junior",
+    "name_norm": "marivalto cavalcante almeida junior",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 194
+  },
+  {
+    "name": "Cinara Dayse Soares Pereira",
+    "name_norm": "cinara dayse soares pereira",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 195
+  },
+  {
+    "name": "Francisco Tarcisio da Silva",
+    "name_norm": "francisco tarcisio da silva",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 196
+  },
+  {
+    "name": "Arthur Henrique Mota Oliveira",
+    "name_norm": "arthur henrique mota oliveira",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 197
+  },
+  {
+    "name": "Matheus Goncalves de Sousa Oliveira",
+    "name_norm": "matheus goncalves de sousa oliveira",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 198
+  },
+  {
+    "name": "Venancio de Oliveira Pereira",
+    "name_norm": "venancio de oliveira pereira",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 199
+  },
+  {
+    "name": "Maria Girlene Costa de Oliveira",
+    "name_norm": "maria girlene costa de oliveira",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 200
+  },
+  {
+    "name": "Brigida Cavalcanti Coelho de Almeida Lacerda",
+    "name_norm": "brigida cavalcanti coelho de almeida lacerda",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 201
+  },
+  {
+    "name": "Abraao Vieira Carneiro",
+    "name_norm": "abraao vieira carneiro",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 202
+  },
+  {
+    "name": "Lucas Levi Soares Saraiva",
+    "name_norm": "lucas levi soares saraiva",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 203
+  },
+  {
+    "name": "Regilianne Galdino da Silva Cruz",
+    "name_norm": "regilianne galdino da silva cruz",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 204
+  },
+  {
+    "name": "Carlos Barreto de Jesus Neto",
+    "name_norm": "carlos barreto de jesus neto",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 205
+  },
+  {
+    "name": "Maria Lucimar Castro de Brito",
+    "name_norm": "maria lucimar castro de brito",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 206
+  },
+  {
+    "name": "Ligia Lais Dantas Formiga",
+    "name_norm": "ligia lais dantas formiga",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 207
+  },
+  {
+    "name": "Francisco Lucas Viana Bastos",
+    "name_norm": "francisco lucas viana bastos",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 208
+  },
+  {
+    "name": "Josibergue Chaves Pinho",
+    "name_norm": "josibergue chaves pinho",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 209
+  },
+  {
+    "name": "Liana Maria de Freitas Soares",
+    "name_norm": "liana maria de freitas soares",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 210
+  },
+  {
+    "name": "Leonardo Bezerra Linhares",
+    "name_norm": "leonardo bezerra linhares",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 211
+  },
+  {
+    "name": "Nicolas Rodrigues Monteiro da Silva",
+    "name_norm": "nicolas rodrigues monteiro da silva",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 212
+  },
+  {
+    "name": "Rivonnaldo Lopes da Cruz Magalhaes",
+    "name_norm": "rivonnaldo lopes da cruz magalhaes",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 213
+  },
+  {
+    "name": "Francisco Thiago Costa Santos",
+    "name_norm": "francisco thiago costa santos",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 214
+  },
+  {
+    "name": "Rayane do Nascimento Silva",
+    "name_norm": "rayane do nascimento silva",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 215
+  },
+  {
+    "name": "Hugo Hun Seng Kiang",
+    "name_norm": "hugo hun seng kiang",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 216
+  },
+  {
+    "name": "Karlos Edmilson Noca Freire",
+    "name_norm": "karlos edmilson noca freire",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 217
+  },
+  {
+    "name": "Andreza Maria Pereira da Silva",
+    "name_norm": "andreza maria pereira da silva",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 218
+  },
+  {
+    "name": "Italo de Macedo Pinheiro",
+    "name_norm": "italo de macedo pinheiro",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 219
+  },
+  {
+    "name": "Naiara Herleany Araujo Barros Leal",
+    "name_norm": "naiara herleany araujo barros leal",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 220
+  },
+  {
+    "name": "Thalice de Paula Pessoa Aguiar",
+    "name_norm": "thalice de paula pessoa aguiar",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 221
+  },
+  {
+    "name": "Michael Krystof Alves Henrique",
+    "name_norm": "michael krystof alves henrique",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 222
+  },
+  {
+    "name": "Lucas Mateus de Freitas Quadros",
+    "name_norm": "lucas mateus de freitas quadros",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 223
+  },
+  {
+    "name": "Silas Barbosa Peixoto Farias",
+    "name_norm": "silas barbosa peixoto farias",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 224
+  },
+  {
+    "name": "Rafael de Brito Marcionilo",
+    "name_norm": "rafael de brito marcionilo",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 225
+  },
+  {
+    "name": "Francisco Wellington Oliveira Martins",
+    "name_norm": "francisco wellington oliveira martins",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 226
+  },
+  {
+    "name": "Jonas Sampaio da Cruz",
+    "name_norm": "jonas sampaio da cruz",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 227
+  },
+  {
+    "name": "Davi Bezerra Araujo",
+    "name_norm": "davi bezerra araujo",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 228
+  },
+  {
+    "name": "Leonardo de Sousa Nunes Marques",
+    "name_norm": "leonardo de sousa nunes marques",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 229
+  },
+  {
+    "name": "Raphael Albuquerque Lima",
+    "name_norm": "raphael albuquerque lima",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 230
+  },
+  {
+    "name": "Nayane Stephanya Bezerra Lima",
+    "name_norm": "nayane stephanya bezerra lima",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 231
+  },
+  {
+    "name": "Francisco Davi Reboucas Reis",
+    "name_norm": "francisco davi reboucas reis",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 232
+  },
+  {
+    "name": "Maria Thainan Oliveira de Olinda",
+    "name_norm": "maria thainan oliveira de olinda",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 233
+  },
+  {
+    "name": "Raphael Antunes da Rocha Ferreira",
+    "name_norm": "raphael antunes da rocha ferreira",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 234
+  },
+  {
+    "name": "Helenario da Silva Sero",
+    "name_norm": "helenario da silva sero",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 235
+  },
+  {
+    "name": "Beatriz Lima Assuncao",
+    "name_norm": "beatriz lima assuncao",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 236
+  },
+  {
+    "name": "Lucas Alves Pereira",
+    "name_norm": "lucas alves pereira",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 237
+  },
+  {
+    "name": "Vicente de Paulo Pessoa Neto",
+    "name_norm": "vicente de paulo pessoa neto",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 238
+  },
+  {
+    "name": "Eduardo Lorran Goncalves Nogueira",
+    "name_norm": "eduardo lorran goncalves nogueira",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 239
+  },
+  {
+    "name": "Lucas Alexandre Leite e Silva",
+    "name_norm": "lucas alexandre leite e silva",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 240
+  },
+  {
+    "name": "Yascara Mendes de Alcantara",
+    "name_norm": "yascara mendes de alcantara",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 241
+  },
+  {
+    "name": "Andre Mota de Freitas",
+    "name_norm": "andre mota de freitas",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 242
+  },
+  {
+    "name": "Paulo Anderson Alves Menezes",
+    "name_norm": "paulo anderson alves menezes",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 243
+  },
+  {
+    "name": "Leticia Sampaio Goncalves",
+    "name_norm": "leticia sampaio goncalves",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 244
+  },
+  {
+    "name": "Jesse Robson Araujo Leite",
+    "name_norm": "jesse robson araujo leite",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 245
+  },
+  {
+    "name": "Glicia Rute Alves Lima",
+    "name_norm": "glicia rute alves lima",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 246
+  },
+  {
+    "name": "Victor Hugo Teixeira da Fonseca",
+    "name_norm": "victor hugo teixeira da fonseca",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 247
+  },
+  {
+    "name": "Raquel Rodrigues Vicente",
+    "name_norm": "raquel rodrigues vicente",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 248
+  },
+  {
+    "name": "Higo Samuel Alves Magalhaes",
+    "name_norm": "higo samuel alves magalhaes",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 249
+  },
+  {
+    "name": "Samuel Messias Santos de Azevedo",
+    "name_norm": "samuel messias santos de azevedo",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 250
+  },
+  {
+    "name": "Yago de Moura Barros Pessoa",
+    "name_norm": "yago de moura barros pessoa",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 251
+  },
+  {
+    "name": "Eduardo de Lacerda Cattaneo",
+    "name_norm": "eduardo de lacerda cattaneo",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 252
+  },
+  {
+    "name": "Paulo Antiogenes Batista da Silva Junior",
+    "name_norm": "paulo antiogenes batista da silva junior",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 253
+  },
+  {
+    "name": "Cicero Roberto Gomes Lins Filho",
+    "name_norm": "cicero roberto gomes lins filho",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 254
+  },
+  {
+    "name": "Handerson Viana Belo Maciel",
+    "name_norm": "handerson viana belo maciel",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 255
+  },
+  {
+    "name": "Mateus dos Santos Silva",
+    "name_norm": "mateus dos santos silva",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 256
+  },
+  {
+    "name": "Janiely Alencar de Oliveira",
+    "name_norm": "janiely alencar de oliveira",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 257
+  },
+  {
+    "name": "Abidiel das Neves Silva",
+    "name_norm": "abidiel das neves silva",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 258
+  },
+  {
+    "name": "Jose Walyson do Nascimento Sampaio",
+    "name_norm": "jose walyson do nascimento sampaio",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 259
+  },
+  {
+    "name": "Antonio Rafael Vieira Goncalves",
+    "name_norm": "antonio rafael vieira goncalves",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 260
+  },
+  {
+    "name": "Matheus Gurgel Bezerra",
+    "name_norm": "matheus gurgel bezerra",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 261
+  },
+  {
+    "name": "Webster Aranda Rocha",
+    "name_norm": "webster aranda rocha",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 262
+  },
+  {
+    "name": "Rebeka de Morais Alves",
+    "name_norm": "rebeka de morais alves",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 263
+  },
+  {
+    "name": "Danilo de Sousa Pinheiro",
+    "name_norm": "danilo de sousa pinheiro",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 264
+  },
+  {
+    "name": "David de Castro Pereira",
+    "name_norm": "david de castro pereira",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 265
+  },
+  {
+    "name": "Arthur Gomes Aguiar",
+    "name_norm": "arthur gomes aguiar",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 266
+  },
+  {
+    "name": "Sara Uchoa Rodrigues",
+    "name_norm": "sara uchoa rodrigues",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 267
+  },
+  {
+    "name": "Jose Abenilson Ferreira do Nascimento",
+    "name_norm": "jose abenilson ferreira do nascimento",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 268
+  },
+  {
+    "name": "Vivian Sousa Rodrigues Nogueira",
+    "name_norm": "vivian sousa rodrigues nogueira",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 269
+  },
+  {
+    "name": "Sthefany Loreni de Paula Souza",
+    "name_norm": "sthefany loreni de paula souza",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 270
+  },
+  {
+    "name": "Alexsandro Paulo Soares de Queiroz",
+    "name_norm": "alexsandro paulo soares de queiroz",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 271
+  },
+  {
+    "name": "Francisco George Santana Filho",
+    "name_norm": "francisco george santana filho",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 272
+  },
+  {
+    "name": "Francisca Vanessa Silva de Andrade",
+    "name_norm": "francisca vanessa silva de andrade",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 273
+  },
+  {
+    "name": "Francisco Rogenio Cordeiro",
+    "name_norm": "francisco rogenio cordeiro",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 274
+  },
+  {
+    "name": "Livia Lira Vasconcelos",
+    "name_norm": "livia lira vasconcelos",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 275
+  },
+  {
+    "name": "Essuelio Jose Basilio Trigueiro",
+    "name_norm": "essuelio jose basilio trigueiro",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 276
+  },
+  {
+    "name": "Hallison Lima Aguiar",
+    "name_norm": "hallison lima aguiar",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 277
+  },
+  {
+    "name": "Elienio Pereira dos Santos",
+    "name_norm": "elienio pereira dos santos",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 278
+  },
+  {
+    "name": "Hellem Cristina Almeida Rocha",
+    "name_norm": "hellem cristina almeida rocha",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 279
+  },
+  {
+    "name": "Paulo Roberto Magalhaes Silva",
+    "name_norm": "paulo roberto magalhaes silva",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 280
+  },
+  {
+    "name": "Vanda Maria de Lima Silva",
+    "name_norm": "vanda maria de lima silva",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 282
+  },
+  {
+    "name": "Dayriane Cristina Felix Rios",
+    "name_norm": "dayriane cristina felix rios",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 283
+  },
+  {
+    "name": "Loran Silva de Oliveira",
+    "name_norm": "loran silva de oliveira",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 284
+  },
+  {
+    "name": "Joao Ferreira de Melo Neto",
+    "name_norm": "joao ferreira de melo neto",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 285
+  },
+  {
+    "name": "Davi Mendonca Lessa",
+    "name_norm": "davi mendonca lessa",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 286
+  },
+  {
+    "name": "Ricardo Cavalcante Satiro Filho",
+    "name_norm": "ricardo cavalcante satiro filho",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 287
+  },
+  {
+    "name": "Taynara de Santana Rocha",
+    "name_norm": "taynara de santana rocha",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 288
+  },
+  {
+    "name": "Joao Pedro Santos Veras",
+    "name_norm": "joao pedro santos veras",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 289
+  },
+  {
+    "name": "Jose Duarte Neto",
+    "name_norm": "jose duarte neto",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 290
+  },
+  {
+    "name": "Joao Paulo Moreira Queiroz",
+    "name_norm": "joao paulo moreira queiroz",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 291
+  },
+  {
+    "name": "Francisco Ozimar Guerreiro Maia Filho",
+    "name_norm": "francisco ozimar guerreiro maia filho",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 292
+  },
+  {
+    "name": "Francisco Renan Gomes da Silva",
+    "name_norm": "francisco renan gomes da silva",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 293
+  },
+  {
+    "name": "Geovanna Stefanne da Silva Dias",
+    "name_norm": "geovanna stefanne da silva dias",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 294
+  },
+  {
+    "name": "Aurelia Poliana Silva Alves",
+    "name_norm": "aurelia poliana silva alves",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 295
+  },
+  {
+    "name": "Davi Andre Andrade Barros dos Santos",
+    "name_norm": "davi andre andrade barros dos santos",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 296
+  },
+  {
+    "name": "Isabella Moreira Costa",
+    "name_norm": "isabella moreira costa",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 297
+  },
+  {
+    "name": "Lucas Carneiro Maciel",
+    "name_norm": "lucas carneiro maciel",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 298
+  },
+  {
+    "name": "David Menezes Sobrinho",
+    "name_norm": "david menezes sobrinho",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 299
+  },
+  {
+    "name": "Gabriel Costa Lazaro Monteiro Vieira",
+    "name_norm": "gabriel costa lazaro monteiro vieira",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 300
+  },
+  {
+    "name": "Francisco Lucas Leal Lopes",
+    "name_norm": "francisco lucas leal lopes",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 301
+  },
+  {
+    "name": "Gabriel Oliveira Arrais da Silveira",
+    "name_norm": "gabriel oliveira arrais da silveira",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 303
+  },
+  {
+    "name": "Felipe Lacerda Vidal",
+    "name_norm": "felipe lacerda vidal",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 304
+  },
+  {
+    "name": "Adrisio Richardson Zeferino Marques",
+    "name_norm": "adrisio richardson zeferino marques",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 305
+  },
+  {
+    "name": "Jacileide Maria Ribeiro da Cunha",
+    "name_norm": "jacileide maria ribeiro da cunha",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 306
+  },
+  {
+    "name": "Jefferson Araujo Paiva",
+    "name_norm": "jefferson araujo paiva",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 307
+  },
+  {
+    "name": "Ana Kamila Rodrigues Alves",
+    "name_norm": "ana kamila rodrigues alves",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 308
+  },
+  {
+    "name": "Maria Raylene Souza da Silva",
+    "name_norm": "maria raylene souza da silva",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 309
+  },
+  {
+    "name": "Diego da Silva Alves",
+    "name_norm": "diego da silva alves",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 310
+  },
+  {
+    "name": "Icaro Pio Freitas",
+    "name_norm": "icaro pio freitas",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 311
+  },
+  {
+    "name": "Bruno da Silva Martins",
+    "name_norm": "bruno da silva martins",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 312
+  },
+  {
+    "name": "Alvaro Joaquim Nascimento Ribeiro Filho",
+    "name_norm": "alvaro joaquim nascimento ribeiro filho",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 313
+  },
+  {
+    "name": "Jose Eliezer Carlos Siqueira Junior",
+    "name_norm": "jose eliezer carlos siqueira junior",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 314
+  },
+  {
+    "name": "Ingrid Freitas dos Santos",
+    "name_norm": "ingrid freitas dos santos",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 315
+  },
+  {
+    "name": "Brenna Barros de Carvalho",
+    "name_norm": "brenna barros de carvalho",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 316
+  },
+  {
+    "name": "Josue Oliveira Silva Prado",
+    "name_norm": "josue oliveira silva prado",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 317
+  },
+  {
+    "name": "Antonio Vinicius Tavares Crispim",
+    "name_norm": "antonio vinicius tavares crispim",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 318
+  },
+  {
+    "name": "Luiz Felipe Lima Silveira",
+    "name_norm": "luiz felipe lima silveira",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 319
+  },
+  {
+    "name": "Ana Vitoria Gadelha de Vasconcelos",
+    "name_norm": "ana vitoria gadelha de vasconcelos",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 320
+  },
+  {
+    "name": "Caroline Braun Reinaldo",
+    "name_norm": "caroline braun reinaldo",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 321
+  },
+  {
+    "name": "Vitoria Rocha Bastos Aguiar Marreiro",
+    "name_norm": "vitoria rocha bastos aguiar marreiro",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 322
+  },
+  {
+    "name": "Victor Eduardo Moreira Barbosa de Araujo",
+    "name_norm": "victor eduardo moreira barbosa de araujo",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 323
+  },
+  {
+    "name": "Manoel Henrique de Freitas",
+    "name_norm": "manoel henrique de freitas",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 324
+  },
+  {
+    "name": "Izaelly Samyle Ferreira Brandao",
+    "name_norm": "izaelly samyle ferreira brandao",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 325
+  },
+  {
+    "name": "Pedro Icaro Moreira Braga",
+    "name_norm": "pedro icaro moreira braga",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 326
+  },
+  {
+    "name": "Erones Azevedo Pinho Filho",
+    "name_norm": "erones azevedo pinho filho",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 327
+  },
+  {
+    "name": "Jessica Avila de Moraes",
+    "name_norm": "jessica avila de moraes",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 328
+  },
+  {
+    "name": "Myllena Theresa de Oliveira de Sousa",
+    "name_norm": "myllena theresa de oliveira de sousa",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 329
+  },
+  {
+    "name": "Ana Patricia Davi Pinheiro",
+    "name_norm": "ana patricia davi pinheiro",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 330
+  },
+  {
+    "name": "Luana da Silva Freitas Martins",
+    "name_norm": "luana da silva freitas martins",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 331
+  },
+  {
+    "name": "Caio Cesar Moura de Aguiar",
+    "name_norm": "caio cesar moura de aguiar",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 332
+  },
+  {
+    "name": "Drauzio Araujo Gadelha Oliveira",
+    "name_norm": "drauzio araujo gadelha oliveira",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 333
+  },
+  {
+    "name": "Thiago Victor Sousa dos Santos",
+    "name_norm": "thiago victor sousa dos santos",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 334
+  },
+  {
+    "name": "Jayana Costa Leandro",
+    "name_norm": "jayana costa leandro",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 335
+  },
+  {
+    "name": "Samya Nogueira da Silva",
+    "name_norm": "samya nogueira da silva",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 336
+  },
+  {
+    "name": "Danyel Nobre Farias",
+    "name_norm": "danyel nobre farias",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 337
+  },
+  {
+    "name": "Francisco David da Silva Ferreira",
+    "name_norm": "francisco david da silva ferreira",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 338
+  },
+  {
+    "name": "Francisco Diego Silva Farias",
+    "name_norm": "francisco diego silva farias",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 339
+  },
+  {
+    "name": "Ana Larissa Rodrigues Silva",
+    "name_norm": "ana larissa rodrigues silva",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 340
+  },
+  {
+    "name": "Davi da Silva Vieira",
+    "name_norm": "davi da silva vieira",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 341
+  },
+  {
+    "name": "Francisco Everton dos Santos Moraes",
+    "name_norm": "francisco everton dos santos moraes",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 342
+  },
+  {
+    "name": "Ricardo Araujo Junior",
+    "name_norm": "ricardo araujo junior",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 343
+  },
+  {
+    "name": "Higor Gabriel Farias de Oliveira",
+    "name_norm": "higor gabriel farias de oliveira",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 344
+  },
+  {
+    "name": "Ricardo Jorge de Araujo Filho",
+    "name_norm": "ricardo jorge de araujo filho",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 345
+  },
+  {
+    "name": "Joyce Kryslane Sobreira Silva",
+    "name_norm": "joyce kryslane sobreira silva",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 346
+  },
+  {
+    "name": "Geinni Kafcka Silva Barbosa",
+    "name_norm": "geinni kafcka silva barbosa",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 347
+  },
+  {
+    "name": "Joao Paulo de Sousa Gadelha",
+    "name_norm": "joao paulo de sousa gadelha",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 348
+  },
+  {
+    "name": "Debora Suelen Fontenele Sousa",
+    "name_norm": "debora suelen fontenele sousa",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 349
+  },
+  {
+    "name": "Hugo Leonardo Pereira Filho",
+    "name_norm": "hugo leonardo pereira filho",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 350
+  },
+  {
+    "name": "Manoel Mairton Tomaz Penha",
+    "name_norm": "manoel mairton tomaz penha",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 351
+  },
+  {
+    "name": "Daniel Victor Dantas Batista",
+    "name_norm": "daniel victor dantas batista",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 352
+  },
+  {
+    "name": "Luiz Roberto Caurio Farias",
+    "name_norm": "luiz roberto caurio farias",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 353
+  },
+  {
+    "name": "Guilherme Sousa de Oliveira",
+    "name_norm": "guilherme sousa de oliveira",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 355
+  },
+  {
+    "name": "Lucas da Conceicao Reis Santos",
+    "name_norm": "lucas da conceicao reis santos",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 356
+  },
+  {
+    "name": "Crystofelly Camara das Chagas",
+    "name_norm": "crystofelly camara das chagas",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 357
+  },
+  {
+    "name": "Joao Pedro da Nobrega Vieira",
+    "name_norm": "joao pedro da nobrega vieira",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 358
+  },
+  {
+    "name": "Joao Lucas de Moura Sousa",
+    "name_norm": "joao lucas de moura sousa",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 359
+  },
+  {
+    "name": "Ana Claudia do Nascimento Goes",
+    "name_norm": "ana claudia do nascimento goes",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 360
+  },
+  {
+    "name": "Francisca Thais Rodrigues Araujo",
+    "name_norm": "francisca thais rodrigues araujo",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 361
+  },
+  {
+    "name": "Renato Carlos Siqueira Rodrigues",
+    "name_norm": "renato carlos siqueira rodrigues",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 362
+  },
+  {
+    "name": "Caio Henrique Lemos Rodrigues",
+    "name_norm": "caio henrique lemos rodrigues",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 363
+  },
+  {
+    "name": "Renato Ribeiro Dourado",
+    "name_norm": "renato ribeiro dourado",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 364
+  },
+  {
+    "name": "Aleandro Oliveira da Silva",
+    "name_norm": "aleandro oliveira da silva",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 365
+  },
+  {
+    "name": "Caio Couto Braga",
+    "name_norm": "caio couto braga",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 366
+  },
+  {
+    "name": "Ruan Lins Nascimento",
+    "name_norm": "ruan lins nascimento",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 367
+  },
+  {
+    "name": "Leonardo Vinicius de Sousa",
+    "name_norm": "leonardo vinicius de sousa",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 368
+  },
+  {
+    "name": "Bruno Alex Formiga",
+    "name_norm": "bruno alex formiga",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 369
+  },
+  {
+    "name": "Maria Eduarda Sousa Silva",
+    "name_norm": "maria eduarda sousa silva",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 370
+  },
+  {
+    "name": "Maria Valdizia Lima Bernardino",
+    "name_norm": "maria valdizia lima bernardino",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 371
+  },
+  {
+    "name": "Elizandro Kevys da Silva Medeiros",
+    "name_norm": "elizandro kevys da silva medeiros",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 372
+  },
+  {
+    "name": "Lucas Aragao Vasconcelos",
+    "name_norm": "lucas aragao vasconcelos",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 373
+  },
+  {
+    "name": "Riccardo Victor Nobrega de Carvalho",
+    "name_norm": "riccardo victor nobrega de carvalho",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 374
+  },
+  {
+    "name": "Matheus Angelo de Oliveira Silveira",
+    "name_norm": "matheus angelo de oliveira silveira",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 375
+  },
+  {
+    "name": "Danilo Augusto Costa Pereira",
+    "name_norm": "danilo augusto costa pereira",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 376
+  },
+  {
+    "name": "Francisco Marcelio de Almeida Farias Filho",
+    "name_norm": "francisco marcelio de almeida farias filho",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 377
+  },
+  {
+    "name": "Carlos Raoni Ribeiro Assuncao",
+    "name_norm": "carlos raoni ribeiro assuncao",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 378
+  },
+  {
+    "name": "Carla Vitoria Felizardo Nascimento",
+    "name_norm": "carla vitoria felizardo nascimento",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 379
+  },
+  {
+    "name": "Alexandre Pereira Carneiro",
+    "name_norm": "alexandre pereira carneiro",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 380
+  },
+  {
+    "name": "Italo Cesar Monteiro da Costa",
+    "name_norm": "italo cesar monteiro da costa",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 381
+  },
+  {
+    "name": "David Selvas de Carvalho Braga",
+    "name_norm": "david selvas de carvalho braga",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 382
+  },
+  {
+    "name": "Hector Pereira Maciel de Queiroz",
+    "name_norm": "hector pereira maciel de queiroz",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 383
+  },
+  {
+    "name": "Felipe Barroso da Silva",
+    "name_norm": "felipe barroso da silva",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 384
+  },
+  {
+    "name": "Felipe Mota Soares",
+    "name_norm": "felipe mota soares",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 386
+  },
+  {
+    "name": "Jonas Morais Sousa",
+    "name_norm": "jonas morais sousa",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 388
+  },
+  {
+    "name": "Thiago Brito de Carvalho",
+    "name_norm": "thiago brito de carvalho",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 389
+  },
+  {
+    "name": "Evandro Evangelista Carvalho",
+    "name_norm": "evandro evangelista carvalho",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 390
+  },
+  {
+    "name": "Thomas Daniel de Figueiredo",
+    "name_norm": "thomas daniel de figueiredo",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 391
+  },
+  {
+    "name": "Kelvin Lima Mesquita",
+    "name_norm": "kelvin lima mesquita",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 393
+  },
+  {
+    "name": "Victoria Emanuelle Marques de Carvalho",
+    "name_norm": "victoria emanuelle marques de carvalho",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 394
+  },
+  {
+    "name": "Yanne de Brito Ribeiro Moura",
+    "name_norm": "yanne de brito ribeiro moura",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 395
+  },
+  {
+    "name": "Felipe Marques Pereira Menezes",
+    "name_norm": "felipe marques pereira menezes",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 396
+  },
+  {
+    "name": "Nathanael Batista Lima",
+    "name_norm": "nathanael batista lima",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 397
+  },
+  {
+    "name": "Mariana Maciel Alves",
+    "name_norm": "mariana maciel alves",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 399
+  },
+  {
+    "name": "Mateus Felipe de Oliveira Vitorio",
+    "name_norm": "mateus felipe de oliveira vitorio",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 400
+  },
+  {
+    "name": "Iago Silva de Carvalho Marques",
+    "name_norm": "iago silva de carvalho marques",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 401
+  },
+  {
+    "name": "Mirelly Alves Guedes",
+    "name_norm": "mirelly alves guedes",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 402
+  },
+  {
+    "name": "Paulo Gabriel Rodrigues Medeiros",
+    "name_norm": "paulo gabriel rodrigues medeiros",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 403
+  },
+  {
+    "name": "Iarly de Lima Tavares",
+    "name_norm": "iarly de lima tavares",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 404
+  },
+  {
+    "name": "Gizela Araujo Barros",
+    "name_norm": "gizela araujo barros",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 405
+  },
+  {
+    "name": "Isabella Katrine Morais Alexandre",
+    "name_norm": "isabella katrine morais alexandre",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 406
+  },
+  {
+    "name": "Joao Siqueira Leite Junior",
+    "name_norm": "joao siqueira leite junior",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 407
+  },
+  {
+    "name": "Washington Luis Ribeiro Miranda",
+    "name_norm": "washington luis ribeiro miranda",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 408
+  },
+  {
+    "name": "Pamela Naiade de Alencar Souza",
+    "name_norm": "pamela naiade de alencar souza",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 409
+  },
+  {
+    "name": "Paulo Henrique Costa de Freitas",
+    "name_norm": "paulo henrique costa de freitas",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 410
+  },
+  {
+    "name": "Valdislei Ferreira dos Santos Junior",
+    "name_norm": "valdislei ferreira dos santos junior",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 411
+  },
+  {
+    "name": "Rafaelle Seles da Silva Santos",
+    "name_norm": "rafaelle seles da silva santos",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 412
+  },
+  {
+    "name": "Guilherme Gualberto de Negreiros Nunes",
+    "name_norm": "guilherme gualberto de negreiros nunes",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 413
+  },
+  {
+    "name": "Aurelio Miguel Queiroga Alves Pinheiro",
+    "name_norm": "aurelio miguel queiroga alves pinheiro",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 414
+  },
+  {
+    "name": "Thays Macedo de Araujo Freitas",
+    "name_norm": "thays macedo de araujo freitas",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 415
+  },
+  {
+    "name": "Magno Passos da Silva Junior",
+    "name_norm": "magno passos da silva junior",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 416
+  },
+  {
+    "name": "Francisca Consuelo Nogueira Alves",
+    "name_norm": "francisca consuelo nogueira alves",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 418
+  },
+  {
+    "name": "Aila Pereira Marcal Sampaio",
+    "name_norm": "aila pereira marcal sampaio",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 419
+  },
+  {
+    "name": "Maria Beatriz de Andrade dos Santos",
+    "name_norm": "maria beatriz de andrade dos santos",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 420
+  },
+  {
+    "name": "Joao Marcos Duarte Bruno",
+    "name_norm": "joao marcos duarte bruno",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 421
+  },
+  {
+    "name": "Joao Victor Paz de Aquino",
+    "name_norm": "joao victor paz de aquino",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 422
+  },
+  {
+    "name": "Raul Martins Rodrigues",
+    "name_norm": "raul martins rodrigues",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 423
+  },
+  {
+    "name": "Jose Augusto Ferreira Neto",
+    "name_norm": "jose augusto ferreira neto",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 424
+  },
+  {
+    "name": "Francisca Daniele Moreira Sampaio",
+    "name_norm": "francisca daniele moreira sampaio",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 425
+  },
+  {
+    "name": "Maria Luiza Batista Fernandes",
+    "name_norm": "maria luiza batista fernandes",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 426
+  },
+  {
+    "name": "Tadeu Rodrigues Brilhante Filho",
+    "name_norm": "tadeu rodrigues brilhante filho",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 427
+  },
+  {
+    "name": "Melquiades Pinto Paiva Neto",
+    "name_norm": "melquiades pinto paiva neto",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 428
+  },
+  {
+    "name": "Nayana Silva Alves Jereissati",
+    "name_norm": "nayana silva alves jereissati",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 429
+  },
+  {
+    "name": "Joao Pedro de Lima Oliveira",
+    "name_norm": "joao pedro de lima oliveira",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 430
+  },
+  {
+    "name": "Daniel Sousa de Andrade",
+    "name_norm": "daniel sousa de andrade",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 431
+  },
+  {
+    "name": "Matheus Coelho de Moura Angelim",
+    "name_norm": "matheus coelho de moura angelim",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 432
+  },
+  {
+    "name": "Bianka Tavares de Araujo",
+    "name_norm": "bianka tavares de araujo",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 434
+  },
+  {
+    "name": "Abraao Vitor Lima Bezerra",
+    "name_norm": "abraao vitor lima bezerra",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 435
+  },
+  {
+    "name": "Fernanda Figueiredo Franca",
+    "name_norm": "fernanda figueiredo franca",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 436
+  },
+  {
+    "name": "Paulo Gregory e Silva Serra Santos",
+    "name_norm": "paulo gregory e silva serra santos",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 437
+  },
+  {
+    "name": "Thayna Ohana Brasilino Pataca",
+    "name_norm": "thayna ohana brasilino pataca",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 438
+  },
+  {
+    "name": "Maria Thais Mendes Carvalho",
+    "name_norm": "maria thais mendes carvalho",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 439
+  },
+  {
+    "name": "Thaynah Maria Santos Paiva",
+    "name_norm": "thaynah maria santos paiva",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 440
+  },
+  {
+    "name": "Vinicius Andrade de Medeiros",
+    "name_norm": "vinicius andrade de medeiros",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 442
+  },
+  {
+    "name": "Joao Vitor Correia do Rego",
+    "name_norm": "joao vitor correia do rego",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 443
+  },
+  {
+    "name": "Maria Suinara Almeida Feitoza",
+    "name_norm": "maria suinara almeida feitoza",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 444
+  },
+  {
+    "name": "Thiago Yuri Gomes Takahashi",
+    "name_norm": "thiago yuri gomes takahashi",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 445
+  },
+  {
+    "name": "Matheus Vieira Lima",
+    "name_norm": "matheus vieira lima",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 446
+  },
+  {
+    "name": "Cristiane Valeria Lilian do Nascimento",
+    "name_norm": "cristiane valeria lilian do nascimento",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 447
+  },
+  {
+    "name": "Marcelo Camurca dos Santos",
+    "name_norm": "marcelo camurca dos santos",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 448
+  },
+  {
+    "name": "Gabriel Matheus Braga de Oliveira",
+    "name_norm": "gabriel matheus braga de oliveira",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 449
+  },
+  {
+    "name": "Maria Danielle Pinheiro",
+    "name_norm": "maria danielle pinheiro",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 450
+  },
+  {
+    "name": "Juan Pablo Cirino de Almeida",
+    "name_norm": "juan pablo cirino de almeida",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 451
+  },
+  {
+    "name": "Gustavo Facundo de Sousa",
+    "name_norm": "gustavo facundo de sousa",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 452
+  },
+  {
+    "name": "July Maria Jose Rafael",
+    "name_norm": "july maria jose rafael",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 453
+  },
+  {
+    "name": "Jacqueline de Jesus Gomes de Castro",
+    "name_norm": "jacqueline de jesus gomes de castro",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 455
+  },
+  {
+    "name": "Weslania Joselma Melo Batista",
+    "name_norm": "weslania joselma melo batista",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 456
+  },
+  {
+    "name": "Christian Pereira Ribeiro",
+    "name_norm": "christian pereira ribeiro",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 457
+  },
+  {
+    "name": "Anderson Eriko Vieira de Oliveira",
+    "name_norm": "anderson eriko vieira de oliveira",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 458
+  },
+  {
+    "name": "Guilherme Pereira Rozado",
+    "name_norm": "guilherme pereira rozado",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 459
+  },
+  {
+    "name": "Ednaldo Jones Rodrigues de Sousa",
+    "name_norm": "ednaldo jones rodrigues de sousa",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 460
+  },
+  {
+    "name": "Gilberson Tiago Moura Santos",
+    "name_norm": "gilberson tiago moura santos",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 461
+  },
+  {
+    "name": "Carlos Aleff de Castro Lucena",
+    "name_norm": "carlos aleff de castro lucena",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 462
+  },
+  {
+    "name": "Jose Guilherme de Castro Bezerra",
+    "name_norm": "jose guilherme de castro bezerra",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 463
+  },
+  {
+    "name": "Tito Livio Furtado Olinda Feitosa de Matos",
+    "name_norm": "tito livio furtado olinda feitosa de matos",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 464
+  },
+  {
+    "name": "Francisco Venicio da Silva Benevides",
+    "name_norm": "francisco venicio da silva benevides",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 465
+  },
+  {
+    "name": "Jessica Mauricio Alves Sousa",
+    "name_norm": "jessica mauricio alves sousa",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 466
+  },
+  {
+    "name": "Georgia Viana Peixoto de Araujo",
+    "name_norm": "georgia viana peixoto de araujo",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 467
+  },
+  {
+    "name": "Jose Leonardo Teles de Menezes",
+    "name_norm": "jose leonardo teles de menezes",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 468
+  },
+  {
+    "name": "Rodrigo de Sousa Maciel",
+    "name_norm": "rodrigo de sousa maciel",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 469
+  },
+  {
+    "name": "Anderson Carlos Moura Passos",
+    "name_norm": "anderson carlos moura passos",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 470
+  },
+  {
+    "name": "Renan Pinto Rodrigues",
+    "name_norm": "renan pinto rodrigues",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 471
+  },
+  {
+    "name": "Pedro Yago Parente de Carvalho Silva",
+    "name_norm": "pedro yago parente de carvalho silva",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 472
+  },
+  {
+    "name": "Kervin Ferreira Dourado",
+    "name_norm": "kervin ferreira dourado",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 473
+  },
+  {
+    "name": "Francisco Isac Silva Santos",
+    "name_norm": "francisco isac silva santos",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 474
+  },
+  {
+    "name": "Gerbem Alves Feitosa",
+    "name_norm": "gerbem alves feitosa",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 475
+  },
+  {
+    "name": "Jose Wanderson Silva de Freitas",
+    "name_norm": "jose wanderson silva de freitas",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 476
+  },
+  {
+    "name": "Huilemberg Mariano Souza",
+    "name_norm": "huilemberg mariano souza",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 477
+  },
+  {
+    "name": "Itaque Pinheiro de Araujo",
+    "name_norm": "itaque pinheiro de araujo",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 478
+  },
+  {
+    "name": "Francisco Marcos Rodrigues Lima",
+    "name_norm": "francisco marcos rodrigues lima",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 479
+  },
+  {
+    "name": "Alvaro Vitalino Rodrigues Martins",
+    "name_norm": "alvaro vitalino rodrigues martins",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 480
+  },
+  {
+    "name": "Larissa Lima de Oliveira",
+    "name_norm": "larissa lima de oliveira",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 481
+  },
+  {
+    "name": "Sebastiao Ismael Ferreira Venancio",
+    "name_norm": "sebastiao ismael ferreira venancio",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 482
+  },
+  {
+    "name": "Andre Felipe Soares dos Santos",
+    "name_norm": "andre felipe soares dos santos",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 483
+  },
+  {
+    "name": "Yasmin Nunes da Costa",
+    "name_norm": "yasmin nunes da costa",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 484
+  },
+  {
+    "name": "William Vieira de Brito",
+    "name_norm": "william vieira de brito",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 485
+  },
+  {
+    "name": "Vanesca Rodrigues Alves",
+    "name_norm": "vanesca rodrigues alves",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 486
+  },
+  {
+    "name": "Samuel Santiago Carvalho de Britto",
+    "name_norm": "samuel santiago carvalho de britto",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 487
+  },
+  {
+    "name": "Yuri Bezerra de Andrade",
+    "name_norm": "yuri bezerra de andrade",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 488
+  },
+  {
+    "name": "Mirleyne Larissa da Silva Freire",
+    "name_norm": "mirleyne larissa da silva freire",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 489
+  },
+  {
+    "name": "Jose Herberson Paula Batista",
+    "name_norm": "jose herberson paula batista",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 490
+  },
+  {
+    "name": "Diego Silva Melo",
+    "name_norm": "diego silva melo",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 491
+  },
+  {
+    "name": "Joao Mateus Pereira da Silva",
+    "name_norm": "joao mateus pereira da silva",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 493
+  },
+  {
+    "name": "Nadilah Hannel Audrey Linhares Lima dos Anjos",
+    "name_norm": "nadilah hannel audrey linhares lima dos anjos",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 494
+  },
+  {
+    "name": "Raphael Mariano Teofilo",
+    "name_norm": "raphael mariano teofilo",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 495
+  },
+  {
+    "name": "Izabella Gomes de Medeiros",
+    "name_norm": "izabella gomes de medeiros",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 496
+  },
+  {
+    "name": "Jhennifer de Queiroz Moreira",
+    "name_norm": "jhennifer de queiroz moreira",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 499
+  },
+  {
+    "name": "Debora Barroso Braga",
+    "name_norm": "debora barroso braga",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 500
+  },
+  {
+    "name": "Lucas Alcoforado Vasconcelos",
+    "name_norm": "lucas alcoforado vasconcelos",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 501
+  },
+  {
+    "name": "Matheus da Costa Monteiro",
+    "name_norm": "matheus da costa monteiro",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 502
+  },
+  {
+    "name": "Naftali Silva do Nascimento",
+    "name_norm": "naftali silva do nascimento",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 503
+  },
+  {
+    "name": "Samiria Mikaele Alves de Freitas",
+    "name_norm": "samiria mikaele alves de freitas",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 504
+  },
+  {
+    "name": "Yasmim Nunes Custodio",
+    "name_norm": "yasmim nunes custodio",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 505
+  },
+  {
+    "name": "Karolina Conde Marques",
+    "name_norm": "karolina conde marques",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 506
+  },
+  {
+    "name": "Carlos Andre Lemos Vieira",
+    "name_norm": "carlos andre lemos vieira",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 509
+  },
+  {
+    "name": "Raquel de Sousa Dourado",
+    "name_norm": "raquel de sousa dourado",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 510
+  },
+  {
+    "name": "Joel Lucas de Andrade Martins",
+    "name_norm": "joel lucas de andrade martins",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 511
+  },
+  {
+    "name": "Guilherme Lima Nascimento Soares",
+    "name_norm": "guilherme lima nascimento soares",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 512
+  },
+  {
+    "name": "Nyelssen Loiola Melo Vasconcelos",
+    "name_norm": "nyelssen loiola melo vasconcelos",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 513
+  },
+  {
+    "name": "Lucas Braga Montenegro",
+    "name_norm": "lucas braga montenegro",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 514
+  },
+  {
+    "name": "Ananda de Castro Coelho",
+    "name_norm": "ananda de castro coelho",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 517
+  },
+  {
+    "name": "Joao Victor de Oliveira Rodrigues",
+    "name_norm": "joao victor de oliveira rodrigues",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 519
+  },
+  {
+    "name": "Jefferson Castro dos Anjos",
+    "name_norm": "jefferson castro dos anjos",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 520
+  },
+  {
+    "name": "Samara Lima Melo",
+    "name_norm": "samara lima melo",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 521
+  },
+  {
+    "name": "Francisca Aldayce de Lima Silva",
+    "name_norm": "francisca aldayce de lima silva",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 522
+  },
+  {
+    "name": "Carlos Vinicius Sampaio Duarte",
+    "name_norm": "carlos vinicius sampaio duarte",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 523
+  },
+  {
+    "name": "Katharina Farias Lima de Sousa",
+    "name_norm": "katharina farias lima de sousa",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 524
+  },
+  {
+    "name": "Idelweides Braz Feitosa Arrais",
+    "name_norm": "idelweides braz feitosa arrais",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 527
+  },
+  {
+    "name": "Artunes Matheus Guerra Freire",
+    "name_norm": "artunes matheus guerra freire",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 528
+  },
+  {
+    "name": "Mariana Chaves Carvalho",
+    "name_norm": "mariana chaves carvalho",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 531
+  },
+  {
+    "name": "Marcus Paulo de Castro Feitosa Vieira da Silva",
+    "name_norm": "marcus paulo de castro feitosa vieira da silva",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 532
+  },
+  {
+    "name": "Paulo Fernando Marques de Sousa",
+    "name_norm": "paulo fernando marques de sousa",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 533
+  },
+  {
+    "name": "Lucas Alves Cruz",
+    "name_norm": "lucas alves cruz",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 534
+  },
+  {
+    "name": "Pedro Henrique Araujo Alves",
+    "name_norm": "pedro henrique araujo alves",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 536
+  },
+  {
+    "name": "Fernando Matos Ferreira",
+    "name_norm": "fernando matos ferreira",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 537
+  },
+  {
+    "name": "Felipe Aguiar de Brito",
+    "name_norm": "felipe aguiar de brito",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 539
+  },
+  {
+    "name": "Francisco Carlos Cortez de Brito",
+    "name_norm": "francisco carlos cortez de brito",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 541
+  },
+  {
+    "name": "Maria Vanessa Alves",
+    "name_norm": "maria vanessa alves",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 542
+  },
+  {
+    "name": "Ana Tamilla Marinho Rosa",
+    "name_norm": "ana tamilla marinho rosa",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 543
+  },
+  {
+    "name": "Paulo da Silva Alves",
+    "name_norm": "paulo da silva alves",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 545
+  },
+  {
+    "name": "Joseliza de Souza Noronha",
+    "name_norm": "joseliza de souza noronha",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 546
+  },
+  {
+    "name": "David Carvalho Hardi",
+    "name_norm": "david carvalho hardi",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 548
+  },
+  {
+    "name": "Giovanni Mendes Goes",
+    "name_norm": "giovanni mendes goes",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 549
+  },
+  {
+    "name": "Karolaine Silva Bernardo",
+    "name_norm": "karolaine silva bernardo",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 550
+  },
+  {
+    "name": "Samuel Rodrigues de Sousa",
+    "name_norm": "samuel rodrigues de sousa",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 551
+  },
+  {
+    "name": "Layne Diogenes Dantas",
+    "name_norm": "layne diogenes dantas",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 552
+  },
+  {
+    "name": "Jade Mesquita Lopes de Oliveira Alves",
+    "name_norm": "jade mesquita lopes de oliveira alves",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 553
+  },
+  {
+    "name": "Francisco Adriano Alves da Silva",
+    "name_norm": "francisco adriano alves da silva",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 554
+  },
+  {
+    "name": "Mayk Luan Costa Menezes",
+    "name_norm": "mayk luan costa menezes",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 555
+  },
+  {
+    "name": "Leonardo da Rosa Giglio Filho",
+    "name_norm": "leonardo da rosa giglio filho",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 556
+  },
+  {
+    "name": "Antonio Aleksandro Teofilo Soares",
+    "name_norm": "antonio aleksandro teofilo soares",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 557
+  },
+  {
+    "name": "Ana Pillar Moreira Moura",
+    "name_norm": "ana pillar moreira moura",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 558
+  },
+  {
+    "name": "Renata Romero de Miranda Henriques",
+    "name_norm": "renata romero de miranda henriques",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 559
+  },
+  {
+    "name": "Fransuwel da Silva Mesquita",
+    "name_norm": "fransuwel da silva mesquita",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 560
+  },
+  {
+    "name": "Antonio Ramon Lima Pinheiro",
+    "name_norm": "antonio ramon lima pinheiro",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 561
+  },
+  {
+    "name": "Nayara de Jesus Gomes Pereira",
+    "name_norm": "nayara de jesus gomes pereira",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 562
+  },
+  {
+    "name": "Joao Italo de Oliveira Rodrigues",
+    "name_norm": "joao italo de oliveira rodrigues",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 563
+  },
+  {
+    "name": "Ana Rebeca Irineu Bastos",
+    "name_norm": "ana rebeca irineu bastos",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 564
+  },
+  {
+    "name": "Nikeuly Brandao Barbosa",
+    "name_norm": "nikeuly brandao barbosa",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 565
+  },
+  {
+    "name": "Vinicius da Cunha Reis",
+    "name_norm": "vinicius da cunha reis",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 566
+  },
+  {
+    "name": "Jose Antonio Sampaio de Marinho",
+    "name_norm": "jose antonio sampaio de marinho",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 567
+  },
+  {
+    "name": "Alessandra Vieira Paes Landim Maia",
+    "name_norm": "alessandra vieira paes landim maia",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 569
+  },
+  {
+    "name": "Leonardo Felix de Freitas",
+    "name_norm": "leonardo felix de freitas",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 570
+  },
+  {
+    "name": "Deiby Anne Uchoa Barroso Bizerra",
+    "name_norm": "deiby anne uchoa barroso bizerra",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 571
+  },
+  {
+    "name": "Francisca Talita Carneiro Gomes da Ponte Viana",
+    "name_norm": "francisca talita carneiro gomes da ponte viana",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 574
+  },
+  {
+    "name": "Joao Romeu Accioly Ferreira",
+    "name_norm": "joao romeu accioly ferreira",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 575
+  },
+  {
+    "name": "Sara Silva Diogenes",
+    "name_norm": "sara silva diogenes",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 576
+  },
+  {
+    "name": "Jose Pietro de Freitas Luiz",
+    "name_norm": "jose pietro de freitas luiz",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 577
+  },
+  {
+    "name": "Iara Kercia da Silva",
+    "name_norm": "iara kercia da silva",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 578
+  },
+  {
+    "name": "Ewerton Luiz Lopes da Silva",
+    "name_norm": "ewerton luiz lopes da silva",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 579
+  },
+  {
+    "name": "Micael Igor Oliveira da Silva",
+    "name_norm": "micael igor oliveira da silva",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 580
+  },
+  {
+    "name": "Vitoria Regia Cordeiro de Souza",
+    "name_norm": "vitoria regia cordeiro de souza",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 581
+  },
+  {
+    "name": "David Aragao Fonteles",
+    "name_norm": "david aragao fonteles",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 582
+  },
+  {
+    "name": "Marcelo de Menezes Pereira",
+    "name_norm": "marcelo de menezes pereira",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 584
+  },
+  {
+    "name": "Katarina Teixeira Evangelista",
+    "name_norm": "katarina teixeira evangelista",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 585
+  },
+  {
+    "name": "Lucas Tadeu Zuppardo de Paula Carvalho",
+    "name_norm": "lucas tadeu zuppardo de paula carvalho",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 586
+  },
+  {
+    "name": "Jaredy Henrique Soares Cardoso",
+    "name_norm": "jaredy henrique soares cardoso",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 587
+  },
+  {
+    "name": "Israel Jose Montenegro Alves",
+    "name_norm": "israel jose montenegro alves",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 588
+  },
+  {
+    "name": "Josiane Castro Garcez",
+    "name_norm": "josiane castro garcez",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 589
+  },
+  {
+    "name": "Eron Almeida da Silva",
+    "name_norm": "eron almeida da silva",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 590
+  },
+  {
+    "name": "Joao Victor de Lima Batista da Silva",
+    "name_norm": "joao victor de lima batista da silva",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 591
+  },
+  {
+    "name": "Mikaill Gadelha dos Santos",
+    "name_norm": "mikaill gadelha dos santos",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 592
+  },
+  {
+    "name": "Mariana Frota Farias",
+    "name_norm": "mariana frota farias",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 593
+  },
+  {
+    "name": "Samuel Kelvyn da Silva Alves",
+    "name_norm": "samuel kelvyn da silva alves",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 594
+  },
+  {
+    "name": "Matheus Alves Diniz",
+    "name_norm": "matheus alves diniz",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 595
+  },
+  {
+    "name": "Ana Carolina Ferreira",
+    "name_norm": "ana carolina ferreira",
+    "segment_call": "Ampla",
+    "rank_in_segment_list": 596
+  },
+  {
+    "name": "Gustavo Pereira Cardoso",
+    "name_norm": "gustavo pereira cardoso",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 37
+  },
+  {
+    "name": "Natanael Jovino Alves de Souza",
+    "name_norm": "natanael jovino alves de souza",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 38
+  },
+  {
+    "name": "Roberval Teixeira de Resende",
+    "name_norm": "roberval teixeira de resende",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 39
+  },
+  {
+    "name": "Jucelia Rodrigues de Sousa",
+    "name_norm": "jucelia rodrigues de sousa",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 40
+  },
+  {
+    "name": "Tais Rodrigues de Souza",
+    "name_norm": "tais rodrigues de souza",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 42
+  },
+  {
+    "name": "Italo Soares Rodrigues",
+    "name_norm": "italo soares rodrigues",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 43
+  },
+  {
+    "name": "Esmael Juan Lima de Alencar",
+    "name_norm": "esmael juan lima de alencar",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 44
+  },
+  {
+    "name": "Joao Victor Carneiro Cavalcante",
+    "name_norm": "joao victor carneiro cavalcante",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 45
+  },
+  {
+    "name": "Luiz Carlos Alves da Silva",
+    "name_norm": "luiz carlos alves da silva",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 47
+  },
+  {
+    "name": "Livia da Cunha Reis",
+    "name_norm": "livia da cunha reis",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 48
+  },
+  {
+    "name": "Lucas Nunes Dionisio",
+    "name_norm": "lucas nunes dionisio",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 50
+  },
+  {
+    "name": "Jose Ruan Silva de Almeida",
+    "name_norm": "jose ruan silva de almeida",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 51
+  },
+  {
+    "name": "Iury Brasilino Lima",
+    "name_norm": "iury brasilino lima",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 52
+  },
+  {
+    "name": "Jose Allef Araujo da Silva",
+    "name_norm": "jose allef araujo da silva",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 53
+  },
+  {
+    "name": "Romario Ramon da Silva",
+    "name_norm": "romario ramon da silva",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 54
+  },
+  {
+    "name": "Cicero Rildson de Sousa Rodrigues",
+    "name_norm": "cicero rildson de sousa rodrigues",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 55
+  },
+  {
+    "name": "Israel Felizardo da Silva",
+    "name_norm": "israel felizardo da silva",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 56
+  },
+  {
+    "name": "Calebe de Sousa Rodrigues",
+    "name_norm": "calebe de sousa rodrigues",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 57
+  },
+  {
+    "name": "Yasmim Vieira Freitas",
+    "name_norm": "yasmim vieira freitas",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 58
+  },
+  {
+    "name": "Nayane Maria de Sousa Macedo",
+    "name_norm": "nayane maria de sousa macedo",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 59
+  },
+  {
+    "name": "Raul Teixeira Teles",
+    "name_norm": "raul teixeira teles",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 60
+  },
+  {
+    "name": "Daniel de Oliveira Giloca Silva",
+    "name_norm": "daniel de oliveira giloca silva",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 61
+  },
+  {
+    "name": "Antonio Maureniveson Uchoa Cordeiro",
+    "name_norm": "antonio maureniveson uchoa cordeiro",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 62
+  },
+  {
+    "name": "Lucyola Nogueira Alencar",
+    "name_norm": "lucyola nogueira alencar",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 63
+  },
+  {
+    "name": "Antonio Edilson de Goes Junior",
+    "name_norm": "antonio edilson de goes junior",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 64
+  },
+  {
+    "name": "Kesley Paulino Verde",
+    "name_norm": "kesley paulino verde",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 65
+  },
+  {
+    "name": "Manoel Vicente Ferreira Neto",
+    "name_norm": "manoel vicente ferreira neto",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 66
+  },
+  {
+    "name": "Leila Magnolia Nogueira",
+    "name_norm": "leila magnolia nogueira",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 67
+  },
+  {
+    "name": "Francisco Luanderson Barbosa Rodrigues",
+    "name_norm": "francisco luanderson barbosa rodrigues",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 68
+  },
+  {
+    "name": "Jose David de Sousa Dias",
+    "name_norm": "jose david de sousa dias",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 69
+  },
+  {
+    "name": "Lauanda Lara Rocha Silva",
+    "name_norm": "lauanda lara rocha silva",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 70
+  },
+  {
+    "name": "Claudio Lua Santos de Oliveira",
+    "name_norm": "claudio lua santos de oliveira",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 71
+  },
+  {
+    "name": "Thayna Franca Santiago",
+    "name_norm": "thayna franca santiago",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 72
+  },
+  {
+    "name": "Dion Alif Cruz de Souza",
+    "name_norm": "dion alif cruz de souza",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 73
+  },
+  {
+    "name": "Marinaldo Regilberton Silva de Alencar",
+    "name_norm": "marinaldo regilberton silva de alencar",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 74
+  },
+  {
+    "name": "Rosivando Assuncao de Andrade da Costa",
+    "name_norm": "rosivando assuncao de andrade da costa",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 75
+  },
+  {
+    "name": "Kyonne Patrik Devyn Bezerra Azevedo",
+    "name_norm": "kyonne patrik devyn bezerra azevedo",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 76
+  },
+  {
+    "name": "Rennan Santos Bezerra",
+    "name_norm": "rennan santos bezerra",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 77
+  },
+  {
+    "name": "Jose Airton Pinto de Sousa Junior",
+    "name_norm": "jose airton pinto de sousa junior",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 78
+  },
+  {
+    "name": "Joao Paulo Sales Sousa",
+    "name_norm": "joao paulo sales sousa",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 79
+  },
+  {
+    "name": "Davi Angelo Ribeiro",
+    "name_norm": "davi angelo ribeiro",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 80
+  },
+  {
+    "name": "Maria Yasmim dos Santos Pereira",
+    "name_norm": "maria yasmim dos santos pereira",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 81
+  },
+  {
+    "name": "Antonio Marcos Almeida de Oliveira",
+    "name_norm": "antonio marcos almeida de oliveira",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 82
+  },
+  {
+    "name": "Brena Kercia Soares do Carmo",
+    "name_norm": "brena kercia soares do carmo",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 83
+  },
+  {
+    "name": "Fabio Renan Galvao Soares",
+    "name_norm": "fabio renan galvao soares",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 84
+  },
+  {
+    "name": "Amauri Gomes de Oliveira",
+    "name_norm": "amauri gomes de oliveira",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 85
+  },
+  {
+    "name": "Jose Henrique de Brito",
+    "name_norm": "jose henrique de brito",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 86
+  },
+  {
+    "name": "Jose Vagner de Sousa Vilar",
+    "name_norm": "jose vagner de sousa vilar",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 87
+  },
+  {
+    "name": "Italo Eduardo do Nascimento Alencar",
+    "name_norm": "italo eduardo do nascimento alencar",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 88
+  },
+  {
+    "name": "Mariane Pereira de Oliveira",
+    "name_norm": "mariane pereira de oliveira",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 89
+  },
+  {
+    "name": "Pablo de Andrade Marinho",
+    "name_norm": "pablo de andrade marinho",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 90
+  },
+  {
+    "name": "Denise Feitosa Rocha",
+    "name_norm": "denise feitosa rocha",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 91
+  },
+  {
+    "name": "Anderson Serafim Nunes da Silva",
+    "name_norm": "anderson serafim nunes da silva",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 92
+  },
+  {
+    "name": "Maria Cecilia Campos Lucena",
+    "name_norm": "maria cecilia campos lucena",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 93
+  },
+  {
+    "name": "Kassiano de Melo Madeiro",
+    "name_norm": "kassiano de melo madeiro",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 94
+  },
+  {
+    "name": "Kleyton Andre Brito Melo",
+    "name_norm": "kleyton andre brito melo",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 95
+  },
+  {
+    "name": "Francisco Breno Souza Paiva",
+    "name_norm": "francisco breno souza paiva",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 96
+  },
+  {
+    "name": "Levi Wilker Vieira de Oliveira",
+    "name_norm": "levi wilker vieira de oliveira",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 97
+  },
+  {
+    "name": "Joaquim Kayk Breno Conrado",
+    "name_norm": "joaquim kayk breno conrado",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 98
+  },
+  {
+    "name": "Laisa Gomes de Lima",
+    "name_norm": "laisa gomes de lima",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 99
+  },
+  {
+    "name": "Suzany da Costa dos Santos",
+    "name_norm": "suzany da costa dos santos",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 101
+  },
+  {
+    "name": "Joamerson Matias da Silva Soares",
+    "name_norm": "joamerson matias da silva soares",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 102
+  },
+  {
+    "name": "Clenilda Maria das Chagas",
+    "name_norm": "clenilda maria das chagas",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 103
+  },
+  {
+    "name": "Francisco Andrey Lisboa de Freitas",
+    "name_norm": "francisco andrey lisboa de freitas",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 104
+  },
+  {
+    "name": "Eduardo Vinicius de Sousa Holanda",
+    "name_norm": "eduardo vinicius de sousa holanda",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 105
+  },
+  {
+    "name": "Samuel Gomes de Carvalho",
+    "name_norm": "samuel gomes de carvalho",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 106
+  },
+  {
+    "name": "Geovana Alexandre da Silva",
+    "name_norm": "geovana alexandre da silva",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 107
+  },
+  {
+    "name": "Alexsandro Silva de Almeida",
+    "name_norm": "alexsandro silva de almeida",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 108
+  },
+  {
+    "name": "Jose Everton Soares Barbosa",
+    "name_norm": "jose everton soares barbosa",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 109
+  },
+  {
+    "name": "Luan Kened Alves da Nobrega",
+    "name_norm": "luan kened alves da nobrega",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 110
+  },
+  {
+    "name": "Antonio Robsson de Sousa Teixeira Filho",
+    "name_norm": "antonio robsson de sousa teixeira filho",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 111
+  },
+  {
+    "name": "Ruben Adonai de Sousa Morais",
+    "name_norm": "ruben adonai de sousa morais",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 112
+  },
+  {
+    "name": "Joseildo Jose de Sousa Filho",
+    "name_norm": "joseildo jose de sousa filho",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 113
+  },
+  {
+    "name": "Railane Bispo de Jesus",
+    "name_norm": "railane bispo de jesus",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 114
+  },
+  {
+    "name": "Mayara Bruna Costa",
+    "name_norm": "mayara bruna costa",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 115
+  },
+  {
+    "name": "Agripino Rocha do Nascimento Neto",
+    "name_norm": "agripino rocha do nascimento neto",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 116
+  },
+  {
+    "name": "Edvan Mendonca Menezes",
+    "name_norm": "edvan mendonca menezes",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 117
+  },
+  {
+    "name": "Jhonatan da Silva Farias dos Santos",
+    "name_norm": "jhonatan da silva farias dos santos",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 118
+  },
+  {
+    "name": "Francisco Andson da Paz Lima",
+    "name_norm": "francisco andson da paz lima",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 119
+  },
+  {
+    "name": "Antonio Nilton Dias",
+    "name_norm": "antonio nilton dias",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 120
+  },
+  {
+    "name": "Jeovane Alexandre da Silva",
+    "name_norm": "jeovane alexandre da silva",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 121
+  },
+  {
+    "name": "Wagner Augusto da Silva",
+    "name_norm": "wagner augusto da silva",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 122
+  },
+  {
+    "name": "Jekson Rodrigues da Silva",
+    "name_norm": "jekson rodrigues da silva",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 123
+  },
+  {
+    "name": "Emerson Moura Goncalves",
+    "name_norm": "emerson moura goncalves",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 124
+  },
+  {
+    "name": "Yara Cavalcanti Freire Alves",
+    "name_norm": "yara cavalcanti freire alves",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 125
+  },
+  {
+    "name": "Douglas Jose Pereira Lima",
+    "name_norm": "douglas jose pereira lima",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 126
+  },
+  {
+    "name": "Camila Ferreira Mesquita",
+    "name_norm": "camila ferreira mesquita",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 127
+  },
+  {
+    "name": "Jose Lucas Ivo Veras",
+    "name_norm": "jose lucas ivo veras",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 128
+  },
+  {
+    "name": "Celiane Ferreira Ludugerio",
+    "name_norm": "celiane ferreira ludugerio",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 129
+  },
+  {
+    "name": "Raissa Lima Moreira",
+    "name_norm": "raissa lima moreira",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 130
+  },
+  {
+    "name": "Isabela Coelho Marques Fernandes",
+    "name_norm": "isabela coelho marques fernandes",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 132
+  },
+  {
+    "name": "Cicero Severino do Nascimento",
+    "name_norm": "cicero severino do nascimento",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 133
+  },
+  {
+    "name": "Walison Alves Mascena",
+    "name_norm": "walison alves mascena",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 134
+  },
+  {
+    "name": "Glemerson Feitosa Assuncao",
+    "name_norm": "glemerson feitosa assuncao",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 135
+  },
+  {
+    "name": "Jaine Rayara de Medeiros Pinto Cavalcanti",
+    "name_norm": "jaine rayara de medeiros pinto cavalcanti",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 136
+  },
+  {
+    "name": "Jose Edson Moreira do Nascimento",
+    "name_norm": "jose edson moreira do nascimento",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 137
+  },
+  {
+    "name": "Andrei Levi Rodrigues dos Santos",
+    "name_norm": "andrei levi rodrigues dos santos",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 138
+  },
+  {
+    "name": "Renato Natanael de Carvalho Silva",
+    "name_norm": "renato natanael de carvalho silva",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 139
+  },
+  {
+    "name": "Fabiolla Moreira Cassiano",
+    "name_norm": "fabiolla moreira cassiano",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 140
+  },
+  {
+    "name": "Amanda Kelly Ramos de Paula",
+    "name_norm": "amanda kelly ramos de paula",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 141
+  },
+  {
+    "name": "Isadora Lima Pimentel",
+    "name_norm": "isadora lima pimentel",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 142
+  },
+  {
+    "name": "Vanderson Ferreira Silva",
+    "name_norm": "vanderson ferreira silva",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 144
+  },
+  {
+    "name": "Cidnyl Lira Ferreira",
+    "name_norm": "cidnyl lira ferreira",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 145
+  },
+  {
+    "name": "Camila Sousa da Silva",
+    "name_norm": "camila sousa da silva",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 146
+  },
+  {
+    "name": "Isaque de Araujo Soares",
+    "name_norm": "isaque de araujo soares",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 147
+  },
+  {
+    "name": "Isabel da Costa Ribeiro Monteiro",
+    "name_norm": "isabel da costa ribeiro monteiro",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 148
+  },
+  {
+    "name": "Tyago Ayrton Lourenco Silva",
+    "name_norm": "tyago ayrton lourenco silva",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 149
+  },
+  {
+    "name": "Barbara Maria Arcoverde Melo",
+    "name_norm": "barbara maria arcoverde melo",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 150
+  },
+  {
+    "name": "Francisco Marcelo da Silva de Abreu",
+    "name_norm": "francisco marcelo da silva de abreu",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 151
+  },
+  {
+    "name": "Lilliam Oliveira de Brito",
+    "name_norm": "lilliam oliveira de brito",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 154
+  },
+  {
+    "name": "Kleyton Danilo Queiroz da Silva",
+    "name_norm": "kleyton danilo queiroz da silva",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 155
+  },
+  {
+    "name": "Joao Paulo Nascimento Silva",
+    "name_norm": "joao paulo nascimento silva",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 156
+  },
+  {
+    "name": "Joao Gabriel Sa Ferreira Dantas",
+    "name_norm": "joao gabriel sa ferreira dantas",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 157
+  },
+  {
+    "name": "Yuri Cruz de Oliveira",
+    "name_norm": "yuri cruz de oliveira",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 158
+  },
+  {
+    "name": "Francisco Ataliba de Menezes Soares Herculano",
+    "name_norm": "francisco ataliba de menezes soares herculano",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 159
+  },
+  {
+    "name": "Luis Fernando Teixeira Vital Medeiros",
+    "name_norm": "luis fernando teixeira vital medeiros",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 160
+  },
+  {
+    "name": "Daniela Sales dos Santos",
+    "name_norm": "daniela sales dos santos",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 161
+  },
+  {
+    "name": "Jose Ricardo Ferreira e Silva",
+    "name_norm": "jose ricardo ferreira e silva",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 162
+  },
+  {
+    "name": "Tainara Santos de Oliveira",
+    "name_norm": "tainara santos de oliveira",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 163
+  },
+  {
+    "name": "Fabricio de Sousa Barroso",
+    "name_norm": "fabricio de sousa barroso",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 164
+  },
+  {
+    "name": "Jose Elvis de Oliveira Dantas",
+    "name_norm": "jose elvis de oliveira dantas",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 165
+  },
+  {
+    "name": "Mirella Cristine do Nascimento Rodrigues",
+    "name_norm": "mirella cristine do nascimento rodrigues",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 166
+  },
+  {
+    "name": "Raildo Carneiro Alves",
+    "name_norm": "raildo carneiro alves",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 167
+  },
+  {
+    "name": "Everton Pereira Bernardo",
+    "name_norm": "everton pereira bernardo",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 168
+  },
+  {
+    "name": "Francisco Anderson Keven Siqueira do Nascimento",
+    "name_norm": "francisco anderson keven siqueira do nascimento",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 169
+  },
+  {
+    "name": "Rui Yuri de Mesquita Martins",
+    "name_norm": "rui yuri de mesquita martins",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 170
+  },
+  {
+    "name": "Taina Muniz da Silva Arantes de Oliveira",
+    "name_norm": "taina muniz da silva arantes de oliveira",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 171
+  },
+  {
+    "name": "Francisco Geovani Ferreira da Silva",
+    "name_norm": "francisco geovani ferreira da silva",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 172
+  },
+  {
+    "name": "Luis Augusto de Sousa Cardoso",
+    "name_norm": "luis augusto de sousa cardoso",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 173
+  },
+  {
+    "name": "Samuel Souza Rocha",
+    "name_norm": "samuel souza rocha",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 174
+  },
+  {
+    "name": "Jose Ramon Tavares Sampaio",
+    "name_norm": "jose ramon tavares sampaio",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 175
+  },
+  {
+    "name": "Juliana de Luna",
+    "name_norm": "juliana de luna",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 176
+  },
+  {
+    "name": "Everson Allan Martins de Sousa",
+    "name_norm": "everson allan martins de sousa",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 177
+  },
+  {
+    "name": "Lucas Marques do Nascimento",
+    "name_norm": "lucas marques do nascimento",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 178
+  },
+  {
+    "name": "Nailton Francalino dos Santos Silva",
+    "name_norm": "nailton francalino dos santos silva",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 179
+  },
+  {
+    "name": "Jose Victor Rodrigues da Costa",
+    "name_norm": "jose victor rodrigues da costa",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 180
+  },
+  {
+    "name": "Misaele da Silva Lins",
+    "name_norm": "misaele da silva lins",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 181
+  },
+  {
+    "name": "Jose Wilson Nery de Gois Junior",
+    "name_norm": "jose wilson nery de gois junior",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 182
+  },
+  {
+    "name": "Welder da Silva Sousa",
+    "name_norm": "welder da silva sousa",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 183
+  },
+  {
+    "name": "Tassia Castro Silvestre",
+    "name_norm": "tassia castro silvestre",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 184
+  },
+  {
+    "name": "Wanderson Martins Pereira",
+    "name_norm": "wanderson martins pereira",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 185
+  },
+  {
+    "name": "Mayron Zenieveson Rodrigues",
+    "name_norm": "mayron zenieveson rodrigues",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 186
+  },
+  {
+    "name": "Paulo Cardoso da Rocha Filho",
+    "name_norm": "paulo cardoso da rocha filho",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 188
+  },
+  {
+    "name": "Kevin Rodrigues da Costa",
+    "name_norm": "kevin rodrigues da costa",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 189
+  },
+  {
+    "name": "Francisco Thiago Lima do Nascimento",
+    "name_norm": "francisco thiago lima do nascimento",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 190
+  },
+  {
+    "name": "Antonio Anderson Silva Gomes",
+    "name_norm": "antonio anderson silva gomes",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 191
+  },
+  {
+    "name": "Francisca Sarah Martins Nicodemos",
+    "name_norm": "francisca sarah martins nicodemos",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 192
+  },
+  {
+    "name": "Francisco Vinicus Nascimento de Oliveira",
+    "name_norm": "francisco vinicus nascimento de oliveira",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 193
+  },
+  {
+    "name": "Wandersson da Silva Venceslau",
+    "name_norm": "wandersson da silva venceslau",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 194
+  },
+  {
+    "name": "Wellyngton Sallo Sousa de Oliveira",
+    "name_norm": "wellyngton sallo sousa de oliveira",
+    "segment_call": "Negro",
+    "rank_in_segment_list": 195
+  },
+  {
+    "name": "Cleber Diego Pinto Cavalcante Ferreira",
+    "name_norm": "cleber diego pinto cavalcante ferreira",
+    "segment_call": "PcD",
+    "rank_in_segment_list": 7
+  },
+  {
+    "name": "Karolayne Marques Menezes",
+    "name_norm": "karolayne marques menezes",
+    "segment_call": "PcD",
+    "rank_in_segment_list": 8
+  },
+  {
+    "name": "Italo Jose Carlos de Oliveira",
+    "name_norm": "italo jose carlos de oliveira",
+    "segment_call": "PcD",
+    "rank_in_segment_list": 9
+  },
+  {
+    "name": "Jose Valdenildo Pontes da Costa",
+    "name_norm": "jose valdenildo pontes da costa",
+    "segment_call": "PcD",
+    "rank_in_segment_list": 10
+  },
+  {
+    "name": "Paulo Roberto da Silva Nepomuceno",
+    "name_norm": "paulo roberto da silva nepomuceno",
+    "segment_call": "PcD",
+    "rank_in_segment_list": 11
+  },
+  {
+    "name": "Francisco Paulo Silva Neto",
+    "name_norm": "francisco paulo silva neto",
+    "segment_call": "PcD",
+    "rank_in_segment_list": 12
+  },
+  {
+    "name": "Jose Francinildo Silva Santiago",
+    "name_norm": "jose francinildo silva santiago",
+    "segment_call": "PcD",
+    "rank_in_segment_list": 13
+  },
+  {
+    "name": "Flavia Hellen de Sousa Bezerra",
+    "name_norm": "flavia hellen de sousa bezerra",
+    "segment_call": "PcD",
+    "rank_in_segment_list": 14
+  },
+  {
+    "name": "Brenno Hanniel Correia Ferreira",
+    "name_norm": "brenno hanniel correia ferreira",
+    "segment_call": "PcD",
+    "rank_in_segment_list": 15
+  },
+  {
+    "name": "Paula Cristina Martins Barros",
+    "name_norm": "paula cristina martins barros",
+    "segment_call": "PcD",
+    "rank_in_segment_list": 16
+  },
+  {
+    "name": "Samuel Sousa de Paulo",
+    "name_norm": "samuel sousa de paulo",
+    "segment_call": "PcD",
+    "rank_in_segment_list": 17
+  },
+  {
+    "name": "Natasha Rodrigues Paiva Benicio",
+    "name_norm": "natasha rodrigues paiva benicio",
+    "segment_call": "PcD",
+    "rank_in_segment_list": 18
+  },
+  {
+    "name": "Jose Cristiano Ribeiro de Oliveira",
+    "name_norm": "jose cristiano ribeiro de oliveira",
+    "segment_call": "PcD",
+    "rank_in_segment_list": 19
+  },
+  {
+    "name": "Quiteria Livia Farias Martins",
+    "name_norm": "quiteria livia farias martins",
+    "segment_call": "PcD",
+    "rank_in_segment_list": 20
+  },
+  {
+    "name": "Cicero Jose da Silva Santos",
+    "name_norm": "cicero jose da silva santos",
+    "segment_call": "PcD",
+    "rank_in_segment_list": 21
+  },
+  {
+    "name": "Lucas de Sousa Nascimento",
+    "name_norm": "lucas de sousa nascimento",
+    "segment_call": "PcD",
+    "rank_in_segment_list": 23
+  },
+  {
+    "name": "Leandro Oliveira da Silva",
+    "name_norm": "leandro oliveira da silva",
+    "segment_call": "PcD",
+    "rank_in_segment_list": 24
+  },
+  {
+    "name": "Paulo Alberto dos Santos",
+    "name_norm": "paulo alberto dos santos",
+    "segment_call": "PcD",
+    "rank_in_segment_list": 25
+  },
+  {
+    "name": "Aldenizia Matos de Sousa",
+    "name_norm": "aldenizia matos de sousa",
+    "segment_call": "PcD",
+    "rank_in_segment_list": 26
+  },
+  {
+    "name": "Luiz Felipe Ferreira Rego",
+    "name_norm": "luiz felipe ferreira rego",
+    "segment_call": "PcD",
+    "rank_in_segment_list": 27
+  },
+  {
+    "name": "Brenda Karen Pinto do Vale",
+    "name_norm": "brenda karen pinto do vale",
+    "segment_call": "PcD",
+    "rank_in_segment_list": 28
+  },
+  {
+    "name": "Mauro Sergio Gomes Ferreira Junior",
+    "name_norm": "mauro sergio gomes ferreira junior",
+    "segment_call": "PcD",
+    "rank_in_segment_list": 29
+  },
+  {
+    "name": "Alex Leite de Oliveira",
+    "name_norm": "alex leite de oliveira",
+    "segment_call": "PcD",
+    "rank_in_segment_list": 30
+  },
+  {
+    "name": "Danilson Monteiro dos Santos",
+    "name_norm": "danilson monteiro dos santos",
+    "segment_call": "PcD",
+    "rank_in_segment_list": 32
+  },
+  {
+    "name": "Renato Holanda Ferreira",
+    "name_norm": "renato holanda ferreira",
+    "segment_call": "PcD",
+    "rank_in_segment_list": 34
+  },
+  {
+    "name": "Francisca Hemerly Marrocos Saraiva",
+    "name_norm": "francisca hemerly marrocos saraiva",
+    "segment_call": "PcD",
+    "rank_in_segment_list": 35
+  },
+  {
+    "name": "Leidiany Alves Neves",
+    "name_norm": "leidiany alves neves",
+    "segment_call": "PcD",
+    "rank_in_segment_list": 36
+  },
+  {
+    "name": "Goncalo Moreira Lima Junior",
+    "name_norm": "goncalo moreira lima junior",
+    "segment_call": "PcD",
+    "rank_in_segment_list": 38
+  },
+  {
+    "name": "Isaque Iure de Souza Paiva",
+    "name_norm": "isaque iure de souza paiva",
+    "segment_call": "PcD",
+    "rank_in_segment_list": 39
+  },
+  {
+    "name": "Paulo Estenys da Silva Cruz",
+    "name_norm": "paulo estenys da silva cruz",
+    "segment_call": "PcD",
+    "rank_in_segment_list": 40
+  },
+  {
+    "name": "Jose Benigno de Araujo Filho",
+    "name_norm": "jose benigno de araujo filho",
+    "segment_call": "PcD",
+    "rank_in_segment_list": 41
+  },
+  {
+    "name": "Hermeson Costa de Jesus",
+    "name_norm": "hermeson costa de jesus",
+    "segment_call": "PcD",
+    "rank_in_segment_list": 43
+  },
+  {
+    "name": "Israel Lima Carneiro",
+    "name_norm": "israel lima carneiro",
+    "segment_call": "PcD",
+    "rank_in_segment_list": 44
+  },
+  {
+    "name": "Rafael Morais do Nascimento",
+    "name_norm": "rafael morais do nascimento",
+    "segment_call": "PcD",
+    "rank_in_segment_list": 45
+  },
+  {
+    "name": "Francisco Helder Freitas Damasceno",
+    "name_norm": "francisco helder freitas damasceno",
+    "segment_call": "PcD",
+    "rank_in_segment_list": 46
+  },
+  {
+    "name": "Renata de Melo Ribeiro",
+    "name_norm": "renata de melo ribeiro",
+    "segment_call": "PcD",
+    "rank_in_segment_list": 47
+  },
+  {
+    "name": "Daniel Reis Leite Nunes de Menezes",
+    "name_norm": "daniel reis leite nunes de menezes",
+    "segment_call": "PcD",
+    "rank_in_segment_list": 48
+  },
+  {
+    "name": "Felipe Tavora de Oliveira",
+    "name_norm": "felipe tavora de oliveira",
+    "segment_call": "PcD",
+    "rank_in_segment_list": 49
+  }
+]
