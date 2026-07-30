@@ -63,17 +63,28 @@ export function explainCandidate(c: Candidate, all: Candidate[], meta: Meta): Wh
     } else {
       if (pos.amplaPos) {
         bullets.push(
-          `Na fila efetiva da ampla (descontando sub judice, que não ocupam vaga), você é o nº ${pos.amplaPos}.`,
+          `Posição efetiva na ampla: nº ${pos.amplaPos} (sub judice à frente aparecem na ordem da nota, mas não recebem número de vaga; se o Estado chama N vagas, puxa até completar N pessoas que ocupam assento).`,
         )
       }
       if (pos.negroPos) {
         bullets.push(
-          `Na fila efetiva de cotas raciais (sem sub judice), você é o nº ${pos.negroPos} (rank negro ${c.rank_negro}).`,
+          `Posição efetiva na cota racial: nº ${pos.negroPos} (rank negro ${c.rank_negro}, sem sub judice na conta).`,
         )
       }
       if (pos.pcdPos) {
         bullets.push(
-          `Na fila efetiva PcD (sem sub judice), você é o nº ${pos.pcdPos} (rank PcD ${c.rank_pcd}).`,
+          `Posição efetiva PcD: nº ${pos.pcdPos} (rank PcD ${c.rank_pcd}, sem sub judice na conta).`,
+        )
+      }
+      const sjAhead = all.filter(
+        (x) =>
+          x.in_remaining_queue &&
+          x.rank_geral < c.rank_geral &&
+          (x.condition === 'Sub judice' || x.queue_status === 'sub_judice'),
+      ).length
+      if (sjAhead > 0) {
+        bullets.push(
+          `Há ${sjAhead} sub judice na sua frente no papel; eles não entram na sua posição efetiva.`,
         )
       }
     }
@@ -140,7 +151,7 @@ export function explainCandidate(c: Candidate, all: Candidate[], meta: Meta): Wh
       : 'Situação: já convocado (T1 ou complementar)'
     : queueStatusOf(c) === 'sub_judice'
       ? `Sub judice · geral oficial #${c.rank_geral} (não ocupa vaga efetiva)`
-      : `Fila efetiva: ampla #${pos.amplaPos ?? 'n/d'}${
+      : `Posição efetiva: ampla #${pos.amplaPos ?? 'n/d'}${
           pos.negroPos ? ` · negro #${pos.negroPos}` : ''
         }${pos.pcdPos ? ` · PcD #${pos.pcdPos}` : ''}`
 

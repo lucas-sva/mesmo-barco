@@ -39,15 +39,20 @@ export function queueStatusOf(c: Candidate): string {
   return 'regular'
 }
 
-/** Sub judice appear on paper but do not consume list seats. */
+/** Sub judice appear on paper but never consume list seats (even if also gestante). */
 export function occupiesSeat(c: Candidate): boolean {
-  return queueStatusOf(c) !== 'sub_judice'
+  if (c.condition === 'Sub judice') return false
+  if (queueStatusOf(c) === 'sub_judice') return false
+  return true
+}
+
+export function isSubJudice(c: Candidate): boolean {
+  return c.condition === 'Sub judice' || queueStatusOf(c) === 'sub_judice'
 }
 
 function visibleInSim(c: Candidate, opts: Required<SimulateOpts>): boolean {
-  const status = queueStatusOf(c)
-  if (!opts.includeSubJudice && status === 'sub_judice') return false
-  if (!opts.includeGestanteFimFila && status === 'gestante_fim_fila') return false
+  if (isSubJudice(c)) return opts.includeSubJudice
+  if (queueStatusOf(c) === 'gestante_fim_fila') return opts.includeGestanteFimFila
   return true
 }
 
@@ -124,7 +129,7 @@ export function simulateCall(
       ? Math.max(...amplaSeats.map((s) => s.candidate.rank_geral))
       : 0
     const sjVisible = remaining
-      .filter((c) => queueStatusOf(c) === 'sub_judice')
+      .filter((c) => isSubJudice(c))
       .filter((c) => c.rank_geral <= maxAmplaRank)
       .sort((a, b) => a.rank_geral - b.rank_geral)
       .map(

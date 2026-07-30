@@ -1,7 +1,7 @@
 import { Link, useParams } from 'react-router-dom'
 import { useData } from '../lib/data'
 import { explainCandidate, fmtInt, fmtNum, neighbors } from '../lib/explain'
-import { vacanciesNeededFor } from '../lib/simulate'
+import { occupiesSeat, positionInRemaining, vacanciesNeededFor } from '../lib/simulate'
 
 const SCORE_LABELS: { key: keyof import('../types/candidate').Scores; label: string }[] = [
   { key: 'objetiva', label: 'Objetiva' },
@@ -41,6 +41,7 @@ export function CandidatePage() {
 
   const why = explainCandidate(c, candidates, meta)
   const nb = neighbors(candidates, c, 4)
+  const pos = positionInRemaining(candidates, c)
   const need = c.in_remaining_queue
     ? vacanciesNeededFor(candidates, c.pedido, { maxN: 2000 })
     : null
@@ -58,7 +59,10 @@ export function CandidatePage() {
           {c.segment}
         </p>
         <div className="flex flex-wrap gap-2 pt-1">
-          <Chip>Geral #{c.rank_geral}</Chip>
+          <Chip>Geral oficial #{c.rank_geral}</Chip>
+          {c.in_remaining_queue && occupiesSeat(c) && pos.amplaPos != null && (
+            <Chip tone="sea">Ampla efetiva #{pos.amplaPos}</Chip>
+          )}
           {c.rank_negro != null && <Chip>Negro #{c.rank_negro}</Chip>}
           {c.rank_pcd != null && <Chip>PcD #{c.rank_pcd}</Chip>}
           <Chip>{c.sex === 'F' ? 'Feminino' : 'Masculino'}</Chip>
@@ -161,9 +165,10 @@ export function CandidatePage() {
       </section>
 
       <section className="space-y-3">
-        <h2 className="text-2xl font-bold">Na fila restante</h2>
+        <h2 className="text-2xl font-bold">Na fila (ordem da nota)</h2>
         <p className="text-xs text-ink-soft">
-          Só quem ainda não foi chamado (T1 + complementar). Quem já entrou saiu do barco.
+          Ordem do papel. Sub judice aparecem, mas a posição efetiva (chip verde) não
+          conta vaga pra eles.
         </p>
         {nb.ahead.length === 0 && nb.behind.length === 0 ? (
           <p className="text-sm text-ink-soft">Sem vizinhos pra mostrar neste recorte.</p>
@@ -224,20 +229,31 @@ function NeighborList({
     <div>
       <p className="text-sm font-medium mb-1">{title}</p>
       <ul className="space-y-1">
-        {items.map((x) => (
-          <li key={x.pedido}>
-            <Link
-              to={`/candidato/${x.pedido}`}
-              className="flex justify-between gap-2 rounded-lg border border-line bg-paper-2/70 px-3 py-2 text-sm hover:border-sea/40"
-            >
-              <span>
-                #{x.rank_geral} {x.name}
-                <span className="text-ink-soft"> · {x.segment}</span>
-              </span>
-              <span className="font-bold">{fmtNum(x.scores.total)}</span>
-            </Link>
-          </li>
-        ))}
+        {items.map((x) => {
+          const sj = x.condition === 'Sub judice' || x.queue_status === 'sub_judice'
+          return (
+            <li key={x.pedido}>
+              <Link
+                to={`/candidato/${x.pedido}`}
+                className={`flex justify-between gap-2 rounded-lg border px-3 py-2 text-sm hover:border-sea/40 ${
+                  sj
+                    ? 'border-dashed border-line bg-paper/60'
+                    : 'border-line bg-paper-2/70'
+                }`}
+              >
+                <span>
+                  #{x.rank_geral} {x.name}
+                  <span className="text-ink-soft">
+                    {' '}
+                    · {x.segment}
+                    {sj ? ' · sub judice (não ocupa vaga)' : ''}
+                  </span>
+                </span>
+                <span className="font-bold">{fmtNum(x.scores.total)}</span>
+              </Link>
+            </li>
+          )
+        })}
       </ul>
     </div>
   )

@@ -105,12 +105,30 @@ describe('simulateCall', () => {
     expect(hidden.called[0]?.candidate.pedido).toBe(2)
   })
 
+  it('gestante who is also sub judice still does not occupy a seat', () => {
+    const all = [
+      stub({
+        pedido: 1,
+        rank_geral: 602,
+        name: 'SJ+gestante',
+        condition: 'Sub judice',
+        queue_status: 'gestante_fim_fila',
+        taf: 'Gestante',
+      }),
+      stub({ pedido: 2, rank_geral: 616, name: 'Regular', queue_status: 'regular' }),
+    ]
+    expect(positionInRemaining(all, all[1]!).amplaPos).toBe(1)
+    const sim = simulateCall(all, 1, { includeSubJudice: true, includeGestanteFimFila: true })
+    expect(sim.called.find((s) => s.occupiesSeat !== false)?.candidate.pedido).toBe(2)
+  })
+
   it('can exclude gestante_fim_fila from seat pool', () => {
     const all = [
       stub({
         pedido: 10,
         rank_geral: 583,
         name: 'Dayara-like',
+        condition: 'Regular',
         queue_status: 'gestante_fim_fila',
         taf: 'Gestante',
         in_remaining_queue: true,
@@ -131,7 +149,7 @@ describe('simulateCall', () => {
 })
 
 describe('positionInRemaining', () => {
-  it('ignores sub judice ahead when counting place', () => {
+  it('ignores all sub judice ahead when counting place', () => {
     const all = [
       stub({
         pedido: 1,
@@ -140,8 +158,16 @@ describe('positionInRemaining', () => {
         condition: 'Sub judice',
         queue_status: 'sub_judice',
       }),
+      stub({
+        pedido: 3,
+        rank_geral: 602,
+        name: 'SJ gestante',
+        condition: 'Sub judice',
+        queue_status: 'gestante_fim_fila',
+        taf: 'Gestante',
+      }),
       stub({ pedido: 2, rank_geral: 616, name: 'You', queue_status: 'regular' }),
     ]
-    expect(positionInRemaining(all, all[1]!).amplaPos).toBe(1)
+    expect(positionInRemaining(all, all[2]!).amplaPos).toBe(1)
   })
 })

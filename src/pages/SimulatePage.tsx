@@ -160,41 +160,6 @@ export function SimulatePage() {
         </p>
       </section>
 
-      {focus && (
-        <div className="rounded-2xl border-2 border-sea bg-sea/15 px-4 py-4 md:px-5 md:py-5 shadow-sm">
-          <p className="text-xs font-semibold uppercase tracking-wide text-sea mb-1">
-            Resultado pra você
-          </p>
-          <p className="text-lg md:text-xl font-bold text-[#1a2332] leading-snug">
-            Com {vagasLabel}, <span className="text-sea">{focus.candidate.name}</span>{' '}
-            entraria pela lista {focus.list}.
-          </p>
-        </div>
-      )}
-      {focusPedido && !focus && (
-        <div className="rounded-2xl border-2 border-warn bg-[#f8e8e5] px-4 py-4 md:px-5 md:py-5 shadow-sm">
-          <p className="text-xs font-semibold uppercase tracking-wide text-warn mb-1">
-            Resultado pra você
-          </p>
-          <p className="text-lg md:text-xl font-bold text-[#1a2332] leading-snug">
-            {focusAsGhost ||
-            (focusCandidate && queueStatusOf(focusCandidate) === 'sub_judice') ? (
-              <>
-                <span className="text-warn">{focusName}</span> está sub judice: aparece
-                na lista, mas não ocupa vaga nesta projeção.
-              </>
-            ) : (
-              <>
-                Com {vagasLabel}, <span className="text-warn">{focusName}</span> ainda
-                fica de fora nesta projeção
-                {!includeGestanteFimFila && ' (ou foi excluído pelo filtro de gestante)'}
-                .
-              </>
-            )}
-          </p>
-        </div>
-      )}
-
       <section className="grid sm:grid-cols-3 gap-3 text-sm">
         <Stat label="Vagas preenchidas na simulação" value={String(seatCount)} />
         <Stat label="% mulheres nesta turma" value={`${sim.womenPctInCall.toFixed(1)}%`} />
