@@ -1,6 +1,7 @@
 import type { Candidate, SeatList, SimulationResult, SimulatedSeat } from '../types/candidate'
 
 export type SimulateOpts = {
+  /** Show sub judice in the list (they never consume seats). Default true. */
   includeSubJudice?: boolean
   includeGestanteFimFila?: boolean
 }
@@ -15,7 +16,6 @@ export function splitSeats(n: number): { ampla: number; negro: number; pcd: numb
     negro = Math.max(0, negro + ampla)
     ampla = 0
   }
-  // keep sum exact
   const sum = ampla + negro + pcd
   if (sum !== n) ampla += n - sum
   return { ampla, negro, pcd }
@@ -39,7 +39,12 @@ export function queueStatusOf(c: Candidate): string {
   return 'regular'
 }
 
-function eligibleForSim(c: Candidate, opts: SimulateOpts): boolean {
+/** Sub judice appear on paper but do not consume list seats. */
+export function occupiesSeat(c: Candidate): boolean {
+  return queueStatusOf(c) !== 'sub_judice'
+}
+
+function visibleInSim(c: Candidate, opts: Required<SimulateOpts>): boolean {
   const status = queueStatusOf(c)
   if (!opts.includeSubJudice && status === 'sub_judice') return false
   if (!opts.includeGestanteFimFila && status === 'gestante_fim_fila') return false
@@ -47,10 +52,11 @@ function eligibleForSim(c: Candidate, opts: SimulateOpts): boolean {
 }
 
 /**
- * Replays the T1 pattern observed in Edital 17:
- * 1) Ampla seats = next N by rank_geral (any segment)
- * 2) Negro seats = next by rank_negro among remaining negros
- * 3) PcD seats = next by rank_pcd among remaining PcD
+ * Replays the T1 pattern:
+ * 1) Ampla seats = next by rank_geral among who occupies seats
+ * 2) Negro seats = next by rank_negro
+ * 3) PcD seats = next by rank_pcd
+ * Sub judice never take seats; optional display rows keep them visible in order.
  */
 export function simulateCall(
   all: Candidate[],
@@ -61,47 +67,91 @@ export function simulateCall(
   const includeGestanteFimFila = opts?.includeGestanteFimFila ?? true
   const filterOpts = { includeSubJudice, includeGestanteFimFila }
   const seats = splitSeats(n)
-  const pool = all
-    .filter((c) => c.in_remaining_queue)
-    .filter((c) => eligibleForSim(c, filterOpts))
+
+  const remaining = all.filter((c) => c.in_remaining_queue)
+  const seatPool = remaining
+    .filter(occupiesSeat)
+    .filter((c) => visibleInSim(c, filterOpts))
 
   const taken = new Set<number>()
-  const called: SimulatedSeat[] = []
+  const seatHolders: SimulatedSeat[] = []
 
-  const amplaPool = [...pool].sort((a, b) => a.rank_geral - b.rank_geral)
+  const amplaPool = [...seatPool].sort((a, b) => a.rank_geral - b.rank_geral)
   for (const c of amplaPool) {
-    if (called.filter((x) => x.list === 'Ampla').length >= seats.ampla) break
+    if (seatHolders.filter((x) => x.list === 'Ampla').length >= seats.ampla) break
     taken.add(c.pedido)
-    called.push({ list: 'Ampla', candidate: c, seatIndex: called.length + 1 })
+    seatHolders.push({
+      list: 'Ampla',
+      candidate: c,
+      seatIndex: seatHolders.length + 1,
+      occupiesSeat: true,
+    })
   }
 
-  const negroPool = pool
+  const negroPool = seatPool
     .filter((c) => isNegro(c) && !taken.has(c.pedido) && c.rank_negro != null)
     .sort((a, b) => (a.rank_negro ?? 99999) - (b.rank_negro ?? 99999))
   for (const c of negroPool) {
-    if (called.filter((x) => x.list === 'Negro').length >= seats.negro) break
+    if (seatHolders.filter((x) => x.list === 'Negro').length >= seats.negro) break
     taken.add(c.pedido)
-    called.push({ list: 'Negro', candidate: c, seatIndex: called.length + 1 })
+    seatHolders.push({
+      list: 'Negro',
+      candidate: c,
+      seatIndex: seatHolders.length + 1,
+      occupiesSeat: true,
+    })
   }
 
-  const pcdPool = pool
+  const pcdPool = seatPool
     .filter((c) => isPcd(c) && !taken.has(c.pedido) && c.rank_pcd != null)
     .sort((a, b) => (a.rank_pcd ?? 99999) - (b.rank_pcd ?? 99999))
   for (const c of pcdPool) {
-    if (called.filter((x) => x.list === 'PcD').length >= seats.pcd) break
+    if (seatHolders.filter((x) => x.list === 'PcD').length >= seats.pcd) break
     taken.add(c.pedido)
-    called.push({ list: 'PcD', candidate: c, seatIndex: called.length + 1 })
+    seatHolders.push({
+      list: 'PcD',
+      candidate: c,
+      seatIndex: seatHolders.length + 1,
+      occupiesSeat: true,
+    })
   }
 
-  const womenInCall = called.filter((s) => s.candidate.sex === 'F').length
-  const womenPctInCall = called.length ? (100 * womenInCall) / called.length : 0
+  // Display: seat holders + optional sub judice who sit (by rank) inside the Ampla window
+  let called: SimulatedSeat[] = [...seatHolders]
+  if (includeSubJudice) {
+    const amplaSeats = seatHolders.filter((s) => s.list === 'Ampla')
+    const maxAmplaRank = amplaSeats.length
+      ? Math.max(...amplaSeats.map((s) => s.candidate.rank_geral))
+      : 0
+    const sjVisible = remaining
+      .filter((c) => queueStatusOf(c) === 'sub_judice')
+      .filter((c) => c.rank_geral <= maxAmplaRank)
+      .sort((a, b) => a.rank_geral - b.rank_geral)
+      .map(
+        (c): SimulatedSeat => ({
+          list: 'Ampla',
+          candidate: c,
+          seatIndex: 0,
+          occupiesSeat: false,
+        }),
+      )
+    called = [...seatHolders, ...sjVisible].sort(
+      (a, b) => a.candidate.rank_geral - b.candidate.rank_geral,
+    )
+  }
+
+  const seatConsumers = called.filter((s) => s.occupiesSeat !== false)
+  const womenInCall = seatConsumers.filter((s) => s.candidate.sex === 'F').length
+  const womenPctInCall = seatConsumers.length
+    ? (100 * womenInCall) / seatConsumers.length
+    : 0
 
   const t1Women = all.filter((c) => c.called_t1 && c.sex === 'F').length
   const t1Total = all.filter((c) => c.called_t1).length
   const compWomen = all.filter((c) => c.called_complementar && c.sex === 'F').length
   const compTotal = all.filter((c) => c.called_complementar).length
   const cumWomen = t1Women + compWomen + womenInCall
-  const cumTotal = t1Total + compTotal + called.length
+  const cumTotal = t1Total + compTotal + seatConsumers.length
   const cumulativeWomenPct = cumTotal ? (100 * cumWomen) / cumTotal : 0
 
   return {
@@ -123,15 +173,20 @@ export function vacanciesNeededFor(
   const maxN = opts?.maxN ?? 2000
   const target = all.find((c) => c.pedido === pedido)
   if (!target || !target.in_remaining_queue) return null
+  // Sub judice do not get a seat projection
+  if (!occupiesSeat(target)) return { n: maxN, list: null }
 
   for (let n = 1; n <= maxN; n++) {
-    const sim = simulateCall(all, n, opts)
-    const hit = sim.called.find((s) => s.candidate.pedido === pedido)
+    const sim = simulateCall(all, n, { ...opts, includeSubJudice: false })
+    const hit = sim.called.find(
+      (s) => s.candidate.pedido === pedido && s.occupiesSeat !== false,
+    )
     if (hit) return { n, list: hit.list }
   }
   return { n: maxN, list: null }
 }
 
+/** Full remaining queue for display (includes sub judice). */
 export function remainingQueues(all: Candidate[]) {
   const rem = all.filter((c) => c.in_remaining_queue)
   return {
@@ -145,8 +200,29 @@ export function remainingQueues(all: Candidate[]) {
   }
 }
 
+/** Queues that actually consume seats (sub judice excluded). */
+export function seatQueues(all: Candidate[]) {
+  const rem = all.filter((c) => c.in_remaining_queue && occupiesSeat(c))
+  return {
+    ampla: [...rem].sort((a, b) => a.rank_geral - b.rank_geral),
+    negro: rem
+      .filter((c) => isNegro(c) && c.rank_negro != null)
+      .sort((a, b) => (a.rank_negro ?? 0) - (b.rank_negro ?? 0)),
+    pcd: rem
+      .filter((c) => isPcd(c) && c.rank_pcd != null)
+      .sort((a, b) => (a.rank_pcd ?? 0) - (b.rank_pcd ?? 0)),
+  }
+}
+
+/**
+ * Effective place in line: always ignores sub judice ahead.
+ * If the person is sub judice, returns nulls (they do not hold a seat slot).
+ */
 export function positionInRemaining(all: Candidate[], c: Candidate) {
-  const q = remainingQueues(all)
+  if (!occupiesSeat(c)) {
+    return { amplaPos: null, negroPos: null, pcdPos: null, ignoresSubJudice: true as const }
+  }
+  const q = seatQueues(all)
   const amplaPos = q.ampla.findIndex((x) => x.pedido === c.pedido) + 1 || null
   const negroPos = isNegro(c)
     ? q.negro.findIndex((x) => x.pedido === c.pedido) + 1 || null
@@ -154,7 +230,7 @@ export function positionInRemaining(all: Candidate[], c: Candidate) {
   const pcdPos = isPcd(c)
     ? q.pcd.findIndex((x) => x.pedido === c.pedido) + 1 || null
     : null
-  return { amplaPos, negroPos, pcdPos }
+  return { amplaPos, negroPos, pcdPos, ignoresSubJudice: true as const }
 }
 
 export function queueStatusLabel(status: string): string {

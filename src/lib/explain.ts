@@ -1,5 +1,5 @@
 import type { Candidate, Meta } from '../types/candidate'
-import { positionInRemaining } from './simulate'
+import { positionInRemaining, queueStatusOf } from './simulate'
 
 // Sem travessão longo: usuário pediu pra nunca usar isso nos textos.
 export function fmtNum(n: number | null | undefined, digits = 2) {
@@ -55,20 +55,27 @@ export function explainCandidate(c: Candidate, all: Candidate[], meta: Meta): Wh
     }
     sources.push('raw/overrides-already-called.json')
   } else {
-    if (pos.amplaPos) {
+    if (queueStatusOf(c) === 'sub_judice') {
       bullets.push(
-        `Na fila restante da ampla (por classificação geral), você é o nº ${pos.amplaPos}.`,
+        'Você está sub judice: aparece na lista do papel, mas não ocupa vaga nas filas efetivas até decisão judicial (Edital 17, item 14). As posições de quem vem atrás já desconsideram isso.',
       )
-    }
-    if (pos.negroPos) {
-      bullets.push(
-        `Na fila restante de cotas raciais, você é o nº ${pos.negroPos} (rank negro ${c.rank_negro}).`,
-      )
-    }
-    if (pos.pcdPos) {
-      bullets.push(
-        `Na fila restante PcD, você é o nº ${pos.pcdPos} (rank PcD ${c.rank_pcd}).`,
-      )
+      sources.push('Edital 17, item 14')
+    } else {
+      if (pos.amplaPos) {
+        bullets.push(
+          `Na fila efetiva da ampla (descontando sub judice, que não ocupam vaga), você é o nº ${pos.amplaPos}.`,
+        )
+      }
+      if (pos.negroPos) {
+        bullets.push(
+          `Na fila efetiva de cotas raciais (sem sub judice), você é o nº ${pos.negroPos} (rank negro ${c.rank_negro}).`,
+        )
+      }
+      if (pos.pcdPos) {
+        bullets.push(
+          `Na fila efetiva PcD (sem sub judice), você é o nº ${pos.pcdPos} (rank PcD ${c.rank_pcd}).`,
+        )
+      }
     }
   }
 
@@ -82,7 +89,7 @@ export function explainCandidate(c: Candidate, all: Candidate[], meta: Meta): Wh
     sources.push(meta.rules.quotas.cite_negro_ampla)
   }
 
-  if (c.condition === 'Sub judice') {
+  if (c.condition === 'Sub judice' && (c.already_called || !c.in_remaining_queue)) {
     bullets.push(
       'Participação sub judice: precária, depende do que o processo judicial decidir (Edital 17, item 14).',
     )
@@ -131,9 +138,11 @@ export function explainCandidate(c: Candidate, all: Candidate[], meta: Meta): Wh
     ? c.called_override && !c.called_t1 && !c.called_complementar
       ? 'Situação: já no curso (override; documento oficial ainda pendente no repo)'
       : 'Situação: já convocado (T1 ou complementar)'
-    : `Fila restante: ampla #${pos.amplaPos ?? 'n/d'}${
-        pos.negroPos ? ` · negro #${pos.negroPos}` : ''
-      }${pos.pcdPos ? ` · PcD #${pos.pcdPos}` : ''}`
+    : queueStatusOf(c) === 'sub_judice'
+      ? `Sub judice · geral oficial #${c.rank_geral} (não ocupa vaga efetiva)`
+      : `Fila efetiva: ampla #${pos.amplaPos ?? 'n/d'}${
+          pos.negroPos ? ` · negro #${pos.negroPos}` : ''
+        }${pos.pcdPos ? ` · PcD #${pos.pcdPos}` : ''}`
 
   return {
     headline,

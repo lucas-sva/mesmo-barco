@@ -127,6 +127,8 @@ export type SimulatedSeat = {
   list: SeatList
   candidate: Candidate
   seatIndex: number
+  /** false = shown for transparency, does not consume a vacancy (sub judice). */
+  occupiesSeat?: boolean
 }
 
 export type SimulationResult = {

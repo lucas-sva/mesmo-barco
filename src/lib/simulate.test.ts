@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import type { Candidate } from '../types/candidate'
-import { simulateCall, splitSeats } from './simulate'
+import { positionInRemaining, simulateCall, splitSeats } from './simulate'
 
 function stub(partial: Partial<Candidate> & Pick<Candidate, 'pedido' | 'rank_geral' | 'name'>): Candidate {
   return {
@@ -75,7 +75,37 @@ describe('simulateCall', () => {
     expect(sim.called[0]?.candidate.pedido).toBe(2)
   })
 
-  it('can exclude gestante_fim_fila like sub judice', () => {
+  it('sub judice never consume seats but can stay visible', () => {
+    const all = [
+      stub({
+        pedido: 1,
+        rank_geral: 392,
+        name: 'SJ ahead',
+        condition: 'Sub judice',
+        queue_status: 'sub_judice',
+        in_remaining_queue: true,
+      }),
+      stub({
+        pedido: 2,
+        rank_geral: 616,
+        name: 'Regular',
+        queue_status: 'regular',
+        in_remaining_queue: true,
+      }),
+    ]
+    const shown = simulateCall(all, 1, { includeSubJudice: true })
+    expect(shown.called.filter((s) => s.occupiesSeat !== false)).toHaveLength(1)
+    expect(shown.called.find((s) => s.occupiesSeat !== false)?.candidate.pedido).toBe(2)
+    expect(shown.called.some((s) => s.candidate.pedido === 1 && s.occupiesSeat === false)).toBe(
+      true,
+    )
+
+    const hidden = simulateCall(all, 1, { includeSubJudice: false })
+    expect(hidden.called.some((s) => s.candidate.pedido === 1)).toBe(false)
+    expect(hidden.called[0]?.candidate.pedido).toBe(2)
+  })
+
+  it('can exclude gestante_fim_fila from seat pool', () => {
     const all = [
       stub({
         pedido: 10,
@@ -94,8 +124,24 @@ describe('simulateCall', () => {
       }),
     ]
     const withGest = simulateCall(all, 1, { includeGestanteFimFila: true })
-    expect(withGest.called[0]?.candidate.pedido).toBe(10)
+    expect(withGest.called.find((s) => s.occupiesSeat !== false)?.candidate.pedido).toBe(10)
     const withoutGest = simulateCall(all, 1, { includeGestanteFimFila: false })
-    expect(withoutGest.called[0]?.candidate.pedido).toBe(11)
+    expect(withoutGest.called.find((s) => s.occupiesSeat !== false)?.candidate.pedido).toBe(11)
+  })
+})
+
+describe('positionInRemaining', () => {
+  it('ignores sub judice ahead when counting place', () => {
+    const all = [
+      stub({
+        pedido: 1,
+        rank_geral: 392,
+        name: 'SJ',
+        condition: 'Sub judice',
+        queue_status: 'sub_judice',
+      }),
+      stub({ pedido: 2, rank_geral: 616, name: 'You', queue_status: 'regular' }),
+    ]
+    expect(positionInRemaining(all, all[1]!).amplaPos).toBe(1)
   })
 })
