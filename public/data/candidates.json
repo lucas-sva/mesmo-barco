@@ -6466,7 +6466,8 @@
       "rank_field": "rank_negro",
       "rank": 212,
       "evidence_max_rank": 230,
-      "caveat": "Inferência: a complementar do segmento Negro convocou até classificação 230. Quem está à frente nessa fila e não é sub judice/gestante é tratado como já saído, mesmo sem constar no PDF da complementar (buraco documental)."
+      "label": "No curso (doc. ausente)",
+      "caveat": "Com certeza já foi convocado/entrou: a complementar do segmento Negro chegou até a classificação 230, e nota menor não passa na frente de nota maior na mesma fila. O PDF intermediário dessa convocação ainda não está no repositório; por isso o marcador é 'No curso (doc. ausente)'."
     },
     "already_called": true,
     "in_remaining_queue": false,
@@ -6938,7 +6939,8 @@
       "rank_field": "rank_pcd",
       "rank": 52,
       "evidence_max_rank": 56,
-      "caveat": "Inferência: a complementar do segmento PcD convocou até classificação 56. Quem está à frente nessa fila e não é sub judice/gestante é tratado como já saído, mesmo sem constar no PDF da complementar (buraco documental)."
+      "label": "No curso (doc. ausente)",
+      "caveat": "Com certeza já foi convocado/entrou: a complementar do segmento PcD chegou até a classificação 56, e nota menor não passa na frente de nota maior na mesma fila. O PDF intermediário dessa convocação ainda não está no repositório; por isso o marcador é 'No curso (doc. ausente)'."
     },
     "already_called": true,
     "in_remaining_queue": false,
@@ -10005,7 +10007,8 @@
       "rank_field": "rank_pcd",
       "rank": 50,
       "evidence_max_rank": 56,
-      "caveat": "Inferência: a complementar do segmento PcD convocou até classificação 56. Quem está à frente nessa fila e não é sub judice/gestante é tratado como já saído, mesmo sem constar no PDF da complementar (buraco documental)."
+      "label": "No curso (doc. ausente)",
+      "caveat": "Com certeza já foi convocado/entrou: a complementar do segmento PcD chegou até a classificação 56, e nota menor não passa na frente de nota maior na mesma fila. O PDF intermediário dessa convocação ainda não está no repositório; por isso o marcador é 'No curso (doc. ausente)'."
     },
     "already_called": true,
     "in_remaining_queue": false,
@@ -13402,7 +13405,8 @@
       "rank_field": "rank_negro",
       "rank": 201,
       "evidence_max_rank": 230,
-      "caveat": "Inferência: a complementar do segmento Negro convocou até classificação 230. Quem está à frente nessa fila e não é sub judice/gestante é tratado como já saído, mesmo sem constar no PDF da complementar (buraco documental)."
+      "label": "No curso (doc. ausente)",
+      "caveat": "Com certeza já foi convocado/entrou: a complementar do segmento Negro chegou até a classificação 230, e nota menor não passa na frente de nota maior na mesma fila. O PDF intermediário dessa convocação ainda não está no repositório; por isso o marcador é 'No curso (doc. ausente)'."
     },
     "already_called": true,
     "in_remaining_queue": false,
@@ -24503,7 +24507,8 @@
       "rank_field": "rank_negro",
       "rank": 205,
       "evidence_max_rank": 230,
-      "caveat": "Inferência: a complementar do segmento Negro convocou até classificação 230. Quem está à frente nessa fila e não é sub judice/gestante é tratado como já saído, mesmo sem constar no PDF da complementar (buraco documental)."
+      "label": "No curso (doc. ausente)",
+      "caveat": "Com certeza já foi convocado/entrou: a complementar do segmento Negro chegou até a classificação 230, e nota menor não passa na frente de nota maior na mesma fila. O PDF intermediário dessa convocação ainda não está no repositório; por isso o marcador é 'No curso (doc. ausente)'."
     },
     "already_called": true,
     "in_remaining_queue": false,
@@ -32853,7 +32858,8 @@
       "rank_field": "rank_geral",
       "rank": 597,
       "evidence_max_rank": 648,
-      "caveat": "Inferência: a complementar do segmento Ampla convocou até classificação 648. Quem está à frente nessa fila e não é sub judice/gestante é tratado como já saído, mesmo sem constar no PDF da complementar (buraco documental)."
+      "label": "No curso (doc. ausente)",
+      "caveat": "Com certeza já foi convocado/entrou: a complementar do segmento Ampla chegou até a classificação 648, e nota menor não passa na frente de nota maior na mesma fila. O PDF intermediário dessa convocação ainda não está no repositório; por isso o marcador é 'No curso (doc. ausente)'."
     },
     "called_override": true,
     "override_meta": {
@@ -34329,7 +34335,8 @@
       "rank_field": "rank_pcd",
       "rank": 51,
       "evidence_max_rank": 56,
-      "caveat": "Inferência: a complementar do segmento PcD convocou até classificação 56. Quem está à frente nessa fila e não é sub judice/gestante é tratado como já saído, mesmo sem constar no PDF da complementar (buraco documental)."
+      "label": "No curso (doc. ausente)",
+      "caveat": "Com certeza já foi convocado/entrou: a complementar do segmento PcD chegou até a classificação 56, e nota menor não passa na frente de nota maior na mesma fila. O PDF intermediário dessa convocação ainda não está no repositório; por isso o marcador é 'No curso (doc. ausente)'."
     },
     "already_called": true,
     "in_remaining_queue": false,
@@ -39622,7 +39629,8 @@
       "rank_field": "rank_negro",
       "rank": 198,
       "evidence_max_rank": 230,
-      "caveat": "Inferência: a complementar do segmento Negro convocou até classificação 230. Quem está à frente nessa fila e não é sub judice/gestante é tratado como já saído, mesmo sem constar no PDF da complementar (buraco documental)."
+      "label": "No curso (doc. ausente)",
+      "caveat": "Com certeza já foi convocado/entrou: a complementar do segmento Negro chegou até a classificação 230, e nota menor não passa na frente de nota maior na mesma fila. O PDF intermediário dessa convocação ainda não está no repositório; por isso o marcador é 'No curso (doc. ausente)'."
     },
     "already_called": true,
     "in_remaining_queue": false,
@@ -41129,7 +41137,8 @@
       "rank_field": "rank_negro",
       "rank": 209,
       "evidence_max_rank": 230,
-      "caveat": "Inferência: a complementar do segmento Negro convocou até classificação 230. Quem está à frente nessa fila e não é sub judice/gestante é tratado como já saído, mesmo sem constar no PDF da complementar (buraco documental)."
+      "label": "No curso (doc. ausente)",
+      "caveat": "Com certeza já foi convocado/entrou: a complementar do segmento Negro chegou até a classificação 230, e nota menor não passa na frente de nota maior na mesma fila. O PDF intermediário dessa convocação ainda não está no repositório; por isso o marcador é 'No curso (doc. ausente)'."
     },
     "already_called": true,
     "in_remaining_queue": false,
@@ -41664,7 +41673,8 @@
       "rank_field": "rank_negro",
       "rank": 214,
       "evidence_max_rank": 230,
-      "caveat": "Inferência: a complementar do segmento Negro convocou até classificação 230. Quem está à frente nessa fila e não é sub judice/gestante é tratado como já saído, mesmo sem constar no PDF da complementar (buraco documental)."
+      "label": "No curso (doc. ausente)",
+      "caveat": "Com certeza já foi convocado/entrou: a complementar do segmento Negro chegou até a classificação 230, e nota menor não passa na frente de nota maior na mesma fila. O PDF intermediário dessa convocação ainda não está no repositório; por isso o marcador é 'No curso (doc. ausente)'."
     },
     "already_called": true,
     "in_remaining_queue": false,
@@ -43363,7 +43373,8 @@
       "rank_field": "rank_negro",
       "rank": 215,
       "evidence_max_rank": 230,
-      "caveat": "Inferência: a complementar do segmento Negro convocou até classificação 230. Quem está à frente nessa fila e não é sub judice/gestante é tratado como já saído, mesmo sem constar no PDF da complementar (buraco documental)."
+      "label": "No curso (doc. ausente)",
+      "caveat": "Com certeza já foi convocado/entrou: a complementar do segmento Negro chegou até a classificação 230, e nota menor não passa na frente de nota maior na mesma fila. O PDF intermediário dessa convocação ainda não está no repositório; por isso o marcador é 'No curso (doc. ausente)'."
     },
     "already_called": true,
     "in_remaining_queue": false,
@@ -47402,7 +47413,8 @@
       "rank_field": "rank_negro",
       "rank": 207,
       "evidence_max_rank": 230,
-      "caveat": "Inferência: a complementar do segmento Negro convocou até classificação 230. Quem está à frente nessa fila e não é sub judice/gestante é tratado como já saído, mesmo sem constar no PDF da complementar (buraco documental)."
+      "label": "No curso (doc. ausente)",
+      "caveat": "Com certeza já foi convocado/entrou: a complementar do segmento Negro chegou até a classificação 230, e nota menor não passa na frente de nota maior na mesma fila. O PDF intermediário dessa convocação ainda não está no repositório; por isso o marcador é 'No curso (doc. ausente)'."
     },
     "already_called": true,
     "in_remaining_queue": false,
@@ -50862,7 +50874,8 @@
       "rank_field": "rank_negro",
       "rank": 206,
       "evidence_max_rank": 230,
-      "caveat": "Inferência: a complementar do segmento Negro convocou até classificação 230. Quem está à frente nessa fila e não é sub judice/gestante é tratado como já saído, mesmo sem constar no PDF da complementar (buraco documental)."
+      "label": "No curso (doc. ausente)",
+      "caveat": "Com certeza já foi convocado/entrou: a complementar do segmento Negro chegou até a classificação 230, e nota menor não passa na frente de nota maior na mesma fila. O PDF intermediário dessa convocação ainda não está no repositório; por isso o marcador é 'No curso (doc. ausente)'."
     },
     "already_called": true,
     "in_remaining_queue": false,
@@ -65785,7 +65798,8 @@
       "rank_field": "rank_negro",
       "rank": 196,
       "evidence_max_rank": 230,
-      "caveat": "Inferência: a complementar do segmento Negro convocou até classificação 230. Quem está à frente nessa fila e não é sub judice/gestante é tratado como já saído, mesmo sem constar no PDF da complementar (buraco documental)."
+      "label": "No curso (doc. ausente)",
+      "caveat": "Com certeza já foi convocado/entrou: a complementar do segmento Negro chegou até a classificação 230, e nota menor não passa na frente de nota maior na mesma fila. O PDF intermediário dessa convocação ainda não está no repositório; por isso o marcador é 'No curso (doc. ausente)'."
     },
     "already_called": true,
     "in_remaining_queue": false,
@@ -69851,7 +69865,8 @@
       "rank_field": "rank_negro",
       "rank": 204,
       "evidence_max_rank": 230,
-      "caveat": "Inferência: a complementar do segmento Negro convocou até classificação 230. Quem está à frente nessa fila e não é sub judice/gestante é tratado como já saído, mesmo sem constar no PDF da complementar (buraco documental)."
+      "label": "No curso (doc. ausente)",
+      "caveat": "Com certeza já foi convocado/entrou: a complementar do segmento Negro chegou até a classificação 230, e nota menor não passa na frente de nota maior na mesma fila. O PDF intermediário dessa convocação ainda não está no repositório; por isso o marcador é 'No curso (doc. ausente)'."
     },
     "already_called": true,
     "in_remaining_queue": false,
@@ -75354,7 +75369,8 @@
       "rank_field": "rank_negro",
       "rank": 213,
       "evidence_max_rank": 230,
-      "caveat": "Inferência: a complementar do segmento Negro convocou até classificação 230. Quem está à frente nessa fila e não é sub judice/gestante é tratado como já saído, mesmo sem constar no PDF da complementar (buraco documental)."
+      "label": "No curso (doc. ausente)",
+      "caveat": "Com certeza já foi convocado/entrou: a complementar do segmento Negro chegou até a classificação 230, e nota menor não passa na frente de nota maior na mesma fila. O PDF intermediário dessa convocação ainda não está no repositório; por isso o marcador é 'No curso (doc. ausente)'."
     },
     "already_called": true,
     "in_remaining_queue": false,
@@ -83443,7 +83459,8 @@
       "rank_field": "rank_negro",
       "rank": 208,
       "evidence_max_rank": 230,
-      "caveat": "Inferência: a complementar do segmento Negro convocou até classificação 230. Quem está à frente nessa fila e não é sub judice/gestante é tratado como já saído, mesmo sem constar no PDF da complementar (buraco documental)."
+      "label": "No curso (doc. ausente)",
+      "caveat": "Com certeza já foi convocado/entrou: a complementar do segmento Negro chegou até a classificação 230, e nota menor não passa na frente de nota maior na mesma fila. O PDF intermediário dessa convocação ainda não está no repositório; por isso o marcador é 'No curso (doc. ausente)'."
     },
     "already_called": true,
     "in_remaining_queue": false,
@@ -89867,7 +89884,8 @@
       "rank_field": "rank_geral",
       "rank": 633,
       "evidence_max_rank": 648,
-      "caveat": "Inferência: a complementar do segmento Ampla convocou até classificação 648. Quem está à frente nessa fila e não é sub judice/gestante é tratado como já saído, mesmo sem constar no PDF da complementar (buraco documental)."
+      "label": "No curso (doc. ausente)",
+      "caveat": "Com certeza já foi convocado/entrou: a complementar do segmento Ampla chegou até a classificação 648, e nota menor não passa na frente de nota maior na mesma fila. O PDF intermediário dessa convocação ainda não está no repositório; por isso o marcador é 'No curso (doc. ausente)'."
     },
     "already_called": true,
     "in_remaining_queue": false,
@@ -98691,7 +98709,8 @@
       "rank_field": "rank_negro",
       "rank": 203,
       "evidence_max_rank": 230,
-      "caveat": "Inferência: a complementar do segmento Negro convocou até classificação 230. Quem está à frente nessa fila e não é sub judice/gestante é tratado como já saído, mesmo sem constar no PDF da complementar (buraco documental)."
+      "label": "No curso (doc. ausente)",
+      "caveat": "Com certeza já foi convocado/entrou: a complementar do segmento Negro chegou até a classificação 230, e nota menor não passa na frente de nota maior na mesma fila. O PDF intermediário dessa convocação ainda não está no repositório; por isso o marcador é 'No curso (doc. ausente)'."
     },
     "already_called": true,
     "in_remaining_queue": false,
@@ -101374,7 +101393,8 @@
       "rank_field": "rank_negro",
       "rank": 211,
       "evidence_max_rank": 230,
-      "caveat": "Inferência: a complementar do segmento Negro convocou até classificação 230. Quem está à frente nessa fila e não é sub judice/gestante é tratado como já saído, mesmo sem constar no PDF da complementar (buraco documental)."
+      "label": "No curso (doc. ausente)",
+      "caveat": "Com certeza já foi convocado/entrou: a complementar do segmento Negro chegou até a classificação 230, e nota menor não passa na frente de nota maior na mesma fila. O PDF intermediário dessa convocação ainda não está no repositório; por isso o marcador é 'No curso (doc. ausente)'."
     },
     "already_called": true,
     "in_remaining_queue": false,
@@ -102239,7 +102259,8 @@
       "rank_field": "rank_negro",
       "rank": 202,
       "evidence_max_rank": 230,
-      "caveat": "Inferência: a complementar do segmento Negro convocou até classificação 230. Quem está à frente nessa fila e não é sub judice/gestante é tratado como já saído, mesmo sem constar no PDF da complementar (buraco documental)."
+      "label": "No curso (doc. ausente)",
+      "caveat": "Com certeza já foi convocado/entrou: a complementar do segmento Negro chegou até a classificação 230, e nota menor não passa na frente de nota maior na mesma fila. O PDF intermediário dessa convocação ainda não está no repositório; por isso o marcador é 'No curso (doc. ausente)'."
     },
     "already_called": true,
     "in_remaining_queue": false,
@@ -105621,7 +105642,8 @@
       "rank_field": "rank_negro",
       "rank": 197,
       "evidence_max_rank": 230,
-      "caveat": "Inferência: a complementar do segmento Negro convocou até classificação 230. Quem está à frente nessa fila e não é sub judice/gestante é tratado como já saído, mesmo sem constar no PDF da complementar (buraco documental)."
+      "label": "No curso (doc. ausente)",
+      "caveat": "Com certeza já foi convocado/entrou: a complementar do segmento Negro chegou até a classificação 230, e nota menor não passa na frente de nota maior na mesma fila. O PDF intermediário dessa convocação ainda não está no repositório; por isso o marcador é 'No curso (doc. ausente)'."
     },
     "already_called": true,
     "in_remaining_queue": false,
@@ -112006,7 +112028,8 @@
       "rank_field": "rank_negro",
       "rank": 210,
       "evidence_max_rank": 230,
-      "caveat": "Inferência: a complementar do segmento Negro convocou até classificação 230. Quem está à frente nessa fila e não é sub judice/gestante é tratado como já saído, mesmo sem constar no PDF da complementar (buraco documental)."
+      "label": "No curso (doc. ausente)",
+      "caveat": "Com certeza já foi convocado/entrou: a complementar do segmento Negro chegou até a classificação 230, e nota menor não passa na frente de nota maior na mesma fila. O PDF intermediário dessa convocação ainda não está no repositório; por isso o marcador é 'No curso (doc. ausente)'."
     },
     "already_called": true,
     "in_remaining_queue": false,
@@ -118754,7 +118777,8 @@
       "rank_field": "rank_negro",
       "rank": 199,
       "evidence_max_rank": 230,
-      "caveat": "Inferência: a complementar do segmento Negro convocou até classificação 230. Quem está à frente nessa fila e não é sub judice/gestante é tratado como já saído, mesmo sem constar no PDF da complementar (buraco documental)."
+      "label": "No curso (doc. ausente)",
+      "caveat": "Com certeza já foi convocado/entrou: a complementar do segmento Negro chegou até a classificação 230, e nota menor não passa na frente de nota maior na mesma fila. O PDF intermediário dessa convocação ainda não está no repositório; por isso o marcador é 'No curso (doc. ausente)'."
     },
     "already_called": true,
     "in_remaining_queue": false,
@@ -122169,7 +122193,8 @@
       "rank_field": "rank_geral",
       "rank": 616,
       "evidence_max_rank": 648,
-      "caveat": "Inferência: a complementar do segmento Ampla convocou até classificação 648. Quem está à frente nessa fila e não é sub judice/gestante é tratado como já saído, mesmo sem constar no PDF da complementar (buraco documental)."
+      "label": "No curso (doc. ausente)",
+      "caveat": "Com certeza já foi convocado/entrou: a complementar do segmento Ampla chegou até a classificação 648, e nota menor não passa na frente de nota maior na mesma fila. O PDF intermediário dessa convocação ainda não está no repositório; por isso o marcador é 'No curso (doc. ausente)'."
     },
     "already_called": true,
     "in_remaining_queue": false,

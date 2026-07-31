@@ -130,7 +130,7 @@ class TestT1CallBoundaries(unittest.TestCase):
         self.assertIn("Daniel Cruz Pereira", first_regular["name"])
 
     def test_negro_gap_inferred_before_complementar(self):
-        """Complementar Negro starts at #216; #196-215 Regular must be inferred out."""
+        """Complementar Negro starts at #216; #196-215 Regular = No curso (doc. ausente)."""
         pb = self.by_pedido[
             next(
                 c["pedido"]

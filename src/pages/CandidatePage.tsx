@@ -75,7 +75,7 @@ export function CandidatePage() {
                 : c.called_complementar
                   ? 'Complementar'
                   : c.called_inferred_gap
-                    ? 'Inferido (buraco)'
+                    ? 'No curso (doc. ausente)'
                     : 'Curso (override)'}
             </Chip>
           ) : (

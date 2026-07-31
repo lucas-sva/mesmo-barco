@@ -549,11 +549,13 @@ def infer_calls_from_complementar_gaps(merged: list[dict]) -> list[dict]:
                 "rank_field": field,
                 "rank": r,
                 "evidence_max_rank": r_max,
+                "label": "No curso (doc. ausente)",
                 "caveat": (
-                    f"Inferência: a complementar do segmento {seg} convocou até "
-                    f"classificação {r_max}. Quem está à frente nessa fila e não "
-                    f"é sub judice/gestante é tratado como já saído, mesmo sem "
-                    f"constar no PDF da complementar (buraco documental)."
+                    f"Com certeza já foi convocado/entrou: a complementar do "
+                    f"segmento {seg} chegou até a classificação {r_max}, e nota "
+                    f"menor não passa na frente de nota maior na mesma fila. "
+                    f"O PDF intermediário dessa convocação ainda não está no "
+                    f"repositório; por isso o marcador é 'No curso (doc. ausente)'."
                 ),
             }
             inferred.append(
@@ -1060,11 +1062,12 @@ def main() -> None:
                 "caveat": (
                     "Sem lista pública de quem da T1/complementar ficou inapto ou "
                     "desistiu de fato, a fila restante é a do papel. "
-                    "Quando a complementar convoca alguém mais atrás e deixa um "
-                    "buraco à frente, o app infere que esses nomes já saíram "
-                    "(ressalva: falta o documento intermediário). "
-                    "Sub judice e gestante não entram nessa inferência. "
-                    "Overrides manuais ficam em raw/overrides-already-called.json."
+                    "Quando a complementar convoca alguém mais atrás e deixa nomes "
+                    "melhores de fora do PDF, o app marca esses Regular/Apto como "
+                    "'No curso (doc. ausente)': a convocação existiu; falta só o "
+                    "arquivo intermediário no repo. Sub judice e gestante não entram "
+                    "nessa marcação. Overrides manuais: "
+                    "raw/overrides-already-called.json."
                 ),
             },
         },
@@ -1093,13 +1096,16 @@ def main() -> None:
         },
         "gap_inference": {
             "description": (
-                "Se a complementar de um segmento convocou até a classificação R, "
-                "candidatos regulares/apto com classificação <= R nesse segmento "
-                "que não aparecem nas listas oficiais são marcados como já saídos. "
-                "Premissa: classificação pior não passa na frente de classificação "
-                "melhor na mesma fila. Sub judice e gestante ficam de fora da "
-                "inferência. Falta documento intermediário; tratamos como ressalva."
+                "Fechamento de lacuna documental por segmento. Se a complementar "
+                "convocou até a classificação R, candidatos Regular/Apto com "
+                "classificação <= R nesse segmento que não aparecem nos PDFs de "
+                "T1/complementar são marcados como 'No curso (doc. ausente)'. "
+                "Premissa jurídica: classificação pior não passa na frente de "
+                "melhor na mesma fila. Ou seja: eles já entraram; o que falta é o "
+                "documento intermediário no repositório. Sub judice e gestante "
+                "ficam de fora dessa marcação."
             ),
+            "label": "No curso (doc. ausente)",
             "inferred": gap_inferred,
             "by_segment": {
                 seg: sum(1 for x in gap_inferred if x["segment"] == seg)

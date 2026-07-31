@@ -114,11 +114,13 @@ export function HowPage() {
           "pediu fim de fila".
         </p>
         {meta.gap_inference && (
-          <div className="mt-3 rounded-xl border border-warn/40 bg-[#f8e8e5] px-3 py-3 text-sm space-y-2">
-            <p className="font-medium">Buracos na complementar (inferência)</p>
+          <div className="mt-3 rounded-xl border border-sea/40 bg-sea/10 px-3 py-3 text-sm space-y-2">
+            <p className="font-medium">
+              {meta.gap_inference.label ?? 'No curso (doc. ausente)'}
+            </p>
             <p>{meta.gap_inference.description}</p>
             <p className="text-xs text-ink-soft">
-              Marcados assim: Ampla {meta.gap_inference.by_segment?.Ampla ?? 0}, Negro{' '}
+              Quantidade: Ampla {meta.gap_inference.by_segment?.Ampla ?? 0}, Negro{' '}
               {meta.gap_inference.by_segment?.Negro ?? 0}, PcD{' '}
               {meta.gap_inference.by_segment?.PcD ?? 0}.
             </p>

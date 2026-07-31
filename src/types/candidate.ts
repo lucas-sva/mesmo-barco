@@ -118,6 +118,7 @@ export type Meta = {
   }
   gap_inference?: {
     description: string
+    label?: string
     inferred: Array<Record<string, unknown>>
     by_segment: Record<string, number>
   }

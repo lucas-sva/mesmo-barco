@@ -57,9 +57,9 @@ export function explainCandidate(c: Candidate, all: Candidate[], meta: Meta): Wh
   } else if (c.called_inferred_gap) {
     bullets.push(
       c.gap_inference_meta?.caveat ??
-        'Inferência por buraco na complementar: alguém com classificação pior foi convocado no mesmo segmento, então quem estava à frente é tratado como já saído (documento intermediário ausente).',
+        "Já está no curso: a complementar do mesmo segmento convocou gente com classificação pior, então quem estava à frente já tinha sido chamado. O PDF dessa convocação intermediária ainda não está no repositório (marcador: No curso · doc. ausente).",
     )
-    sources.push('Inferência a partir de raw/chamada-complementar-OIPCE.md')
+    sources.push('Fechamento de lacuna a partir de raw/chamada-complementar-OIPCE.md')
   } else {
     if (queueStatusOf(c) === 'sub_judice') {
       bullets.push(
@@ -153,7 +153,7 @@ export function explainCandidate(c: Candidate, all: Candidate[], meta: Meta): Wh
 
   const headline = c.already_called
     ? c.called_inferred_gap && !c.called_t1 && !c.called_complementar && !c.called_override
-      ? 'Situação: inferido como já saído (buraco na complementar)'
+      ? 'Situação: no curso (documento de convocação ainda ausente no repo)'
       : c.called_override && !c.called_t1 && !c.called_complementar
         ? 'Situação: já no curso (override; documento oficial ainda pendente no repo)'
         : 'Situação: já convocado (T1 ou complementar)'

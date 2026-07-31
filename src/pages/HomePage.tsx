@@ -84,7 +84,7 @@ export function HomePage() {
                         : c.called_complementar
                           ? ' · complementar'
                           : c.called_inferred_gap
-                            ? ' · inferido (buraco)'
+                            ? ' · no curso (doc. ausente)'
                             : ' · curso (override)'
                       : ' · na fila'}
                     {c.queue_status === 'gestante_fim_fila'

@@ -1,21 +1,32 @@
-# Documentos brutos (FUNECE / PCCE)
+# Documentos brutos (PC/CE · CEV/UECE)
 
-Coloca aqui **cópias locais** dos arquivos oficiais (PDF, XLS, HTML exportado, etc.).  
-Nomes claros ajudam: `2025-XX-XX_lista-aprovados-homologacao.pdf`.
+Cópias locais dos oficiais. O parser usa os `.md` (texto). PDFs ficam pra
+conferência humana.
 
-## Checklist (vamos completar juntos)
+## Presentes no repo
 
-- [ ] Edital / retificação com regras de cotas e ordem de chamamento
-- [ ] Lista final de **aprovados** (todas as fases / homologação)
-- [ ] Resultado / ranking oficial (se existir separado da lista de aprovados)
-- [ ] **1ª chamada** — 500 imediatas + 250 CR (listas por modalidade/cota)
-- [ ] **Chamada complementar** (~50 vagas)
-- [ ] Qualquer comunicado sobre desistência, remoção de nome, nova convocação
-- [ ] Tabelas de vagas por cargo/modalidade (imediata vs CR)
+- [x] Edital 01 (`edital-OIPCE.md`)
+- [x] Edital 02 / vagas (`edital-alt-OIPCE.md`)
+- [x] Edital 16 (`edital-16-OIPCE.md` + pdf)
+- [x] Lei 19.706 (`lei-19706.md` + pdf)
+- [x] Comunicado 166 notas (`comunicado-166-oipce.md` + pdf)
+- [x] Edital 17 classificação (`chamada-T1-DOE-OIPCE.md`)
+- [x] Chamada T1 inspeção/docs (`chamada-T1-OIPCE.md`)
+- [x] Chamada complementar (`chamada-complementar-OIPCE.md`)
+- [x] Overrides manuais (`overrides-already-called.json`)
+
+## Ainda faltando (útil pra fechar lacunas)
+
+- [ ] Lista intermediária / nomeação / matrícula no curso que cubra os nomes
+      marcados no app como **No curso (doc. ausente)** (ver `meta.json` →
+      `gap_inference`)
+- [ ] Lista pública de desistentes / inaptos após as chamadas
+- [ ] Qualquer retificação posterior às listas acima
 
 ## Privacidade
 
-Evita subir dados pessoais **seus** além do que já é público nos PDFs.  
-PDFs oficiais já expõem CPF parcial/nome — isso é dado público da banca, mas pensa antes de commitar arquivos enormes; dá pra manter só no disco e versionar só o JSON processado (combinamos no plano).
+Só dado já público da banca. Evita subir material pessoal extra.
 
-## `_extracted/`
+## Como o parser usa isto
+
+Ver [docs/AUDITORIA.md](../docs/AUDITORIA.md).
