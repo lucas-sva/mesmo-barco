@@ -74,7 +74,9 @@ export function CandidatePage() {
                   : `T1 · ${c.classified_as}`
                 : c.called_complementar
                   ? 'Complementar'
-                  : 'Curso (override)'}
+                  : c.called_inferred_gap
+                    ? 'Inferido (buraco)'
+                    : 'Curso (override)'}
             </Chip>
           ) : (
             <Chip tone="warn">Ainda na fila</Chip>

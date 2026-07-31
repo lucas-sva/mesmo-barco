@@ -495,6 +495,81 @@ def reverse_engineer_t1_call_order(candidates: list[dict]) -> list[dict]:
         )
     return sequence
 
+def infer_calls_from_complementar_gaps(merged: list[dict]) -> list[dict]:
+    """If complementar called rank R, better ranks in that segment already left.
+
+    Official lists sometimes skip contiguous ranks (ex.: Negro complementar
+    starts at #216 while T1 Negro ended at #195). Juridically, a lower
+    classification cannot pass a higher one on the same list. We mark the
+    missing Regular/Apto names as already called, with an explicit caveat.
+    Sub judice and gestante stay deferred (same skip pattern as T1).
+    """
+    specs = [
+        ("Ampla", "rank_geral", lambda p: p.get("segment") == "Ampla"),
+        (
+            "Negro",
+            "rank_negro",
+            lambda p: p.get("rank_negro") is not None
+            and p.get("segment") in ("Negro", "Negro e PcD"),
+        ),
+        (
+            "PcD",
+            "rank_pcd",
+            lambda p: p.get("rank_pcd") is not None
+            and p.get("segment") in ("PcD", "Negro e PcD"),
+        ),
+    ]
+    inferred: list[dict] = []
+    for seg, field, eligible in specs:
+        comp = [
+            p
+            for p in merged
+            if p.get("called_complementar")
+            and (p.get("complementar_meta") or {}).get("segment_call") == seg
+            and p.get(field) is not None
+        ]
+        if not comp:
+            continue
+        r_max = max(p[field] for p in comp)
+        for p in merged:
+            if not eligible(p):
+                continue
+            r = p.get(field)
+            if r is None or r > r_max:
+                continue
+            if p.get("called_t1") or p.get("called_complementar") or p.get("called_override"):
+                continue
+            if p.get("condition") == "Sub judice":
+                continue
+            if (p.get("taf") or "").lower() == "gestante" or p.get("gestante_condicional"):
+                continue
+            p["called_inferred_gap"] = True
+            p["gap_inference_meta"] = {
+                "segment": seg,
+                "rank_field": field,
+                "rank": r,
+                "evidence_max_rank": r_max,
+                "caveat": (
+                    f"Inferência: a complementar do segmento {seg} convocou até "
+                    f"classificação {r_max}. Quem está à frente nessa fila e não "
+                    f"é sub judice/gestante é tratado como já saído, mesmo sem "
+                    f"constar no PDF da complementar (buraco documental)."
+                ),
+            }
+            inferred.append(
+                {
+                    "pedido": p["pedido"],
+                    "name": p["name"],
+                    "segment": seg,
+                    "rank_field": field,
+                    "rank": r,
+                    "score": p.get("scores", {}).get("total"),
+                    "evidence_max_rank": r_max,
+                }
+            )
+    return inferred
+
+
 def _boundary_row(c: dict) -> dict:
     return {
         "pedido": c["pedido"],
@@ -777,8 +852,12 @@ def main() -> None:
         p["t1_cr_list"] = None
         p["called_t1"] = False
         p["called_complementar"] = False
+        p["called_inferred_gap"] = False
         p.pop("complementar_meta", None)
         p.pop("t1_call_meta", None)
+        p.pop("gap_inference_meta", None)
+        p.pop("called_override", None)
+        p.pop("override_meta", None)
 
     # 1) From official T1 medical/docs call list (~750)
     unmatched_t1 = []
@@ -824,6 +903,9 @@ def main() -> None:
         # complementar may call people already in T1 list (backfill) or next ones
         hit["called_t1"] = hit.get("called_t1", False)
 
+    # 2b) Infer missing names ahead of complementar ranks (document gaps)
+    gap_inferred = infer_calls_from_complementar_gaps(merged)
+
     # 3) Manual overrides (nomeação / matrícula no curso ainda sem MD no repo)
     overrides_path = RAW / "overrides-already-called.json"
     override_hits = []
@@ -834,18 +916,19 @@ def main() -> None:
             hit = next((p for p in merged if p["pedido"] == pedido), None)
             if not hit:
                 continue
-            hit["already_called"] = True
             hit["called_override"] = True
             hit["override_meta"] = {
                 "reason": entry.get("reason"),
                 "source": entry.get("source"),
             }
-            # keep called_t1 false unless already true; override alone removes from queue
             override_hits.append(pedido)
 
     for p in merged:
         p["already_called"] = bool(
-            p["called_t1"] or p["called_complementar"] or p.get("called_override")
+            p["called_t1"]
+            or p["called_complementar"]
+            or p.get("called_override")
+            or p.get("called_inferred_gap")
         )
         p["in_remaining_queue"] = not p["already_called"]
 
@@ -977,10 +1060,11 @@ def main() -> None:
                 "caveat": (
                     "Sem lista pública de quem da T1/complementar ficou inapto ou "
                     "desistiu de fato, a fila restante é a do papel. "
-                    "Também não temos (ainda) a lista de nomeação / matrícula no "
-                    "curso de formação: quem entrou no curso fora da chamada de "
-                    "inspeção/docs e da complementar só entra no desconto via "
-                    "raw/overrides-already-called.json com fonte citada."
+                    "Quando a complementar convoca alguém mais atrás e deixa um "
+                    "buraco à frente, o app infere que esses nomes já saíram "
+                    "(ressalva: falta o documento intermediário). "
+                    "Sub judice e gestante não entram nessa inferência. "
+                    "Overrides manuais ficam em raw/overrides-already-called.json."
                 ),
             },
         },
@@ -1005,6 +1089,22 @@ def main() -> None:
                 1 for p in merged if p["called_t1"] and p["sex"] == "F"
             ),
             "override_called": len(override_hits),
+            "gap_inferred_called": len(gap_inferred),
+        },
+        "gap_inference": {
+            "description": (
+                "Se a complementar de um segmento convocou até a classificação R, "
+                "candidatos regulares/apto com classificação <= R nesse segmento "
+                "que não aparecem nas listas oficiais são marcados como já saídos. "
+                "Premissa: classificação pior não passa na frente de classificação "
+                "melhor na mesma fila. Sub judice e gestante ficam de fora da "
+                "inferência. Falta documento intermediário; tratamos como ressalva."
+            ),
+            "inferred": gap_inferred,
+            "by_segment": {
+                seg: sum(1 for x in gap_inferred if x["segment"] == seg)
+                for seg in ("Ampla", "Negro", "PcD")
+            },
         },
         "t1_boundaries": _compute_t1_boundaries(merged, t1_call, ampla_skips),
         "calling_model_observed": {

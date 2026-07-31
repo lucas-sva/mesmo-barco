@@ -48,6 +48,14 @@ export type Candidate = {
   called_complementar: boolean
   called_override?: boolean
   override_meta?: { reason?: string; source?: string }
+  called_inferred_gap?: boolean
+  gap_inference_meta?: {
+    segment: string
+    rank_field: string
+    rank: number
+    evidence_max_rank: number
+    caveat: string
+  }
   already_called: boolean
   in_remaining_queue: boolean
   source_scores?: string | null
@@ -107,6 +115,11 @@ export type Meta = {
     skip_hypothesis?: string
     beatriz_carvalho_de_morais_6906?: Record<string, unknown> | null
     note: string
+  }
+  gap_inference?: {
+    description: string
+    inferred: Array<Record<string, unknown>>
+    by_segment: Record<string, number>
   }
   calling_model_observed?: {
     description: string

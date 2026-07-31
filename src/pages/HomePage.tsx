@@ -83,7 +83,9 @@ export function HomePage() {
                           : ` · T1 (${c.classified_as ?? 'imediata'})`
                         : c.called_complementar
                           ? ' · complementar'
-                          : ' · curso (override)'
+                          : c.called_inferred_gap
+                            ? ' · inferido (buraco)'
+                            : ' · curso (override)'
                       : ' · na fila'}
                     {c.queue_status === 'gestante_fim_fila'
                       ? ' · gestante/fim de fila'

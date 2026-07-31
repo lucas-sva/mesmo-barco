@@ -125,9 +125,38 @@ class TestT1CallBoundaries(unittest.TestCase):
             and c.get("queue_status") == "regular"
             and c.get("taf") == "Apto"
         )
-        # João Marcelo #616 is first Ampla Regular Apto remaining after Beatriz override
-        self.assertEqual(first_regular["rank_geral"], 616)
-        self.assertIn("Joao Marcelo", first_regular["name"])
+        # After complementar-gap inference, first Ampla Regular Apto remaining is #649
+        self.assertEqual(first_regular["rank_geral"], 649)
+        self.assertIn("Daniel Cruz Pereira", first_regular["name"])
+
+    def test_negro_gap_inferred_before_complementar(self):
+        """Complementar Negro starts at #216; #196-215 Regular must be inferred out."""
+        pb = self.by_pedido[
+            next(
+                c["pedido"]
+                for c in self.cands
+                if c["name"] == "Paulo Bruno da Silva Sobrinho"
+            )
+        ]
+        self.assertEqual(pb["rank_negro"], 196)
+        self.assertTrue(pb.get("called_inferred_gap"))
+        self.assertTrue(pb["already_called"])
+        self.assertFalse(pb["in_remaining_queue"])
+
+        rem_98 = [
+            c
+            for c in self.cands
+            if c["in_remaining_queue"]
+            and c.get("rank_negro")
+            and abs(c["scores"]["total"] - 98.25) < 0.01
+            and c["condition"] != "Sub judice"
+        ]
+        self.assertEqual(rem_98, [])
+
+        summary = self.meta["gap_inference"]["by_segment"]
+        self.assertGreaterEqual(summary["Negro"], 19)
+        self.assertGreaterEqual(summary["Ampla"], 2)
+        self.assertGreaterEqual(summary["PcD"], 3)
 
     def test_meta_boundaries_exported(self):
         b = self.meta["t1_boundaries"]

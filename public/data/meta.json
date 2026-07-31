@@ -91,7 +91,7 @@
     },
     "calling_model": {
       "summary": "A T1 reuniu 500 vagas imediatas + 250 do cadastro de reserva (Edital 02). Quem está como Classificado no Edital 17 são as imediatas; os 250 CR constam no comunicado de inspeção/docs da T1. A complementar (~54) só repôs desistência/vaga não preenchida. A simulação de T2 parte de quem sobrou DEPOIS disso.",
-      "caveat": "Sem lista pública de quem da T1/complementar ficou inapto ou desistiu de fato, a fila restante é a do papel. Também não temos (ainda) a lista de nomeação / matrícula no curso de formação: quem entrou no curso fora da chamada de inspeção/docs e da complementar só entra no desconto via raw/overrides-already-called.json com fonte citada."
+      "caveat": "Sem lista pública de quem da T1/complementar ficou inapto ou desistiu de fato, a fila restante é a do papel. Quando a complementar convoca alguém mais atrás e deixa um buraco à frente, o app infere que esses nomes já saíram (ressalva: falta o documento intermediário). Sub judice e gestante não entram nessa inferência. Overrides manuais ficam em raw/overrides-already-called.json."
     }
   },
   "stats": {
@@ -109,10 +109,246 @@
     "t1_call_unmatched": [],
     "t1_call_unmatched_count": 0,
     "t1_structural_cr_added": 0,
-    "already_called": 816,
-    "remaining": 1501,
+    "already_called": 840,
+    "remaining": 1477,
     "women_in_t1": 243,
-    "override_called": 1
+    "override_called": 1,
+    "gap_inferred_called": 25
+  },
+  "gap_inference": {
+    "description": "Se a complementar de um segmento convocou até a classificação R, candidatos regulares/apto com classificação <= R nesse segmento que não aparecem nas listas oficiais são marcados como já saídos. Premissa: classificação pior não passa na frente de classificação melhor na mesma fila. Sub judice e gestante ficam de fora da inferência. Falta documento intermediário; tratamos como ressalva.",
+    "inferred": [
+      {
+        "pedido": 6906,
+        "name": "Beatriz Carvalho de Morais",
+        "segment": "Ampla",
+        "rank_field": "rank_geral",
+        "rank": 597,
+        "score": 103.25,
+        "evidence_max_rank": 648
+      },
+      {
+        "pedido": 27056,
+        "name": "Julia Nardi",
+        "segment": "Ampla",
+        "rank_field": "rank_geral",
+        "rank": 633,
+        "score": 103.0,
+        "evidence_max_rank": 648
+      },
+      {
+        "pedido": 39897,
+        "name": "Joao Marcelo Costa da Silva de Melo",
+        "segment": "Ampla",
+        "rank_field": "rank_geral",
+        "rank": 616,
+        "score": 103.0,
+        "evidence_max_rank": 648
+      },
+      {
+        "pedido": 1161,
+        "name": "Brenda Rodrigues da Silva",
+        "segment": "Negro",
+        "rank_field": "rank_negro",
+        "rank": 212,
+        "score": 98.0,
+        "evidence_max_rank": 230
+      },
+      {
+        "pedido": 2560,
+        "name": "Jose Lonival de Santana Rodrigues Sobrinho",
+        "segment": "Negro",
+        "rank_field": "rank_negro",
+        "rank": 201,
+        "score": 98.25,
+        "evidence_max_rank": 230
+      },
+      {
+        "pedido": 4913,
+        "name": "Jose Edmar Gomes Filho",
+        "segment": "Negro",
+        "rank_field": "rank_negro",
+        "rank": 205,
+        "score": 98.0,
+        "evidence_max_rank": 230
+      },
+      {
+        "pedido": 8582,
+        "name": "Jocelio Madson Farrapo Aires",
+        "segment": "Negro",
+        "rank_field": "rank_negro",
+        "rank": 198,
+        "score": 98.25,
+        "evidence_max_rank": 230
+      },
+      {
+        "pedido": 9094,
+        "name": "Fellipe Megliorini Fonseca",
+        "segment": "Negro",
+        "rank_field": "rank_negro",
+        "rank": 209,
+        "score": 98.0,
+        "evidence_max_rank": 230
+      },
+      {
+        "pedido": 9224,
+        "name": "Afonso Luiz de Franca Neto",
+        "segment": "Negro",
+        "rank_field": "rank_negro",
+        "rank": 214,
+        "score": 98.0,
+        "evidence_max_rank": 230
+      },
+      {
+        "pedido": 9603,
+        "name": "Ana Julia Ximenes Pereira",
+        "segment": "Negro",
+        "rank_field": "rank_negro",
+        "rank": 215,
+        "score": 98.0,
+        "evidence_max_rank": 230
+      },
+      {
+        "pedido": 10527,
+        "name": "Rodolfo Benicio de Almeida",
+        "segment": "Negro",
+        "rank_field": "rank_negro",
+        "rank": 207,
+        "score": 98.0,
+        "evidence_max_rank": 230
+      },
+      {
+        "pedido": 11408,
+        "name": "Yanna Davila Rebolso",
+        "segment": "Negro",
+        "rank_field": "rank_negro",
+        "rank": 206,
+        "score": 98.0,
+        "evidence_max_rank": 230
+      },
+      {
+        "pedido": 15771,
+        "name": "Paulo Bruno da Silva Sobrinho",
+        "segment": "Negro",
+        "rank_field": "rank_negro",
+        "rank": 196,
+        "score": 98.25,
+        "evidence_max_rank": 230
+      },
+      {
+        "pedido": 17668,
+        "name": "Iarley Meneses Gomes",
+        "segment": "Negro",
+        "rank_field": "rank_negro",
+        "rank": 204,
+        "score": 98.0,
+        "evidence_max_rank": 230
+      },
+      {
+        "pedido": 19953,
+        "name": "Andre Alves do Amaral",
+        "segment": "Negro",
+        "rank_field": "rank_negro",
+        "rank": 213,
+        "score": 98.0,
+        "evidence_max_rank": 230
+      },
+      {
+        "pedido": 24720,
+        "name": "Ivanovich Estevanis de Souza Silva",
+        "segment": "Negro",
+        "rank_field": "rank_negro",
+        "rank": 208,
+        "score": 98.0,
+        "evidence_max_rank": 230
+      },
+      {
+        "pedido": 29439,
+        "name": "Dennys Alves Angelim",
+        "segment": "Negro",
+        "rank_field": "rank_negro",
+        "rank": 203,
+        "score": 98.0,
+        "evidence_max_rank": 230
+      },
+      {
+        "pedido": 30270,
+        "name": "Abner Luis dos Santos Silva",
+        "segment": "Negro",
+        "rank_field": "rank_negro",
+        "rank": 211,
+        "score": 98.0,
+        "evidence_max_rank": 230
+      },
+      {
+        "pedido": 30601,
+        "name": "Clairton Ferreira Barros",
+        "segment": "Negro",
+        "rank_field": "rank_negro",
+        "rank": 202,
+        "score": 98.0,
+        "evidence_max_rank": 230
+      },
+      {
+        "pedido": 31994,
+        "name": "Gabriel Moreira de Oliveira",
+        "segment": "Negro",
+        "rank_field": "rank_negro",
+        "rank": 197,
+        "score": 98.25,
+        "evidence_max_rank": 230
+      },
+      {
+        "pedido": 35024,
+        "name": "Flavia Kariny da Silva",
+        "segment": "Negro",
+        "rank_field": "rank_negro",
+        "rank": 210,
+        "score": 98.0,
+        "evidence_max_rank": 230
+      },
+      {
+        "pedido": 38044,
+        "name": "Nayane Cristine Torquato Machado",
+        "segment": "Negro",
+        "rank_field": "rank_negro",
+        "rank": 199,
+        "score": 98.25,
+        "evidence_max_rank": 230
+      },
+      {
+        "pedido": 1306,
+        "name": "Joao Paulo Alves Lima",
+        "segment": "PcD",
+        "rank_field": "rank_pcd",
+        "rank": 52,
+        "score": 91.0,
+        "evidence_max_rank": 56
+      },
+      {
+        "pedido": 1856,
+        "name": "Kenny Rogers de Moura Leal",
+        "segment": "PcD",
+        "rank_field": "rank_pcd",
+        "rank": 50,
+        "score": 91.25,
+        "evidence_max_rank": 56
+      },
+      {
+        "pedido": 7166,
+        "name": "Maria do Socorro da Silva",
+        "segment": "PcD",
+        "rank_field": "rank_pcd",
+        "rank": 51,
+        "score": 91.25,
+        "evidence_max_rank": 56
+      }
+    ],
+    "by_segment": {
+      "Ampla": 3,
+      "Negro": 19,
+      "PcD": 3
+    }
   },
   "t1_boundaries": {
     "t1_call_rows": 750,
@@ -145,9 +381,9 @@
       }
     },
     "first_remaining_ampla_regular_apto": {
-      "pedido": 39897,
-      "name": "Joao Marcelo Costa da Silva de Melo",
-      "rank_geral": 616,
+      "pedido": 5315,
+      "name": "Daniel Cruz Pereira",
+      "rank_geral": 649,
       "segment": "Ampla",
       "score": 103.0
     },
