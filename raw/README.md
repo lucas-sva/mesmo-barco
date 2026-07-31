@@ -19,5 +19,3 @@ Evita subir dados pessoais **seus** além do que já é público nos PDFs.
 PDFs oficiais já expõem CPF parcial/nome — isso é dado público da banca, mas pensa antes de commitar arquivos enormes; dá pra manter só no disco e versionar só o JSON processado (combinamos no plano).
 
 ## `_extracted/`
-
-Pasta ignorada pelo git — saída temporária quando a gente rodar scripts de extração de PDF.
