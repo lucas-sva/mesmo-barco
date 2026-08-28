@@ -434,7 +434,7 @@ describe('vacanciesNeededFor', () => {
 })
 
 describe('simNCap', () => {
-  it('uses occupying when sub judice is off and paper when on', () => {
+  it('is remaining occupying even if sub judice are shown on the list', () => {
     const occupying = Array.from({ length: 3 }, (_, i) =>
       stub({ pedido: i + 1, rank_geral: i + 1, name: `C${i + 1}` }),
     )
@@ -447,10 +447,11 @@ describe('simNCap', () => {
     })
     const all = [...occupying, sj]
     expect(simNCap(all, { includeSubJudice: false })).toBe(3)
-    expect(simNCap(all, { includeSubJudice: true })).toBe(4)
+    expect(simNCap(all, { includeSubJudice: true })).toBe(3)
+    expect(simNCap(all)).toBe(3)
   })
 
-  it('drops gestante/fim de fila from the cap when that filter is off', () => {
+  it('includes gestante/fim de fila by default; they occupy seats', () => {
     const all = [
       stub({ pedido: 1, rank_geral: 1, name: 'Regular' }),
       stub({
@@ -461,7 +462,8 @@ describe('simNCap', () => {
         taf: 'Gestante',
       }),
     ]
-    expect(simNCap(all, { includeSubJudice: false, includeGestanteFimFila: true })).toBe(2)
-    expect(simNCap(all, { includeSubJudice: false, includeGestanteFimFila: false })).toBe(1)
+    expect(simNCap(all)).toBe(2)
+    expect(simNCap(all, { includeGestanteFimFila: true })).toBe(2)
+    expect(simNCap(all, { includeGestanteFimFila: false })).toBe(1)
   })
 })

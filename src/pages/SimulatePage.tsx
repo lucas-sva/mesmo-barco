@@ -19,12 +19,8 @@ export function SimulatePage() {
   const focusPedido = params.get('pedido')
   const [n, setN] = useState(Number.isFinite(initialN) && initialN > 0 ? initialN : 500)
   const [includeSubJudice, setIncludeSubJudice] = useState(true)
-  const [includeGestanteFimFila, setIncludeGestanteFimFila] = useState(true)
 
-  const maxN = useMemo(
-    () => simNCap(candidates, { includeSubJudice, includeGestanteFimFila }),
-    [candidates, includeSubJudice, includeGestanteFimFila],
-  )
+  const maxN = useMemo(() => simNCap(candidates), [candidates])
 
   useEffect(() => {
     if (candidates.length === 0) return
@@ -33,8 +29,8 @@ export function SimulatePage() {
 
   const nUsed = candidates.length === 0 ? n : Math.max(1, Math.min(n, maxN))
   const sim = useMemo(
-    () => simulateCall(candidates, nUsed, { includeSubJudice, includeGestanteFimFila }),
-    [candidates, nUsed, includeSubJudice, includeGestanteFimFila],
+    () => simulateCall(candidates, nUsed, { includeSubJudice }),
+    [candidates, nUsed, includeSubJudice],
   )
   const split = splitSeats(nUsed)
   const focusCandidate = focusPedido
@@ -69,9 +65,13 @@ export function SimulatePage() {
           cerca de 75% ampla, 20% negro, 5% PcD. Cotista com nota de ampla entra na
           ampla (não come cota). Se a lista PPP ou PcD acabar e ainda tiver vaga
           reservada, essa vaga vai pro próximo da classificação geral — não fica
-          ociosa enquanto existir gente. O slider vai até o restante da fila (quem
-          ainda não foi chamado), não até 2000. A fila já desconta as ~750 da T1
-          (500 imediatas + 250 CR), a complementar e overrides confirmados.
+          ociosa enquanto existir gente. O slider vai de 1 até quem ainda espera e
+          ocupa vaga (Ampla + PPP + PcD). Sub judice não sobem o teto: não ocupam
+          assento. Gestante/fim de fila entram na conta. Ampla nativa = N −
+          arredonda(5%) − arredonda(20%); se o rótulo muda de “ampla por falta” pra
+          “lista Ampla”, essa fatia cresceu o bastante — não é pulo aleatório de
+          lista. A fila já desconta as ~750 da T1 (500 imediatas + 250 CR), a
+          complementar e overrides confirmados.
         </p>
       </header>
 
@@ -115,10 +115,7 @@ export function SimulatePage() {
             ) : (
               <>
                 Com {vagasLabel}, <span className="text-warn">{focusName}</span>{' '}
-                ainda fica de fora nesta projeção
-                {!includeGestanteFimFila &&
-                  ' (ou foi excluído pelo filtro de gestante)'}
-                .
+                ainda fica de fora nesta projeção.
               </>
             )}
           </p>
@@ -144,27 +141,21 @@ export function SimulatePage() {
               />
             </div>
           </div>
-          <div className="flex flex-col gap-2 text-sm">
-            <label className="flex items-center gap-2">
-              <input
-                type="checkbox"
-                checked={includeSubJudice}
-                onChange={(e) => setIncludeSubJudice(e.target.checked)}
-              />
+          <label className="flex items-start gap-2 text-sm max-w-xs">
+            <input
+              type="checkbox"
+              className="mt-1"
+              checked={includeSubJudice}
+              onChange={(e) => setIncludeSubJudice(e.target.checked)}
+            />
+            <span>
               Incluir sub judice na lista
               <span className="block text-[11px] text-ink-soft font-normal">
-                (não ocupam vaga; posições já descontam)
+                Só mostra na lista; não ocupam vaga e não mudam o teto. Posições já
+                descontam.
               </span>
-            </label>
-            <label className="flex items-center gap-2">
-              <input
-                type="checkbox"
-                checked={includeGestanteFimFila}
-                onChange={(e) => setIncludeGestanteFimFila(e.target.checked)}
-              />
-              Incluir gestante / fim de fila
-            </label>
-          </div>
+            </span>
+          </label>
         </div>
 
         <input
@@ -176,9 +167,8 @@ export function SimulatePage() {
           className="w-full accent-sea"
         />
         <p className="text-xs text-ink-soft">
-          Teto: {fmtInt(maxN)} — 100% da fila restante
-          {includeSubJudice ? ' no papel (inclui sub judice)' : ' de quem ocupa vaga'}
-          .
+          Teto: {fmtInt(maxN)} — gente ainda na fila que ocupa vaga (todas as
+          listas). Se o N da URL passar disso, a gente corta.
         </p>
 
         <div className="grid grid-cols-3 gap-2 text-center text-sm">
@@ -243,7 +233,7 @@ export function SimulatePage() {
             pulados na inspeção/docs ({skipSummary.sub_judice} sub judice,{' '}
             {skipSummary.gestante} gestante). Sub judice nunca consomem vaga nesta
             projeção: só aparecem na lista se o filtro estiver ligado. Gestante/fim
-            de fila você escolhe se entram na conta de vagas.
+            de fila sempre entram na conta de vagas.
           </p>
         )}
 
@@ -381,9 +371,12 @@ function SplitCard({
       <p className="text-[11px] text-ink-soft uppercase tracking-wide">{label}</p>
       <p className="font-display text-2xl">{value}</p>
       {remapped > 0 && (
-        <p className="text-[11px] text-sea">
-          {remapped} pra ampla
-        </p>
+        <>
+          <p className="text-[11px] text-sea">{remapped} pra ampla</p>
+          <p className="text-[10px] text-ink-soft leading-snug mt-0.5">
+            cai quando a ampla nativa cresce ou quando não sobra gente
+          </p>
+        </>
       )}
       {vacant > 0 && (
         <p className="text-[11px] text-warn">

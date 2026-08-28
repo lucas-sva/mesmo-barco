@@ -162,7 +162,7 @@ export function CandidatePage() {
             </p>
           )}
           <Link
-            to={`/simular?n=${Math.min(need.n, simNCap(candidates, { includeSubJudice: true }))}&pedido=${c.pedido}`}
+            to={`/simular?n=${Math.min(need.n, simNCap(candidates))}&pedido=${c.pedido}`}
             className="inline-block mt-3 text-sm font-medium text-sea underline"
           >
             Abrir simulador nessa marca

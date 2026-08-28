@@ -8,8 +8,9 @@ import type {
 } from '../types/candidate'
 
 export type SimulateOpts = {
-  /** Show sub judice in the list (they never consume seats). Default true. */
+  /** Show sub judice in the list (they never consume seats and never raise simNCap). Default true. */
   includeSubJudice?: boolean
+  /** Seat pool filter. Default true — UI always includes gestante/fim de fila. */
   includeGestanteFimFila?: boolean
 }
 
@@ -250,20 +251,16 @@ export function remainingUniverse(all: Candidate[]) {
 }
 
 /**
- * Max T2 size for the simulator: 100% of the remaining universe this sim uses.
- * Occupying people when sub judice is off; paper queue (incl. sub judice) when on.
- * Gestante/fim de fila follow the same filter as simulateCall.
+ * Max T2 size: remaining people who occupy seats (Ampla+PPP+PcD).
+ * Sub judice never raise this cap. Gestante/fim de fila occupy seats (default on).
  */
 export function simNCap(all: Candidate[], opts?: SimulateOpts): number {
-  const includeSubJudice = opts?.includeSubJudice ?? true
   const includeGestanteFimFila = opts?.includeGestanteFimFila ?? true
-  const filterOpts = { includeSubJudice, includeGestanteFimFila }
-  const rem = all.filter((c) => c.in_remaining_queue)
-  const visible = rem.filter((c) => visibleInSim(c, filterOpts))
-  const cap = includeSubJudice
-    ? visible.length
-    : visible.filter(occupiesSeat).length
-  return Math.max(1, cap)
+  const rem = all.filter((c) => c.in_remaining_queue && occupiesSeat(c))
+  const occupying = includeGestanteFimFila
+    ? rem
+    : rem.filter((c) => queueStatusOf(c) !== 'gestante_fim_fila')
+  return Math.max(1, occupying.length)
 }
 
 export type VacanciesNeededResult = {
