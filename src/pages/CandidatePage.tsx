@@ -114,7 +114,7 @@ export function CandidatePage() {
         </ul>
         <div className="pt-2 border-t border-line">
           <p className="text-xs font-medium uppercase tracking-wide text-ink-soft">
-            Fontes (não saiu do nada)
+            Fontes
           </p>
           <ul className="mt-1 text-xs text-ink-soft space-y-0.5">
             {why.sources.map((s) => (
@@ -133,15 +133,23 @@ export function CandidatePage() {
               : `turma de pelo menos ${fmtInt(need.n)} vagas`}
           </p>
           {need.fromVacantQuota ? (
-            <p className="text-sm mt-2 text-ink-soft">
-              Entraria pela <strong>{amplaPorFaltaPhrase(need.fromVacantQuota)}</strong>
-              : a lista de {vacantQuotaShort(need.fromVacantQuota)} esgotou e a vaga
-              remanescente foi pra você na ordem geral. Não é ampla normal nem cotista
-              que entra na ampla pela nota.
-              {need.overflow && need.vacancies.total > 0
-                ? ` Ainda assim ${fmtInt(need.n)} vagas passam do restante da fila (${fmtInt(need.remainingOccupying)} ocupam vaga): ${fmtInt(need.vacancies.total)} vagas ociosas de verdade, sem gente restante.`
-                : ''}
-            </p>
+            <>
+              <p className="text-sm mt-2 text-ink-soft">
+                Entraria pela <strong>{amplaPorFaltaPhrase(need.fromVacantQuota)}</strong>
+                : a lista de {vacantQuotaShort(need.fromVacantQuota)} esgotou e a vaga
+                remanescente foi pra você na ordem geral. Não é ampla normal nem cotista
+                que entra na ampla pela nota.
+                {need.overflow && need.vacancies.total > 0
+                  ? ` Ainda assim ${fmtInt(need.n)} vagas passam do restante da fila (${fmtInt(need.remainingOccupying)} ocupam vaga): ${fmtInt(need.vacancies.total)} vagas ociosas de verdade, sem gente restante.`
+                  : ''}
+              </p>
+              <p className="text-xs text-ink-soft mt-2 leading-relaxed">
+                Edital nº 1 OIPCE: PPP <strong>5.2.6</strong> (próximo da lista de
+                reserva primeiro) e <strong>5.2.6.1</strong> (se não tiver negro
+                aprovado bastante, o resto reverte pra ampla); PcD{' '}
+                <strong>5.1.6.9</strong>. Trechos no simulador.
+              </p>
+            </>
           ) : need.overflow ? (
             <p className="text-sm mt-2 text-ink-soft">
               Entraria pela lista <strong>{need.list}</strong>, mas {fmtInt(need.n)}{' '}

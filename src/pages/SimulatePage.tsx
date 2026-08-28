@@ -20,7 +20,10 @@ export function SimulatePage() {
   const [n, setN] = useState(Number.isFinite(initialN) && initialN > 0 ? initialN : 500)
   const [includeSubJudice, setIncludeSubJudice] = useState(true)
 
-  const maxN = useMemo(() => simNCap(candidates), [candidates])
+  const maxN = useMemo(
+    () => simNCap(candidates, { includeGestanteFimFila: true }),
+    [candidates],
+  )
 
   useEffect(() => {
     if (candidates.length === 0) return
@@ -29,7 +32,11 @@ export function SimulatePage() {
 
   const nUsed = candidates.length === 0 ? n : Math.max(1, Math.min(n, maxN))
   const sim = useMemo(
-    () => simulateCall(candidates, nUsed, { includeSubJudice }),
+    () =>
+      simulateCall(candidates, nUsed, {
+        includeSubJudice,
+        includeGestanteFimFila: true,
+      }),
     [candidates, nUsed, includeSubJudice],
   )
   const split = splitSeats(nUsed)
@@ -126,7 +133,7 @@ export function SimulatePage() {
         <div className="flex flex-wrap items-end justify-between gap-3">
           <div>
             <p className="text-xs font-medium uppercase tracking-wide text-ink-soft">
-              Número de vagas (dá pra mudar, sério)
+              Número de vagas
             </p>
             <div className="flex items-center gap-3 mt-1">
               <input
@@ -168,7 +175,7 @@ export function SimulatePage() {
         />
         <p className="text-xs text-ink-soft">
           Teto: {fmtInt(maxN)} — gente ainda na fila que ocupa vaga (todas as
-          listas). Se o N da URL passar disso, a gente corta.
+          listas). N da URL acima do teto é limitado a esse valor.
         </p>
 
         <div className="grid grid-cols-3 gap-2 text-center text-sm">
@@ -196,16 +203,46 @@ export function SimulatePage() {
             }`}
           >
             {sim.remapped.negro + sim.remapped.pcd > 0 && (
-              <p className="font-medium text-sea">
-                {fmtInt(sim.remapped.negro + sim.remapped.pcd)} vaga
-                {sim.remapped.negro + sim.remapped.pcd === 1 ? '' : 's'} de cota
-                revertida{sim.remapped.negro + sim.remapped.pcd === 1 ? '' : 's'} pra
-                ampla (lista PPP/PcD esgotou)
-                {sim.remapped.negro > 0
-                  ? ` · PPP ${fmtInt(sim.remapped.negro)}`
-                  : ''}
-                {sim.remapped.pcd > 0 ? ` · PcD ${fmtInt(sim.remapped.pcd)}` : ''}
-              </p>
+              <>
+                <p className="font-medium text-sea">
+                  {fmtInt(sim.remapped.negro + sim.remapped.pcd)} vaga
+                  {sim.remapped.negro + sim.remapped.pcd === 1 ? '' : 's'} de cota
+                  revertida{sim.remapped.negro + sim.remapped.pcd === 1 ? '' : 's'} pra
+                  ampla (lista PPP/PcD esgotou)
+                  {sim.remapped.negro > 0
+                    ? ` · PPP ${fmtInt(sim.remapped.negro)}`
+                    : ''}
+                  {sim.remapped.pcd > 0 ? ` · PcD ${fmtInt(sim.remapped.pcd)}` : ''}
+                </p>
+                <div className="mt-2 space-y-2 text-[11px] text-ink-soft leading-relaxed">
+                  <p>
+                    Não inventamos a regra. Edital nº 1 OIPCE (PC/CE): PPP primeiro
+                    chama o próximo da lista de reserva; só o que sobrar vira ampla.
+                    PcD é o mesmo esquema.
+                  </p>
+                  <blockquote className="border-l-2 border-sea/40 pl-2.5">
+                    <span className="font-semibold text-sea">5.2.6.</span> Em caso de
+                    não preenchimento de vaga reservada a candidatos negros (pretos e
+                    pardos) no certame, a vaga não preenchida será ocupada pela pessoa
+                    negra aprovada na posição imediatamente subsequente na lista de
+                    reserva de vagas, de acordo com a ordem de classificação.
+                  </blockquote>
+                  <blockquote className="border-l-2 border-sea/40 pl-2.5">
+                    <span className="font-semibold text-sea">5.2.6.1.</span> Na hipótese
+                    de não haver candidatos negros (pretos ou pardos) aprovados em
+                    número suficiente para que sejam ocupadas as vagas reservadas, as
+                    vagas remanescentes serão revertidas para ampla concorrência e
+                    serão preenchidas pelos demais candidatos aprovados, observada a
+                    ordem de classificação geral.
+                  </blockquote>
+                  <blockquote className="border-l-2 border-sea/40 pl-2.5">
+                    <span className="font-semibold text-sea">5.1.6.9.</span> As vagas
+                    definidas no subitem 5.1.1 deste Edital que não forem providas por
+                    falta de candidatos com deficiência aprovados serão preenchidas
+                    pelos demais candidatos, observada a ordem geral.
+                  </blockquote>
+                </div>
+              </>
             )}
             {sim.vacancies.total > 0 && (
               <>
