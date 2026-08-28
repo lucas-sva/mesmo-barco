@@ -1,7 +1,13 @@
 import { Link, useParams } from 'react-router-dom'
 import { useData } from '../lib/data'
 import { explainCandidate, fmtInt, fmtNum, neighbors } from '../lib/explain'
-import { occupiesSeat, positionInRemaining, vacanciesNeededFor } from '../lib/simulate'
+import {
+  amplaPorFaltaPhrase,
+  occupiesSeat,
+  positionInRemaining,
+  vacantQuotaShort,
+  vacanciesNeededFor,
+} from '../lib/simulate'
 
 const SCORE_LABELS: { key: keyof import('../types/candidate').Scores; label: string }[] = [
   { key: 'objetiva', label: 'Objetiva' },
@@ -123,13 +129,37 @@ export function CandidatePage() {
           <p className="text-3xl font-bold mt-1">
             {need.n === 1
               ? 'turma de pelo menos 1 vaga'
-              : `turma de pelo menos ${need.n} vagas`}
+              : `turma de pelo menos ${fmtInt(need.n)} vagas`}
           </p>
-          <p className="text-sm mt-2 text-ink-soft">
-            Entraria pela lista <strong>{need.list}</strong>, seguindo o mesmo padrão da
-            T1 (ampla pelos melhores gerais; cotas pelas filas próprias). Detalhe no
-            simulador.
-          </p>
+          {need.fromVacantQuota ? (
+            <p className="text-sm mt-2 text-ink-soft">
+              Entraria pela <strong>{amplaPorFaltaPhrase(need.fromVacantQuota)}</strong>
+              : a lista de {vacantQuotaShort(need.fromVacantQuota)} esgotou e a vaga
+              remanescente foi pra você na ordem geral. Não é ampla normal nem cotista
+              que entra na ampla pela nota.
+              {need.overflow && need.vacancies.total > 0
+                ? ` Ainda assim ${fmtInt(need.n)} vagas passam do restante da fila (${fmtInt(need.remainingOccupying)} ocupam vaga): ${fmtInt(need.vacancies.total)} vagas ociosas de verdade, sem gente restante.`
+                : ''}
+            </p>
+          ) : need.overflow ? (
+            <p className="text-sm mt-2 text-ink-soft">
+              Entraria pela lista <strong>{need.list}</strong>, mas {fmtInt(need.n)}{' '}
+              vagas passam do restante da fila ({fmtInt(need.remainingOccupying)}{' '}
+              ocupam vaga · {fmtInt(need.remainingPaper)} no papel). Ociosa só o que
+              não tiver gente de verdade
+              {need.vacancies.total > 0
+                ? ` (${fmtInt(need.vacancies.total)} vagas ociosas: ${fmtInt(need.vacancies.ampla)} ampla, ${fmtInt(need.vacancies.negro)} negro, ${fmtInt(need.vacancies.pcd)} PcD)`
+                : ''}
+              ; não inventamos concorrente.
+            </p>
+          ) : (
+            <p className="text-sm mt-2 text-ink-soft">
+              Entraria pela lista <strong>{need.list}</strong>, seguindo o mesmo padrão
+              da T1 (ampla pelos melhores gerais; cotas pelas filas próprias; vaga de
+              cota sem gente naquela lista reverte pra ordem geral). Detalhe no
+              simulador.
+            </p>
+          )}
           <Link
             to={`/simular?n=${need.n}&pedido=${c.pedido}`}
             className="inline-block mt-3 text-sm font-medium text-sea underline"

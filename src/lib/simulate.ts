@@ -1,4 +1,11 @@
-import type { Candidate, SeatList, SimulationResult, SimulatedSeat } from '../types/candidate'
+import type {
+  Candidate,
+  SeatList,
+  SeatSplit,
+  SimulationResult,
+  SimulatedSeat,
+  VacantQuota,
+} from '../types/candidate'
 
 export type SimulateOpts = {
   /** Show sub judice in the list (they never consume seats). Default true. */
@@ -7,7 +14,7 @@ export type SimulateOpts = {
 }
 
 /** Same proportions used in T1 (375/100/25 of 500). */
-export function splitSeats(n: number): { ampla: number; negro: number; pcd: number } {
+export function splitSeats(n: number): SeatSplit {
   if (n <= 0) return { ampla: 0, negro: 0, pcd: 0 }
   let pcd = Math.round(n * 0.05)
   let negro = Math.round(n * 0.2)
@@ -56,11 +63,32 @@ function visibleInSim(c: Candidate, opts: Required<SimulateOpts>): boolean {
   return true
 }
 
+function countOwnList(holders: SimulatedSeat[], list: SeatList): number {
+  return holders.filter((x) => x.list === list && !x.fromVacantQuota).length
+}
+
+/** PPP in the UI = cota racial (negro). */
+export function vacantQuotaShort(q: VacantQuota): string {
+  return q === 'Negro' ? 'PPP' : 'PcD'
+}
+
+export function amplaPorFaltaPhrase(q: VacantQuota): string {
+  return `ampla por falta de ${vacantQuotaShort(q)}`
+}
+
+export function isCotistaNaAmplaPorNota(s: SimulatedSeat): boolean {
+  if (s.list !== 'Ampla' || s.fromVacantQuota) return false
+  return isNegro(s.candidate) || isPcd(s.candidate)
+}
+
 /**
- * Replays the T1 pattern:
+ * Replays the T1 pattern, then leftover quota → demais candidatos:
  * 1) Ampla seats = next by rank_geral among who occupies seats
- * 2) Negro seats = next by rank_negro
+ *    (cotista with a high enough geral rank takes ampla and does not consume cota)
+ * 2) Negro seats = next by rank_negro (5.2.6: next on that list first)
  * 3) PcD seats = next by rank_pcd
+ * 4) If negro/PcD lists are exhausted and reserved seats remain, those seats go to
+ *    the next unseated people by rank_geral (5.2.6.1 / 5.1.6.9). Not 5.2.6.2.
  * Sub judice never take seats; optional display rows keep them visible in order.
  */
 export function simulateCall(
@@ -83,7 +111,7 @@ export function simulateCall(
 
   const amplaPool = [...seatPool].sort((a, b) => a.rank_geral - b.rank_geral)
   for (const c of amplaPool) {
-    if (seatHolders.filter((x) => x.list === 'Ampla').length >= seats.ampla) break
+    if (countOwnList(seatHolders, 'Ampla') >= seats.ampla) break
     taken.add(c.pedido)
     seatHolders.push({
       list: 'Ampla',
@@ -97,7 +125,7 @@ export function simulateCall(
     .filter((c) => isNegro(c) && !taken.has(c.pedido) && c.rank_negro != null)
     .sort((a, b) => (a.rank_negro ?? 99999) - (b.rank_negro ?? 99999))
   for (const c of negroPool) {
-    if (seatHolders.filter((x) => x.list === 'Negro').length >= seats.negro) break
+    if (countOwnList(seatHolders, 'Negro') >= seats.negro) break
     taken.add(c.pedido)
     seatHolders.push({
       list: 'Negro',
@@ -111,7 +139,7 @@ export function simulateCall(
     .filter((c) => isPcd(c) && !taken.has(c.pedido) && c.rank_pcd != null)
     .sort((a, b) => (a.rank_pcd ?? 99999) - (b.rank_pcd ?? 99999))
   for (const c of pcdPool) {
-    if (seatHolders.filter((x) => x.list === 'PcD').length >= seats.pcd) break
+    if (countOwnList(seatHolders, 'PcD') >= seats.pcd) break
     taken.add(c.pedido)
     seatHolders.push({
       list: 'PcD',
@@ -119,6 +147,28 @@ export function simulateCall(
       seatIndex: seatHolders.length + 1,
       occupiesSeat: true,
     })
+  }
+
+  const leftoverNegro = seats.negro - countOwnList(seatHolders, 'Negro')
+  const leftoverPcd = seats.pcd - countOwnList(seatHolders, 'PcD')
+  if (leftoverNegro > 0 || leftoverPcd > 0) {
+    const nextGeral = amplaPool.filter((c) => !taken.has(c.pedido))
+    let gi = 0
+    const giveLeftover = (quota: VacantQuota, count: number) => {
+      for (let i = 0; i < count && gi < nextGeral.length; i++, gi++) {
+        const c = nextGeral[gi]!
+        taken.add(c.pedido)
+        seatHolders.push({
+          list: 'Ampla',
+          fromVacantQuota: quota,
+          candidate: c,
+          seatIndex: seatHolders.length + 1,
+          occupiesSeat: true,
+        })
+      }
+    }
+    giveLeftover('Negro', leftoverNegro)
+    giveLeftover('PcD', leftoverPcd)
   }
 
   // Display: seat holders + optional sub judice who sit (by rank) inside the Ampla window
@@ -146,6 +196,23 @@ export function simulateCall(
   }
 
   const seatConsumers = called.filter((s) => s.occupiesSeat !== false)
+  const remapped = {
+    negro: seatHolders.filter((x) => x.fromVacantQuota === 'Negro').length,
+    pcd: seatHolders.filter((x) => x.fromVacantQuota === 'PcD').length,
+  }
+  const filled: SeatSplit = {
+    ampla: countOwnList(seatHolders, 'Ampla'),
+    negro: countOwnList(seatHolders, 'Negro'),
+    pcd: countOwnList(seatHolders, 'PcD'),
+  }
+  const vacancies = {
+    ampla: seats.ampla - filled.ampla,
+    negro: seats.negro - filled.negro - remapped.negro,
+    pcd: seats.pcd - filled.pcd - remapped.pcd,
+    total: 0,
+  }
+  vacancies.total = vacancies.ampla + vacancies.negro + vacancies.pcd
+
   const womenInCall = seatConsumers.filter((s) => s.candidate.sex === 'F').length
   const womenPctInCall = seatConsumers.length
     ? (100 * womenInCall) / seatConsumers.length
@@ -162,6 +229,9 @@ export function simulateCall(
   return {
     n,
     seats,
+    filled,
+    remapped,
+    vacancies,
     called,
     womenInCall,
     womenPctInCall,
@@ -170,25 +240,83 @@ export function simulateCall(
   }
 }
 
+/** Paper queue vs people who can actually occupy a T2 seat. */
+export function remainingUniverse(all: Candidate[]) {
+  const rem = all.filter((c) => c.in_remaining_queue)
+  return {
+    remainingPaper: rem.length,
+    remainingOccupying: rem.filter(occupiesSeat).length,
+  }
+}
+
+export type VacanciesNeededResult = {
+  n: number
+  list: SeatList | null
+  fromVacantQuota?: VacantQuota
+  remainingPaper: number
+  remainingOccupying: number
+  /** True when n is larger than people who can occupy remaining seats. */
+  overflow: boolean
+  vacancies: SeatSplit & { total: number }
+}
+
+/**
+ * Smallest T2 size where `pedido` occupies a seat (75/20/5, sub judice excluded).
+ * Search is the original 1..maxN (default 2000). Overflow vs remaining people is
+ * a display flag; it does not change n.
+ */
 export function vacanciesNeededFor(
   all: Candidate[],
   pedido: number,
   opts?: SimulateOpts & { maxN?: number },
-): { n: number; list: SeatList | null } | null {
+): VacanciesNeededResult | null {
   const maxN = opts?.maxN ?? 2000
+  const { remainingPaper, remainingOccupying } = remainingUniverse(all)
   const target = all.find((c) => c.pedido === pedido)
   if (!target || !target.in_remaining_queue) return null
+  const emptyVacancies = {
+    ampla: 0,
+    negro: 0,
+    pcd: 0,
+    total: 0,
+  }
   // Sub judice do not get a seat projection
-  if (!occupiesSeat(target)) return { n: maxN, list: null }
+  if (!occupiesSeat(target)) {
+    return {
+      n: maxN,
+      list: null,
+      remainingPaper,
+      remainingOccupying,
+      overflow: maxN > remainingOccupying,
+      vacancies: emptyVacancies,
+    }
+  }
 
   for (let n = 1; n <= maxN; n++) {
     const sim = simulateCall(all, n, { ...opts, includeSubJudice: false })
     const hit = sim.called.find(
       (s) => s.candidate.pedido === pedido && s.occupiesSeat !== false,
     )
-    if (hit) return { n, list: hit.list }
+    if (hit) {
+      return {
+        n,
+        list: hit.list,
+        fromVacantQuota: hit.fromVacantQuota,
+        remainingPaper,
+        remainingOccupying,
+        overflow: n > remainingOccupying,
+        vacancies: sim.vacancies,
+      }
+    }
   }
-  return { n: maxN, list: null }
+  return {
+    n: maxN,
+    list: null,
+    remainingPaper,
+    remainingOccupying,
+    overflow: maxN > remainingOccupying,
+    vacancies: emptyVacancies,
+  }
 }
 
 /** Full remaining queue for display (includes sub judice). */

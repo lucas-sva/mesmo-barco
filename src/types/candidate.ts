@@ -137,17 +137,33 @@ export type Meta = {
 
 export type SeatList = 'Ampla' | 'Negro' | 'PcD'
 
+/** Quota whose leftover reserved seats were given to the next geral. */
+export type VacantQuota = 'Negro' | 'PcD'
+
 export type SimulatedSeat = {
   list: SeatList
   candidate: Candidate
   seatIndex: number
   /** false = shown for transparency, does not consume a vacancy (sub judice). */
   occupiesSeat?: boolean
+  /**
+   * Ampla/geral occupying a leftover reserved seat after that quota list ran out
+   * (edital 5.2.6.1 / 5.1.6.9). Not a normal ampla seat, and not cotista-na-ampla pela nota.
+   */
+  fromVacantQuota?: VacantQuota
 }
+
+export type SeatSplit = { ampla: number; negro: number; pcd: number }
 
 export type SimulationResult = {
   n: number
-  seats: { ampla: number; negro: number; pcd: number }
+  seats: SeatSplit
+  /** Own-list seats filled (ampla by grade; negro/PcD from their queues). Remapped leftover is not counted here. */
+  filled: SeatSplit
+  /** Leftover Negro/PcD seats taken by the next geral after that quota list ran out. */
+  remapped: { negro: number; pcd: number }
+  /** Reserved 75/20/5 slots with nobody left in the whole remaining universe. */
+  vacancies: SeatSplit & { total: number }
   called: SimulatedSeat[]
   womenInCall: number
   womenPctInCall: number
