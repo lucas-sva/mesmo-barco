@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest'
 import type { Candidate } from '../types/candidate'
 import {
   positionInRemaining,
+  simNCap,
   simulateCall,
   splitSeats,
   vacanciesNeededFor,
@@ -410,5 +411,57 @@ describe('vacanciesNeededFor', () => {
     expect(need?.overflow).toBe(false)
     expect(need?.remainingOccupying).toBe(1105)
     expect(need?.vacancies.total).toBe(0)
+  })
+
+  it('caps default search at remaining occupying, not 2000', () => {
+    const all = Array.from({ length: 12 }, (_, i) =>
+      stub({ pedido: i + 1, rank_geral: i + 1, name: `C${i + 1}` }),
+    )
+    const last = vacanciesNeededFor(all, 12)
+    expect(last?.n).toBe(12)
+    expect(last?.overflow).toBe(false)
+    const sj = stub({
+      pedido: 99,
+      rank_geral: 0,
+      name: 'SJ',
+      condition: 'Sub judice',
+      queue_status: 'sub_judice',
+    })
+    const withSj = vacanciesNeededFor([...all, sj], 99)
+    expect(withSj?.n).toBe(12)
+    expect(withSj?.list).toBeNull()
+  })
+})
+
+describe('simNCap', () => {
+  it('uses occupying when sub judice is off and paper when on', () => {
+    const occupying = Array.from({ length: 3 }, (_, i) =>
+      stub({ pedido: i + 1, rank_geral: i + 1, name: `C${i + 1}` }),
+    )
+    const sj = stub({
+      pedido: 4,
+      rank_geral: 4,
+      name: 'SJ',
+      condition: 'Sub judice',
+      queue_status: 'sub_judice',
+    })
+    const all = [...occupying, sj]
+    expect(simNCap(all, { includeSubJudice: false })).toBe(3)
+    expect(simNCap(all, { includeSubJudice: true })).toBe(4)
+  })
+
+  it('drops gestante/fim de fila from the cap when that filter is off', () => {
+    const all = [
+      stub({ pedido: 1, rank_geral: 1, name: 'Regular' }),
+      stub({
+        pedido: 2,
+        rank_geral: 2,
+        name: 'Gestante',
+        queue_status: 'gestante_fim_fila',
+        taf: 'Gestante',
+      }),
+    ]
+    expect(simNCap(all, { includeSubJudice: false, includeGestanteFimFila: true })).toBe(2)
+    expect(simNCap(all, { includeSubJudice: false, includeGestanteFimFila: false })).toBe(1)
   })
 })

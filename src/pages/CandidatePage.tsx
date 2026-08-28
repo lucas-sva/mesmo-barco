@@ -5,6 +5,7 @@ import {
   amplaPorFaltaPhrase,
   occupiesSeat,
   positionInRemaining,
+  simNCap,
   vacantQuotaShort,
   vacanciesNeededFor,
 } from '../lib/simulate'
@@ -49,7 +50,7 @@ export function CandidatePage() {
   const nb = neighbors(candidates, c, 4)
   const pos = positionInRemaining(candidates, c)
   const need = c.in_remaining_queue
-    ? vacanciesNeededFor(candidates, c.pedido, { maxN: 2000 })
+    ? vacanciesNeededFor(candidates, c.pedido)
     : null
 
   return (
@@ -161,7 +162,7 @@ export function CandidatePage() {
             </p>
           )}
           <Link
-            to={`/simular?n=${need.n}&pedido=${c.pedido}`}
+            to={`/simular?n=${Math.min(need.n, simNCap(candidates, { includeSubJudice: true }))}&pedido=${c.pedido}`}
             className="inline-block mt-3 text-sm font-medium text-sea underline"
           >
             Abrir simulador nessa marca

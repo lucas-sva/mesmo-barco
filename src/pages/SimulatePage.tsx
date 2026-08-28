@@ -1,14 +1,15 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 import { useData } from '../lib/data'
 import { fmtInt, fmtNum } from '../lib/explain'
 import {
   amplaPorFaltaPhrase,
   isCotistaNaAmplaPorNota,
-  simulateCall,
-  splitSeats,
   queueStatusLabel,
   queueStatusOf,
+  simNCap,
+  simulateCall,
+  splitSeats,
 } from '../lib/simulate'
 
 export function SimulatePage() {
@@ -20,11 +21,22 @@ export function SimulatePage() {
   const [includeSubJudice, setIncludeSubJudice] = useState(true)
   const [includeGestanteFimFila, setIncludeGestanteFimFila] = useState(true)
 
-  const sim = useMemo(
-    () => simulateCall(candidates, n, { includeSubJudice, includeGestanteFimFila }),
-    [candidates, n, includeSubJudice, includeGestanteFimFila],
+  const maxN = useMemo(
+    () => simNCap(candidates, { includeSubJudice, includeGestanteFimFila }),
+    [candidates, includeSubJudice, includeGestanteFimFila],
   )
-  const split = splitSeats(n)
+
+  useEffect(() => {
+    if (candidates.length === 0) return
+    setN((cur) => Math.max(1, Math.min(cur, maxN)))
+  }, [candidates.length, maxN])
+
+  const nUsed = candidates.length === 0 ? n : Math.max(1, Math.min(n, maxN))
+  const sim = useMemo(
+    () => simulateCall(candidates, nUsed, { includeSubJudice, includeGestanteFimFila }),
+    [candidates, nUsed, includeSubJudice, includeGestanteFimFila],
+  )
+  const split = splitSeats(nUsed)
   const focusCandidate = focusPedido
     ? candidates.find((c) => String(c.pedido) === focusPedido)
     : null
@@ -44,7 +56,7 @@ export function SimulatePage() {
   const seatCount = sim.called.filter((s) => s.occupiesSeat !== false).length
   const skipSummary = meta?.t1_boundaries?.ampla_skips_summary
   const focusName = focusCandidate?.name ?? `pedido ${focusPedido}`
-  const vagasLabel = n === 1 ? '1 vaga' : `${n} vagas`
+  const vagasLabel = nUsed === 1 ? '1 vaga' : `${nUsed} vagas`
 
   if (loading) return <p className="text-ink-soft">Carregando...</p>
 
@@ -57,7 +69,8 @@ export function SimulatePage() {
           cerca de 75% ampla, 20% negro, 5% PcD. Cotista com nota de ampla entra na
           ampla (não come cota). Se a lista PPP ou PcD acabar e ainda tiver vaga
           reservada, essa vaga vai pro próximo da classificação geral — não fica
-          ociosa enquanto existir gente. A fila já desconta as ~750 da T1
+          ociosa enquanto existir gente. O slider vai até o restante da fila (quem
+          ainda não foi chamado), não até 2000. A fila já desconta as ~750 da T1
           (500 imediatas + 250 CR), a complementar e overrides confirmados.
         </p>
       </header>
@@ -122,9 +135,11 @@ export function SimulatePage() {
               <input
                 type="number"
                 min={1}
-                max={2000}
-                value={n}
-                onChange={(e) => setN(Math.max(1, Math.min(2000, Number(e.target.value) || 1)))}
+                max={maxN}
+                value={Math.min(n, maxN)}
+                onChange={(e) =>
+                  setN(Math.max(1, Math.min(maxN, Number(e.target.value) || 1)))
+                }
                 className="w-28 rounded-lg border border-line bg-paper px-3 py-2 text-2xl font-bold outline-none focus:border-sea"
               />
             </div>
@@ -155,11 +170,16 @@ export function SimulatePage() {
         <input
           type="range"
           min={1}
-          max={2000}
-          value={n}
+          max={maxN}
+          value={Math.min(n, maxN)}
           onChange={(e) => setN(Number(e.target.value))}
           className="w-full accent-sea"
         />
+        <p className="text-xs text-ink-soft">
+          Teto: {fmtInt(maxN)} — 100% da fila restante
+          {includeSubJudice ? ' no papel (inclui sub judice)' : ' de quem ocupa vaga'}
+          .
+        </p>
 
         <div className="grid grid-cols-3 gap-2 text-center text-sm">
           <SplitCard label="Ampla" value={split.ampla} vacant={sim.vacancies.ampla} />
@@ -238,7 +258,7 @@ export function SimulatePage() {
           label="Vagas preenchidas na simulação"
           value={
             sim.vacancies.total > 0
-              ? `${seatCount} de ${n}`
+              ? `${seatCount} de ${nUsed}`
               : String(seatCount)
           }
         />

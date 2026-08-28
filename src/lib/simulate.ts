@@ -249,6 +249,23 @@ export function remainingUniverse(all: Candidate[]) {
   }
 }
 
+/**
+ * Max T2 size for the simulator: 100% of the remaining universe this sim uses.
+ * Occupying people when sub judice is off; paper queue (incl. sub judice) when on.
+ * Gestante/fim de fila follow the same filter as simulateCall.
+ */
+export function simNCap(all: Candidate[], opts?: SimulateOpts): number {
+  const includeSubJudice = opts?.includeSubJudice ?? true
+  const includeGestanteFimFila = opts?.includeGestanteFimFila ?? true
+  const filterOpts = { includeSubJudice, includeGestanteFimFila }
+  const rem = all.filter((c) => c.in_remaining_queue)
+  const visible = rem.filter((c) => visibleInSim(c, filterOpts))
+  const cap = includeSubJudice
+    ? visible.length
+    : visible.filter(occupiesSeat).length
+  return Math.max(1, cap)
+}
+
 export type VacanciesNeededResult = {
   n: number
   list: SeatList | null
@@ -262,16 +279,20 @@ export type VacanciesNeededResult = {
 
 /**
  * Smallest T2 size where `pedido` occupies a seat (75/20/5, sub judice excluded).
- * Search is the original 1..maxN (default 2000). Overflow vs remaining people is
- * a display flag; it does not change n.
+ * Search is 1..maxN, capped at remaining occupying (not an arbitrary 2000).
+ * Overflow vs remaining people is a display flag; it does not change n.
  */
 export function vacanciesNeededFor(
   all: Candidate[],
   pedido: number,
   opts?: SimulateOpts & { maxN?: number },
 ): VacanciesNeededResult | null {
-  const maxN = opts?.maxN ?? 2000
   const { remainingPaper, remainingOccupying } = remainingUniverse(all)
+  const cap = simNCap(all, {
+    includeSubJudice: false,
+    includeGestanteFimFila: opts?.includeGestanteFimFila ?? true,
+  })
+  const maxN = Math.min(opts?.maxN ?? cap, cap)
   const target = all.find((c) => c.pedido === pedido)
   if (!target || !target.in_remaining_queue) return null
   const emptyVacancies = {
