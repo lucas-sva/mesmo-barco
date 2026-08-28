@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { BrandMark } from '../components/BrandMark'
 import { useData } from '../lib/data'
 import { fmtNum } from '../lib/explain'
 
@@ -11,14 +12,7 @@ export function HomePage() {
   return (
     <div className="space-y-8">
       <section className="space-y-4 pt-2 md:pt-6 flex flex-col items-center text-center">
-        <img
-          src="./logo.png"
-          alt="Mesmo Barco · Projeções T2 Sem Filtro"
-          width={1273}
-          height={687}
-          className="block w-[min(92vw,520px)] md:w-[min(90vw,640px)] h-auto max-h-none object-contain object-center"
-          style={{ aspectRatio: '1273 / 687' }}
-        />
+        <BrandMark />
         <p className="text-sm font-medium text-sea uppercase tracking-[0.14em]">
           OIPCE · fila da 2ª turma
         </p>

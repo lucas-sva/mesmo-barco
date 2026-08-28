@@ -25,7 +25,7 @@ export function CandidateQueueRow({
     <li>
       <Link
         to={`/candidato/${candidate.pedido}`}
-        className={`flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 sm:gap-2 rounded-lg border px-3 py-2.5 text-sm text-center sm:text-left ${
+        className={`flex items-start justify-between gap-2 rounded-lg border px-3 py-2.5 text-sm text-left ${
           highlighted
             ? 'border-sea bg-sea/10'
             : ghost
@@ -36,13 +36,13 @@ export function CandidateQueueRow({
         }`}
       >
         <span className="text-[#1a2332] min-w-0">
-          <span className="block">
+          <span className="block break-words">
             {prefix != null && (
               <span className="text-ink-soft mr-2">{prefix}</span>
             )}
             {candidate.name}
           </span>
-          <span className="mt-1 flex flex-wrap items-center justify-center sm:justify-start gap-1">
+          <span className="mt-1 flex flex-wrap items-center gap-1">
             {showSegment && <Chip size="sm">{candidate.segment}</Chip>}
             {note && (
               <Chip size="sm" tone={remapped ? 'sea' : 'default'}>
@@ -67,7 +67,7 @@ export function CandidateQueueRow({
           </span>
         </span>
         <span
-          className={`font-display font-semibold shrink-0 ${
+          className={`font-display font-semibold shrink-0 tabular-nums ${
             remapped ? 'text-sea' : 'text-[#1a2332]'
           }`}
         >

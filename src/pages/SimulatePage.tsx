@@ -65,21 +65,8 @@ export function SimulatePage() {
 
   return (
     <div className="space-y-6">
-      <header className="space-y-2">
+      <header>
         <h1 className="font-display text-3xl md:text-4xl">Simular T2</h1>
-        <p className="text-ink-soft max-w-2xl text-sm md:text-base">
-          Arrasta ou digita quantas vagas a turma teria. O app reparte como a T1:
-          cerca de 75% ampla, 20% negro, 5% PcD. Cotista com nota de ampla entra na
-          ampla (não come cota). Se a lista PPP ou PcD acabar e ainda tiver vaga
-          reservada, essa vaga vai pro próximo da classificação geral — não fica
-          ociosa enquanto existir gente. O slider vai de 1 até quem ainda espera e
-          ocupa vaga (Ampla + PPP + PcD). Sub judice não sobem o teto: não ocupam
-          assento. Gestante/fim de fila entram na conta. Ampla nativa = N −
-          arredonda(5%) − arredonda(20%); se o rótulo muda de “ampla por falta” pra
-          “lista Ampla”, essa fatia cresceu o bastante — não é pulo aleatório de
-          lista. A fila já desconta as ~750 da T1 (500 imediatas + 250 CR), a
-          complementar e overrides confirmados.
-        </p>
       </header>
 
       {focus && (
@@ -178,7 +165,7 @@ export function SimulatePage() {
           listas). N da URL acima do teto é limitado a esse valor.
         </p>
 
-        <div className="grid grid-cols-3 gap-2 text-center text-sm">
+        <div className="grid grid-cols-3 gap-1.5 sm:gap-2 text-center text-sm min-w-0">
           <SplitCard label="Ampla" value={split.ampla} vacant={sim.vacancies.ampla} />
           <SplitCard
             label="Negro"
@@ -333,7 +320,7 @@ export function SimulatePage() {
               .filter(([, count]) => count > 0)
               .map(([list, count]) => (
                 <li key={`vacant-${list}`}>
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 sm:gap-2 rounded-lg border border-dashed border-warn/50 bg-warn/5 px-3 py-2.5 text-sm text-center sm:text-left">
+                  <div className="flex items-start justify-between gap-2 rounded-lg border border-dashed border-warn/50 bg-warn/5 px-3 py-2.5 text-sm text-left">
                     <span className="text-[#1a2332]">
                       <span className="text-ink-soft mr-2">○</span>
                       {count === 1 ? 'Vaga ociosa' : `${fmtInt(count)} vagas ociosas`}
@@ -367,7 +354,7 @@ function SplitCard({
 }) {
   return (
     <div
-      className={`rounded-xl border px-2 py-3 ${
+      className={`rounded-xl border px-1.5 py-2.5 sm:px-2 sm:py-3 min-w-0 ${
         vacant > 0
           ? 'border-warn/40 bg-warn/5'
           : remapped > 0

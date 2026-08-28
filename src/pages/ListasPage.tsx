@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react'
+import { BrandMark } from '../components/BrandMark'
 import { CandidateQueueRow } from '../components/CandidateQueueRow'
 import { useData } from '../lib/data'
 import { fmtInt } from '../lib/explain'
@@ -26,28 +27,24 @@ export function ListasPage() {
 
   return (
     <div className="space-y-6">
-      <header className="space-y-2">
+      <header className="flex flex-col items-center text-center space-y-3">
+        <BrandMark />
         <h1 className="font-display text-3xl md:text-4xl">Listas</h1>
-        <p className="text-ink-soft max-w-2xl text-sm md:text-base">
-          Quem ainda espera na fila da T2. Negro e PcD aparece em Negro ou em PcD.
-          Gestante e fim de fila entram sempre (ocupam vaga). Sub judice você liga
-          ou desliga; não ocupam assento.
-        </p>
       </header>
 
       <section className="rounded-xl border border-line bg-paper-2 px-3 py-2.5 md:px-4">
-        <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
+        <div className="flex flex-wrap items-center gap-1.5">
           <div
             role="radiogroup"
             aria-label="Segmento"
-            className="flex min-w-0 max-w-full overflow-x-auto overscroll-x-contain rounded-lg bg-ink/[0.06] p-0.5 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+            className="flex min-w-0 flex-wrap gap-1 rounded-lg bg-ink/[0.06] p-0.5"
           >
             {SEGMENT_CHOICES.map((choice) => {
               const selected = segment === choice
               return (
                 <label
                   key={choice}
-                  className={`shrink-0 cursor-pointer select-none whitespace-nowrap rounded-md px-2.5 py-1 text-xs font-medium transition-colors has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-sea/50 sm:px-3 sm:text-sm ${
+                  className={`inline-flex min-h-9 cursor-pointer select-none items-center whitespace-nowrap rounded-md px-2.5 py-1.5 text-xs font-medium transition-colors has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-sea/50 sm:min-h-8 sm:px-3 sm:text-sm ${
                     selected
                       ? 'bg-sea text-white shadow-sm'
                       : 'text-ink-soft hover:text-ink'
@@ -66,7 +63,7 @@ export function ListasPage() {
               )
             })}
           </div>
-          <label className="inline-flex shrink-0 cursor-pointer select-none items-center gap-1.5 text-xs text-ink-soft hover:text-ink">
+          <label className="inline-flex min-h-9 cursor-pointer select-none items-center gap-1.5 px-1 text-xs text-ink-soft hover:text-ink">
             <input
               type="checkbox"
               className="size-3.5 accent-sea"

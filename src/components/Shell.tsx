@@ -2,7 +2,7 @@ import { Link, NavLink } from 'react-router-dom'
 
 const linkClass = ({ isActive }: { isActive: boolean }) =>
   [
-    'text-sm font-medium px-2.5 py-1.5 rounded-md transition-colors no-underline',
+    'inline-flex min-h-11 min-w-0 items-center justify-center px-0.5 text-[clamp(9px,2.7vw,14px)] font-medium leading-tight tracking-tight rounded-md transition-colors no-underline whitespace-nowrap sm:min-h-9 sm:px-2.5 sm:text-sm sm:tracking-normal',
     isActive
       ? 'bg-[#1a2332] !text-white'
       : 'text-[#3a4658] hover:text-[#1a2332] hover:bg-black/5',
@@ -12,14 +12,17 @@ export function Shell({ children }: { children: React.ReactNode }) {
   return (
     <div className="min-h-dvh flex flex-col">
       <header className="sticky top-0 z-20 border-b border-line/80 bg-paper/95 backdrop-blur-md">
-        <div className="mx-auto max-w-5xl px-4 py-2.5 flex items-center justify-between gap-3">
+        <div className="mx-auto max-w-5xl px-3 py-2 sm:px-4 sm:py-2.5 flex flex-col gap-1.5 sm:flex-row sm:items-center sm:justify-between sm:gap-3">
           <Link
             to="/"
             className="shrink-0 text-base md:text-lg font-bold tracking-tight text-[#1a2332] no-underline"
           >
             Mesmo Barco
           </Link>
-          <nav className="flex items-center flex-wrap justify-end gap-0.5 sm:gap-1">
+          <nav
+            aria-label="Principal"
+            className="grid grid-cols-4 gap-0.5 min-w-0 sm:flex sm:items-center sm:justify-end sm:gap-1"
+          >
             <NavLink to="/" end className={linkClass}>
               Buscar
             </NavLink>
@@ -39,7 +42,9 @@ export function Shell({ children }: { children: React.ReactNode }) {
           <p>Projeção não é promessa de nomeação</p>
         </div>
       </header>
-      <main className="flex-1 mx-auto w-full max-w-5xl px-4 py-6">{children}</main>
+      <main className="flex-1 mx-auto w-full max-w-5xl px-4 py-6 min-w-0">
+        {children}
+      </main>
       <footer className="border-t border-line/80 py-6 text-center text-xs text-ink-soft space-y-1 px-4">
         <p>Feito por Lucas Galdino · código e dados auditáveis no repositório</p>
         <p>Se a banca publicar lista nova, eu atualizo</p>
