@@ -17,7 +17,7 @@ function foldName(s: string): string {
     .trim()
 }
 
-/** Adult public-contest candidate targeted by the Listas “Não marque” prank. */
+/** Adult public-contest candidate targeted by the Listas “Não marque” prank. UI parked, not shown. */
 export function isNinjaCandidate(c: Candidate): boolean {
   const n = foldName(c.name_norm || c.name)
   return (

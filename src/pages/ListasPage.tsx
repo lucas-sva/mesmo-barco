@@ -26,7 +26,8 @@ export function ListasPage() {
   const { candidates, loading } = useData()
   const [segment, setSegment] = useState<SegmentChoice>('Todos')
   const [includeSubJudice, setIncludeSubJudice] = useState(true)
-  const [naoMarque, setNaoMarque] = useState(false)
+  // Feature parked, not shown — ninja/Ricardo builder, logo-cotas swap, jump-to-end stay for later.
+  const naoMarque = false
 
   const segments: readonly SegmentFilter[] =
     segment === 'Todos' ? [] : [segment]
@@ -96,15 +97,6 @@ export function ListasPage() {
               onChange={(e) => setIncludeSubJudice(e.target.checked)}
             />
             Sub judice
-          </label>
-          <label className="inline-flex min-h-9 cursor-pointer select-none items-center gap-1.5 px-1 text-xs text-ink-soft hover:text-ink">
-            <input
-              type="checkbox"
-              className="size-3.5 accent-sea"
-              checked={naoMarque}
-              onChange={(e) => setNaoMarque(e.target.checked)}
-            />
-            Não marque
           </label>
         </div>
       </section>
