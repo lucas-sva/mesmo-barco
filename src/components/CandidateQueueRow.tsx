@@ -11,6 +11,7 @@ export function CandidateQueueRow({
   highlighted = false,
   remapped = false,
   showSegment = true,
+  id,
 }: {
   candidate: Candidate
   prefix?: string
@@ -18,11 +19,12 @@ export function CandidateQueueRow({
   highlighted?: boolean
   remapped?: boolean
   showSegment?: boolean
+  id?: string
 }) {
   const status = queueStatusOf(candidate)
   const ghost = isSubJudice(candidate)
   return (
-    <li>
+    <li id={id}>
       <Link
         to={`/candidato/${candidate.pedido}`}
         className={`flex items-start justify-between gap-2 rounded-lg border px-3 py-2.5 text-sm text-left ${

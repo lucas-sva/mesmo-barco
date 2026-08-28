@@ -3,32 +3,57 @@ import { BrandMark } from '../components/BrandMark'
 import { CandidateQueueRow } from '../components/CandidateQueueRow'
 import { useData } from '../lib/data'
 import { fmtInt } from '../lib/explain'
-import { remainingQueuePeople, type SegmentFilter } from '../lib/queueList'
+import {
+  isNinjaCandidate,
+  naoMarqueQueue,
+  remainingQueuePeople,
+  type SegmentFilter,
+} from '../lib/queueList'
 import { remainingUniverse } from '../lib/simulate'
 
 const SEGMENT_CHOICES = ['Todos', 'Ampla', 'Negro', 'PcD'] as const
 type SegmentChoice = (typeof SEGMENT_CHOICES)[number]
 
+const NINJA_ROW_ID = 'ninja-row'
+
+function jumpToNinja() {
+  document
+    .getElementById(NINJA_ROW_ID)
+    ?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+}
+
 export function ListasPage() {
   const { candidates, loading } = useData()
   const [segment, setSegment] = useState<SegmentChoice>('Todos')
   const [includeSubJudice, setIncludeSubJudice] = useState(true)
+  const [naoMarque, setNaoMarque] = useState(false)
 
   const segments: readonly SegmentFilter[] =
     segment === 'Todos' ? [] : [segment]
 
   const people = useMemo(
-    () => remainingQueuePeople(candidates, { segments, includeSubJudice }),
-    [candidates, segments, includeSubJudice],
+    () =>
+      naoMarque
+        ? naoMarqueQueue(candidates, { includeSubJudice })
+        : remainingQueuePeople(candidates, { segments, includeSubJudice }),
+    [candidates, segments, includeSubJudice, naoMarque],
   )
   const universe = remainingUniverse(candidates)
+  const ninjaInView = naoMarque && people.some(isNinjaCandidate)
 
   if (loading) return <p className="text-ink-soft">Carregando...</p>
 
   return (
     <div className="space-y-6">
       <header className="flex flex-col items-center text-center space-y-3">
-        <BrandMark />
+        {naoMarque ? (
+          <BrandMark
+            src="./logo-cotas.png"
+            alt="Mãos erguidas em defesa das cotas"
+          />
+        ) : (
+          <BrandMark />
+        )}
         <h1 className="font-display text-3xl md:text-4xl">Listas</h1>
       </header>
 
@@ -72,15 +97,37 @@ export function ListasPage() {
             />
             Sub judice
           </label>
+          <label className="inline-flex min-h-9 cursor-pointer select-none items-center gap-1.5 px-1 text-xs text-ink-soft hover:text-ink">
+            <input
+              type="checkbox"
+              className="size-3.5 accent-sea"
+              checked={naoMarque}
+              onChange={(e) => setNaoMarque(e.target.checked)}
+            />
+            Não marque
+          </label>
         </div>
       </section>
 
       <section className="space-y-2">
-        <h2 className="font-display text-2xl">Quem espera</h2>
-        <p className="text-xs text-ink-soft">
-          {fmtInt(people.length)} nesta vista · {fmtInt(universe.remainingPaper)}{' '}
-          no papel · {fmtInt(universe.remainingOccupying)} ocupam vaga
-        </p>
+        <h2 className="font-display text-2xl">
+          {naoMarque ? 'Quem entra antes do Ninja' : 'Quem espera'}
+        </h2>
+        <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
+          <p className="text-xs text-ink-soft">
+            {fmtInt(people.length)} nesta vista · {fmtInt(universe.remainingPaper)}{' '}
+            no papel · {fmtInt(universe.remainingOccupying)} ocupam vaga
+          </p>
+          {ninjaInView && (
+            <button
+              type="button"
+              onClick={jumpToNinja}
+              className="inline-flex min-h-8 shrink-0 items-center rounded-md border border-line bg-white px-2 py-1 text-[11px] font-medium text-ink-soft hover:border-sea/50 hover:text-ink"
+            >
+              encontrar o Ninja
+            </button>
+          )}
+        </div>
         {people.length === 0 ? (
           <div className="rounded-xl border border-line bg-paper-2 p-4 text-sm">
             <p className="font-medium">Ninguém nessa combinação.</p>
@@ -90,13 +137,18 @@ export function ListasPage() {
           </div>
         ) : (
           <ul className="space-y-1.5 max-h-[min(40rem,70dvh)] overflow-auto pr-1">
-            {people.map((c, i) => (
-              <CandidateQueueRow
-                key={c.pedido}
-                candidate={c}
-                prefix={`${i + 1}.`}
-              />
-            ))}
+            {people.map((c, i) => {
+              const isNinja = isNinjaCandidate(c)
+              return (
+                <CandidateQueueRow
+                  key={c.pedido}
+                  candidate={c}
+                  prefix={`${i + 1}.`}
+                  id={isNinja && naoMarque ? NINJA_ROW_ID : undefined}
+                  highlighted={isNinja && naoMarque}
+                />
+              )
+            })}
           </ul>
         )}
       </section>

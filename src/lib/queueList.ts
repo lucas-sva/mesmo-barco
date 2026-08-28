@@ -1,5 +1,99 @@
 import type { Candidate } from '../types/candidate'
-import { isNegro, isPcd, isSubJudice } from './simulate'
+import {
+  isNegro,
+  isPcd,
+  isSubJudice,
+  seatQueues,
+  simulateCall,
+  vacanciesNeededFor,
+} from './simulate'
+
+function foldName(s: string): string {
+  return s
+    .normalize('NFD')
+    .replace(/\p{M}/gu, '')
+    .toLowerCase()
+    .replace(/\s+/g, ' ')
+    .trim()
+}
+
+/** Adult public-contest candidate targeted by the Listas “Não marque” prank. */
+export function isNinjaCandidate(c: Candidate): boolean {
+  const n = foldName(c.name_norm || c.name)
+  return (
+    n.includes('jose ricardo da silva lins filho') ||
+    (n.includes('jose ricardo') && n.includes('lins filho'))
+  )
+}
+
+export function findNinja(all: Candidate[]): Candidate | undefined {
+  return all.find(isNinjaCandidate)
+}
+
+export type NaoMarqueOpts = {
+  includeSubJudice: boolean
+}
+
+function uniqueByPedido(xs: Candidate[]): Candidate[] {
+  const seen = new Set<number>()
+  const out: Candidate[] = []
+  for (const c of xs) {
+    if (seen.has(c.pedido)) continue
+    seen.add(c.pedido)
+    out.push(c)
+  }
+  return out
+}
+
+/**
+ * Occupying Negro-list people who sit in the T2 where Ricardo first enters
+ * (the Simular Negro card at that n — not the 75/20/5 seat number if they differ,
+ * and not every remaining negro if they would not sit yet).
+ * If he has no cutoff, fall back to the full remaining occupying Negro queue.
+ */
+export function negrosWhoSitAtNinjaCutoff(all: Candidate[]): Candidate[] {
+  const ninja = findNinja(all)
+  if (!ninja?.in_remaining_queue) return seatQueues(all).negro
+
+  const need = vacanciesNeededFor(all, ninja.pedido, {
+    includeGestanteFimFila: true,
+  })
+  if (!need || need.list == null) return seatQueues(all).negro
+
+  const sim = simulateCall(all, need.n, {
+    includeSubJudice: false,
+    includeGestanteFimFila: true,
+  })
+  return sim.called
+    .filter((s) => s.list === 'Negro' && s.occupiesSeat !== false)
+    .map((s) => s.candidate)
+}
+
+/**
+ * Negro-list sitters at Ricardo’s T2 cutoff + every remaining PcD (incl. Negro e PcD,
+ * gestante). Then Ricardo last. Ignores the segment radios. Sub judice only affect PcDs
+ * on paper (the Negro sitters already occupy seats).
+ */
+export function naoMarqueQueue(
+  all: Candidate[],
+  opts: NaoMarqueOpts,
+): Candidate[] {
+  const ninja = findNinja(all)
+  const ninjaPedido = ninja?.pedido
+
+  const negros = negrosWhoSitAtNinjaCutoff(all)
+  const pcds = all
+    .filter((c) => c.in_remaining_queue)
+    .filter(isPcd)
+    .filter((c) => opts.includeSubJudice || !isSubJudice(c))
+
+  const ahead = uniqueByPedido([...negros, ...pcds])
+    .filter((c) => ninjaPedido == null || c.pedido !== ninjaPedido)
+    .sort((a, b) => a.rank_geral - b.rank_geral)
+
+  if (!ninja) return ahead
+  return [...ahead, ninja]
+}
 
 export type SegmentFilter = 'Ampla' | 'Negro' | 'PcD'
 
