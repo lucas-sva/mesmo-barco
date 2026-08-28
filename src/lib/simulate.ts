@@ -29,11 +29,11 @@ export function splitSeats(n: number): SeatSplit {
   return { ampla, negro, pcd }
 }
 
-function isNegro(c: Candidate): boolean {
+export function isNegro(c: Candidate): boolean {
   return c.segment === 'Negro' || c.segment === 'Negro e PcD'
 }
 
-function isPcd(c: Candidate): boolean {
+export function isPcd(c: Candidate): boolean {
   return c.segment === 'PcD' || c.segment === 'Negro e PcD'
 }
 

@@ -19,12 +19,15 @@ export function Shell({ children }: { children: React.ReactNode }) {
           >
             Mesmo Barco
           </Link>
-          <nav className="flex items-center gap-0.5 sm:gap-1">
+          <nav className="flex items-center flex-wrap justify-end gap-0.5 sm:gap-1">
             <NavLink to="/" end className={linkClass}>
               Buscar
             </NavLink>
             <NavLink to="/simular" className={linkClass}>
               Simular T2
+            </NavLink>
+            <NavLink to="/listas" className={linkClass}>
+              Listas
             </NavLink>
             <NavLink to="/como-funciona" className={linkClass}>
               Regras

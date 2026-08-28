@@ -1,11 +1,11 @@
 import { useEffect, useMemo, useState } from 'react'
-import { Link, useSearchParams } from 'react-router-dom'
+import { useSearchParams } from 'react-router-dom'
+import { CandidateQueueRow } from '../components/CandidateQueueRow'
 import { useData } from '../lib/data'
-import { fmtInt, fmtNum } from '../lib/explain'
+import { fmtInt } from '../lib/explain'
 import {
   amplaPorFaltaPhrase,
   isCotistaNaAmplaPorNota,
-  queueStatusLabel,
   queueStatusOf,
   simNCap,
   simulateCall,
@@ -302,55 +302,25 @@ export function SimulatePage() {
           {(() => {
             let seatNum = 0
             const people = sim.called.map((s) => {
-              const status = queueStatusOf(s.candidate)
               const isGhost = s.occupiesSeat === false
               const remapped = Boolean(s.fromVacantQuota)
               const cotistaNota = isCotistaNaAmplaPorNota(s)
               if (!isGhost) seatNum += 1
-              const displayNum = seatNum
               const pathNote = remapped
                 ? amplaPorFaltaPhrase(s.fromVacantQuota!)
                 : cotistaNota
                   ? 'cotista na ampla pela nota'
                   : s.list
               return (
-                <li key={`${s.candidate.pedido}-${s.list}-${isGhost ? 'sj' : 'seat'}`}>
-                  <Link
-                    to={`/candidato/${s.candidate.pedido}`}
-                    className={`flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 sm:gap-2 rounded-lg border px-3 py-2.5 text-sm text-center sm:text-left ${
-                      focusPedido === String(s.candidate.pedido)
-                        ? 'border-sea bg-sea/10'
-                        : isGhost
-                          ? 'border-dashed border-line bg-paper/60 opacity-90'
-                          : remapped
-                            ? 'border-sea/50 bg-sea/10 hover:border-sea'
-                            : 'border-line bg-paper-2/80 hover:border-sea/40'
-                    }`}
-                  >
-                    <span className="text-[#1a2332]">
-                      <span className="text-ink-soft mr-2">
-                        {isGhost ? '·' : `${displayNum}.`}
-                      </span>
-                      {s.candidate.name}
-                      <span className="text-ink-soft">
-                        {' '}
-                        · {pathNote} · geral #{s.candidate.rank_geral}
-                        {isGhost
-                          ? ' · sub judice (não ocupa vaga)'
-                          : status !== 'regular'
-                            ? ` · ${queueStatusLabel(status)}`
-                            : ''}
-                      </span>
-                    </span>
-                    <span
-                      className={`font-display font-semibold ${
-                        remapped ? 'text-sea' : 'text-[#1a2332]'
-                      }`}
-                    >
-                      {fmtNum(s.candidate.scores.total)}
-                    </span>
-                  </Link>
-                </li>
+                <CandidateQueueRow
+                  key={`${s.candidate.pedido}-${s.list}-${isGhost ? 'sj' : 'seat'}`}
+                  candidate={s.candidate}
+                  prefix={isGhost ? '·' : `${seatNum}.`}
+                  note={pathNote}
+                  highlighted={focusPedido === String(s.candidate.pedido)}
+                  remapped={remapped}
+                  showSegment={false}
+                />
               )
             })
             const vacantRows = (

@@ -1,4 +1,5 @@
 import { Link, useParams } from 'react-router-dom'
+import { Chip } from '../components/Chip'
 import { useData } from '../lib/data'
 import { explainCandidate, fmtInt, fmtNum, neighbors } from '../lib/explain'
 import {
@@ -226,26 +227,6 @@ export function CandidatePage() {
         )}
       </section>
     </div>
-  )
-}
-
-function Chip({
-  children,
-  tone = 'default',
-}: {
-  children: React.ReactNode
-  tone?: 'default' | 'sea' | 'warn'
-}) {
-  const cls =
-    tone === 'sea'
-      ? 'bg-sea/15 text-sea'
-      : tone === 'warn'
-        ? 'bg-warn/10 text-warn'
-        : 'bg-ink/5 text-ink-soft'
-  return (
-    <span className={`text-xs font-medium px-2.5 py-1 rounded-full ${cls}`}>
-      {children}
-    </span>
   )
 }
 
