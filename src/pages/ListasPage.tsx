@@ -5,24 +5,22 @@ import { fmtInt } from '../lib/explain'
 import { remainingQueuePeople, type SegmentFilter } from '../lib/queueList'
 import { remainingUniverse } from '../lib/simulate'
 
-const SEGMENTS: SegmentFilter[] = ['Ampla', 'Negro', 'PcD']
+const SEGMENT_CHOICES = ['Todos', 'Ampla', 'Negro', 'PcD'] as const
+type SegmentChoice = (typeof SEGMENT_CHOICES)[number]
 
 export function ListasPage() {
   const { candidates, loading } = useData()
-  const [segments, setSegments] = useState<SegmentFilter[]>([...SEGMENTS])
+  const [segment, setSegment] = useState<SegmentChoice>('Todos')
   const [includeSubJudice, setIncludeSubJudice] = useState(true)
+
+  const segments: readonly SegmentFilter[] =
+    segment === 'Todos' ? [] : [segment]
 
   const people = useMemo(
     () => remainingQueuePeople(candidates, { segments, includeSubJudice }),
     [candidates, segments, includeSubJudice],
   )
   const universe = remainingUniverse(candidates)
-
-  const toggleSegment = (s: SegmentFilter) => {
-    setSegments((cur) =>
-      cur.includes(s) ? cur.filter((x) => x !== s) : [...cur, s],
-    )
-  }
 
   if (loading) return <p className="text-ink-soft">Carregando...</p>
 
@@ -31,43 +29,52 @@ export function ListasPage() {
       <header className="space-y-2">
         <h1 className="font-display text-3xl md:text-4xl">Listas</h1>
         <p className="text-ink-soft max-w-2xl text-sm md:text-base">
-          Quem ainda espera na fila da T2. Filtra por segmento: Negro e PcD aparece
-          se Negro ou PcD estiver marcado. Gestante e fim de fila entram sempre
-          (ocupam vaga). Sub judice você liga ou desliga; não ocupam assento.
+          Quem ainda espera na fila da T2. Negro e PcD aparece em Negro ou em PcD.
+          Gestante e fim de fila entram sempre (ocupam vaga). Sub judice você liga
+          ou desliga; não ocupam assento.
         </p>
       </header>
 
-      <section className="rounded-2xl border-2 border-sea/40 bg-paper-2 p-4 md:p-5 space-y-4">
-        <div>
-          <p className="text-xs font-medium uppercase tracking-wide text-ink-soft">
-            Segmento
-          </p>
-          <div className="mt-2 flex flex-wrap items-center justify-center sm:justify-start gap-2">
-            {SEGMENTS.map((s) => (
-              <FilterTag
-                key={s}
-                label={s}
-                checked={segments.includes(s)}
-                onToggle={() => toggleSegment(s)}
-              />
-            ))}
+      <section className="rounded-xl border border-line bg-paper-2 px-3 py-2.5 md:px-4">
+        <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
+          <div
+            role="radiogroup"
+            aria-label="Segmento"
+            className="flex min-w-0 max-w-full overflow-x-auto overscroll-x-contain rounded-lg bg-ink/[0.06] p-0.5 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+          >
+            {SEGMENT_CHOICES.map((choice) => {
+              const selected = segment === choice
+              return (
+                <label
+                  key={choice}
+                  className={`shrink-0 cursor-pointer select-none whitespace-nowrap rounded-md px-2.5 py-1 text-xs font-medium transition-colors has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-sea/50 sm:px-3 sm:text-sm ${
+                    selected
+                      ? 'bg-sea text-white shadow-sm'
+                      : 'text-ink-soft hover:text-ink'
+                  }`}
+                >
+                  <input
+                    type="radio"
+                    name="listas-segmento"
+                    value={choice}
+                    checked={selected}
+                    onChange={() => setSegment(choice)}
+                    className="sr-only"
+                  />
+                  {choice}
+                </label>
+              )
+            })}
           </div>
-          <p className="mt-2 text-[11px] text-ink-soft">
-            Nenhum marcado mostra todo mundo. As duas cotas ao mesmo tempo
-            incluem quem é Negro e PcD.
-          </p>
-        </div>
-        <div>
-          <p className="text-xs font-medium uppercase tracking-wide text-ink-soft">
-            Situação
-          </p>
-          <div className="mt-2 flex flex-wrap items-center justify-center sm:justify-start gap-2">
-            <FilterTag
-              label="Sub judice"
+          <label className="inline-flex shrink-0 cursor-pointer select-none items-center gap-1.5 text-xs text-ink-soft hover:text-ink">
+            <input
+              type="checkbox"
+              className="size-3.5 accent-sea"
               checked={includeSubJudice}
-              onToggle={() => setIncludeSubJudice((v) => !v)}
+              onChange={(e) => setIncludeSubJudice(e.target.checked)}
             />
-          </div>
+            Sub judice
+          </label>
         </div>
       </section>
 
@@ -81,7 +88,7 @@ export function ListasPage() {
           <div className="rounded-xl border border-line bg-paper-2 p-4 text-sm">
             <p className="font-medium">Ninguém nessa combinação.</p>
             <p className="text-ink-soft mt-1">
-              Marca outro segmento ou liga sub judice.
+              Escolhe outro segmento ou liga sub judice.
             </p>
           </div>
         ) : (
@@ -97,30 +104,5 @@ export function ListasPage() {
         )}
       </section>
     </div>
-  )
-}
-
-function FilterTag({
-  label,
-  checked,
-  onToggle,
-}: {
-  label: string
-  checked: boolean
-  onToggle: () => void
-}) {
-  return (
-    <button
-      type="button"
-      aria-pressed={checked}
-      onClick={onToggle}
-      className={`text-sm font-medium px-3 py-1.5 rounded-full border transition-colors ${
-        checked
-          ? 'bg-sea text-white border-sea'
-          : 'bg-paper border-line text-ink-soft hover:border-sea/40'
-      }`}
-    >
-      {label}
-    </button>
   )
 }
