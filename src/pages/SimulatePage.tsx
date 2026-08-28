@@ -205,10 +205,10 @@ export function SimulatePage() {
             {sim.remapped.negro + sim.remapped.pcd > 0 && (
               <>
                 <p className="font-medium text-sea">
-                  {fmtInt(sim.remapped.negro + sim.remapped.pcd)} vaga
-                  {sim.remapped.negro + sim.remapped.pcd === 1 ? '' : 's'} de cota
-                  revertida{sim.remapped.negro + sim.remapped.pcd === 1 ? '' : 's'} pra
-                  ampla (lista PPP/PcD esgotou)
+                  {sim.remapped.negro + sim.remapped.pcd === 1
+                    ? '1 vaga foi movida para a ampla'
+                    : `${fmtInt(sim.remapped.negro + sim.remapped.pcd)} vagas foram movidas para a ampla`}{' '}
+                  (lista PPP/PcD esgotou)
                   {sim.remapped.negro > 0
                     ? ` · PPP ${fmtInt(sim.remapped.negro)}`
                     : ''}
@@ -408,12 +408,11 @@ function SplitCard({
       <p className="text-[11px] text-ink-soft uppercase tracking-wide">{label}</p>
       <p className="font-display text-2xl">{value}</p>
       {remapped > 0 && (
-        <>
-          <p className="text-[11px] text-sea">{remapped} pra ampla</p>
-          <p className="text-[10px] text-ink-soft leading-snug mt-0.5">
-            cai quando a ampla nativa cresce ou quando não sobra gente
-          </p>
-        </>
+        <p className="text-[11px] text-sea">
+          {remapped === 1
+            ? '1 vaga foi movida para a ampla'
+            : `${remapped} vagas foram movidas para a ampla`}
+        </p>
       )}
       {vacant > 0 && (
         <p className="text-[11px] text-warn">
