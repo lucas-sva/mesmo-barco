@@ -3,14 +3,15 @@
 @theme {
   --font-sans: 'Roboto', ui-sans-serif, system-ui, sans-serif;
   --font-display: 'Roboto', ui-sans-serif, system-ui, sans-serif;
-  --color-ink: #1a2332;
-  --color-ink-soft: #3a4658;
-  --color-paper: #e7edf2;
-  --color-paper-2: #f4f7fa;
-  --color-sea: #0f6e56;
-  --color-sea-2: #3d9b84;
-  --color-warn: #a33b2f;
-  --color-line: #c5d0db;
+  /* Melancholic parchment palette sampled from brand assets */
+  --color-ink: #2a3034;
+  --color-ink-soft: #5a5f5c;
+  --color-paper: #e8e5de;
+  --color-paper-2: #f3f1eb;
+  --color-sea: #3f5c52;
+  --color-sea-2: #6a8579;
+  --color-warn: #8a4a3a;
+  --color-line: #c9c4b8;
 }
 
 html,
@@ -23,10 +24,47 @@ body {
   margin: 0;
   font-family: var(--font-sans);
   color: var(--color-ink);
-  background:
-    radial-gradient(1200px 600px at 10% -10%, #d7e6e1 0%, transparent 55%),
-    radial-gradient(900px 500px at 100% 0%, #d9e2ef 0%, transparent 50%),
-    var(--color-paper);
+  background-color: var(--color-paper);
+  /* Soft stains + extracted parchment texture (hybrid, mobile-light) */
+  background-image:
+    radial-gradient(ellipse 70% 45% at 88% 12%, rgba(184, 179, 164, 0.38), transparent 58%),
+    radial-gradient(ellipse 55% 40% at 8% 92%, rgba(163, 164, 156, 0.28), transparent 55%),
+    radial-gradient(ellipse 50% 35% at 70% 78%, rgba(200, 191, 175, 0.22), transparent 60%),
+    radial-gradient(ellipse 40% 30% at 20% 20%, rgba(212, 206, 194, 0.2), transparent 50%),
+    url('./assets/bg-parchment.webp');
+  background-size:
+    auto,
+    auto,
+    auto,
+    auto,
+    cover;
+  background-position:
+    center,
+    center,
+    center,
+    center,
+    center;
+  background-attachment: scroll;
+  background-repeat: no-repeat;
+}
+
+/* Fine grain overlay — separate layer so cards stay crisp */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.35;
+  background-image: url('./assets/bg-grain.webp');
+  background-size: 256px 256px;
+  background-repeat: repeat;
+  mix-blend-mode: multiply;
+}
+
+#root {
+  position: relative;
+  z-index: 1;
 }
 
 * {
@@ -38,5 +76,5 @@ a {
 }
 
 ::selection {
-  background: color-mix(in oklab, var(--color-sea) 25%, white);
+  background: color-mix(in oklab, var(--color-sea) 28%, white);
 }

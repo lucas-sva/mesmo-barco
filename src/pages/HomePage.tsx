@@ -53,7 +53,7 @@ export function HomePage() {
           placeholder="Ex.: Lucas Galdino ou 19316"
           autoComplete="off"
           spellCheck={false}
-          className="w-full max-w-2xl rounded-xl border border-line bg-white px-4 py-3.5 text-base text-ink shadow-sm outline-none placeholder:text-ink-soft/70 focus:border-sea focus:ring-2 focus:ring-sea/20"
+          className="w-full max-w-2xl rounded-xl border border-line bg-paper-2/95 px-4 py-3.5 text-base text-ink shadow-sm outline-none placeholder:text-ink-soft/70 focus:border-sea focus:ring-2 focus:ring-sea/20"
         />
         {!loading && candidates.length > 0 && (
           <p className="text-xs text-ink-soft w-full max-w-2xl">
@@ -81,7 +81,7 @@ export function HomePage() {
           <li key={c.pedido}>
             <Link
               to={`/candidato/${c.pedido}`}
-              className="block rounded-xl border border-line bg-white/90 px-4 py-3 hover:border-sea/50 hover:bg-white transition"
+              className="block rounded-xl border border-line bg-paper-2/95 px-4 py-3 hover:border-sea/50 hover:bg-paper-2 transition"
             >
               <div className="flex flex-wrap items-baseline justify-between gap-2">
                 <div>

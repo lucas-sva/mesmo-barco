@@ -40,7 +40,7 @@ export function CandidateQueueRow({
                 : 'border-line bg-paper-2/80 hover:border-sea/40'
         }`}
       >
-        <span className="text-[#1a2332] min-w-0">
+        <span className="text-ink min-w-0">
           <span className="block break-words">
             {prefix != null && (
               <span className="text-ink-soft mr-2">{prefix}</span>
@@ -73,7 +73,7 @@ export function CandidateQueueRow({
         </span>
         <span
           className={`font-display font-semibold shrink-0 tabular-nums ${
-            remapped ? 'text-sea' : 'text-[#1a2332]'
+            remapped ? 'text-sea' : 'text-ink'
           }`}
         >
           {fmtNum(candidate.scores.total)}

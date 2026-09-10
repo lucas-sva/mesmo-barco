@@ -4,20 +4,20 @@ const linkClass = ({ isActive }: { isActive: boolean }) =>
   [
     'inline-flex min-h-11 min-w-0 items-center justify-center px-0.5 text-[clamp(9px,2.7vw,14px)] font-medium leading-tight tracking-tight rounded-md transition-colors no-underline whitespace-nowrap sm:min-h-9 sm:px-2.5 sm:text-sm sm:tracking-normal',
     isActive
-      ? 'bg-[#1a2332] !text-white'
-      : 'text-[#3a4658] hover:text-[#1a2332] hover:bg-black/5',
+      ? 'bg-ink !text-paper-2'
+      : 'text-ink-soft hover:text-ink hover:bg-ink/5',
   ].join(' ')
 
 export function Shell({ children }: { children: React.ReactNode }) {
   return (
     <div className="min-h-dvh flex flex-col">
-      <header className="sticky top-0 z-20 border-b border-line/80 bg-paper/95 backdrop-blur-md">
+      <header className="sticky top-0 z-20 border-b border-line/80 bg-paper-2/90 backdrop-blur-md">
         <div className="mx-auto max-w-5xl px-3 py-2 sm:px-4 sm:py-2.5 flex items-center justify-between gap-2 sm:gap-3">
           <Link
             to="/"
             aria-label="Início"
             title="Início"
-            className="inline-flex min-h-11 min-w-11 shrink-0 items-center justify-center rounded-md text-[#1a2332] transition-colors hover:bg-black/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink"
+            className="inline-flex min-h-11 min-w-11 shrink-0 items-center justify-center rounded-md text-ink transition-colors hover:bg-ink/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -64,7 +64,7 @@ export function Shell({ children }: { children: React.ReactNode }) {
               rel="noopener noreferrer"
               aria-label="Ver o código no GitHub"
               title="Ver o código no GitHub"
-              className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-md text-ink-soft transition-colors hover:bg-black/5 hover:text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink"
+              className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-md text-ink-soft transition-colors hover:bg-ink/5 hover:text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -82,7 +82,7 @@ export function Shell({ children }: { children: React.ReactNode }) {
               rel="noopener noreferrer"
               aria-label="Dar uma estrela no GitHub"
               title="Dar uma estrela no GitHub"
-              className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-md text-ink-soft transition-colors hover:bg-black/5 hover:text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink"
+              className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-md text-ink-soft transition-colors hover:bg-ink/5 hover:text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"

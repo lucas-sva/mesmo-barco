@@ -95,11 +95,11 @@ export function SimulatePage() {
       </header>
 
       {focus && (
-        <div className="rounded-2xl border-[3px] border-sea bg-[#d8efe8] px-5 py-5 md:px-6 md:py-6 shadow-sm">
+        <div className="rounded-2xl border-[3px] border-sea bg-sea/15 px-5 py-5 md:px-6 md:py-6 shadow-sm">
           <p className="text-xs font-bold uppercase tracking-wide text-sea mb-2">
             Resultado pra você
           </p>
-          <p className="text-xl md:text-2xl font-bold text-[#1a2332] leading-snug">
+          <p className="text-xl md:text-2xl font-bold text-ink leading-snug">
             Com {vagasLabel},{' '}
             <span className="text-sea">{focus.candidate.name}</span> entraria pela{' '}
             {focus.fromVacantQuota
@@ -124,7 +124,7 @@ export function SimulatePage() {
           <p className="text-xs font-bold uppercase tracking-wide text-warn mb-2">
             Resultado pra você
           </p>
-          <p className="text-xl md:text-2xl font-bold text-[#1a2332] leading-snug">
+          <p className="text-xl md:text-2xl font-bold text-ink leading-snug">
             {focusAsGhost ||
             (focusCandidate && queueStatusOf(focusCandidate) === 'sub_judice') ? (
               <>
@@ -302,7 +302,7 @@ export function SimulatePage() {
               const { list, count } = row
               return (
                 <div className="flex items-start justify-between gap-2 rounded-lg border border-dashed border-warn/50 bg-warn/5 px-3 py-2.5 text-sm text-left">
-                  <span className="text-[#1a2332]">
+                  <span className="text-ink">
                     <span className="text-ink-soft mr-2">○</span>
                     {count === 1 ? 'Vaga ociosa' : `${fmtInt(count)} vagas ociosas`}
                     <span className="text-ink-soft">
