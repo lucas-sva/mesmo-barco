@@ -381,6 +381,34 @@
         "score": 91.5
       }
     },
+    "counts_from_complementar_meta": {
+      "Ampla": 36,
+      "Negro": 15,
+      "PcD": 4
+    },
+    "last_from_complementar_meta": {
+      "Ampla": {
+        "pedido": 31750,
+        "name": "Francisco Ilton Sales de Pinho Neto",
+        "rank_geral": 648,
+        "segment": "Ampla",
+        "score": 103.0
+      },
+      "Negro": {
+        "pedido": 32883,
+        "name": "Amadeu Francisco da Silva Neto",
+        "rank_geral": 1628,
+        "segment": "Negro",
+        "score": 97.5
+      },
+      "PcD": {
+        "pedido": 12516,
+        "name": "Yago Brener Saraiva Teixeira",
+        "rank_geral": 2206,
+        "segment": "PcD",
+        "score": 90.25
+      }
+    },
     "first_remaining_ampla_regular_apto": {
       "pedido": 5315,
       "name": "Daniel Cruz Pereira",
@@ -566,7 +594,8 @@
         "source": "confirmação comunitária (sem DOE anexado ainda)"
       }
     },
-    "note": "Últimos da chamada de inspeção/docs (raw/chamada-T1-OIPCE.md). Não é lista de nomeação/matrícula no curso."
+    "note": "Últimos da chamada de inspeção/docs (raw/chamada-T1-OIPCE.md). Não é lista de nomeação/matrícula no curso.",
+    "complementar_note": "Últimos da chamada complementar (raw/chamada-complementar-OIPCE.md). Reposição por desistência/vaga não preenchida; não é nomeação/matrícula."
   },
   "calling_model_observed": {
     "description": "T1 = 500 imediatas (Situação Classificado no Edital 17: 375 ampla + 100 negro + 25 PcD) + 250 CR (187 ampla + 50 negro + 13 PcD, conforme Edital 02), convocados no comunicado de inspeção/entrega de documentos. A complementar puxou ~54 nomes seguintes por segmento para cobrir buraco. Simular T2 usa só quem ainda não entrou nessas listas.",

@@ -8,8 +8,8 @@ export function HowPage() {
     <div className="space-y-6 max-w-3xl">
       <h1 className="font-display text-3xl md:text-4xl">Como funciona (e de onde veio)</h1>
       <p className="text-ink-soft">
-        Se alguém disser que inventaram critério, manda essa página. Tudo aqui cita
-        documento oficial.
+        Esta página resume as regras usadas no app e as fontes oficiais citadas em
+        cada ponto. O objetivo é deixar o método transparente e auditável.
       </p>
 
       <Block title="1. Ranking">
@@ -25,8 +25,8 @@ export function HowPage() {
         </ol>
         <p className="mt-2 text-sm text-ink-soft">
           O DOE publica a ordem já desempatada. Quando duas pessoas têm a mesma nota
-          final, o app mostra isso na ficha e aponta o item 7. Não reinventa o
-          desempate por baixo do pano.
+          final, o app mostra isso na ficha e aponta o item 7. A ordem de desempate
+          segue a publicação oficial, sem recalcular por conta própria.
         </p>
         <Cite>{meta.rules.tiebreak.cite}</Cite>
       </Block>
@@ -95,6 +95,32 @@ export function HowPage() {
             <p className="text-ink-soft text-xs pt-1">{meta.t1_boundaries.note}</p>
           </div>
         )}
+        {meta.t1_boundaries?.last_from_complementar_meta && (
+          <div className="mt-3 rounded-xl border border-line bg-paper-2 px-3 py-3 text-sm space-y-1">
+            <p className="font-medium">Últimos da chamada complementar:</p>
+            <p>
+              Ampla: geral #
+              {meta.t1_boundaries.last_from_complementar_meta?.Ampla?.rank_geral}{' '}
+              {meta.t1_boundaries.last_from_complementar_meta?.Ampla?.name} (
+              {meta.t1_boundaries.counts_from_complementar_meta?.Ampla} nomes)
+            </p>
+            <p>
+              Negro: geral #
+              {meta.t1_boundaries.last_from_complementar_meta?.Negro?.rank_geral}{' '}
+              {meta.t1_boundaries.last_from_complementar_meta?.Negro?.name} (
+              {meta.t1_boundaries.counts_from_complementar_meta?.Negro} nomes)
+            </p>
+            <p>
+              PcD: geral #
+              {meta.t1_boundaries.last_from_complementar_meta?.PcD?.rank_geral}{' '}
+              {meta.t1_boundaries.last_from_complementar_meta?.PcD?.name} (
+              {meta.t1_boundaries.counts_from_complementar_meta?.PcD} nomes)
+            </p>
+            <p className="text-ink-soft text-xs pt-1">
+              {meta.t1_boundaries.complementar_note}
+            </p>
+          </div>
+        )}
         {meta.t1_boundaries?.ampla_skips_summary && (
           <div className="mt-3 rounded-xl border border-line bg-paper-2 px-3 py-3 text-sm space-y-2">
             <p className="font-medium">Quem a T1 Ampla pulou (padrão observado)</p>
@@ -127,14 +153,14 @@ export function HowPage() {
         )}
       </Block>
 
-      <Block title="7. O que o app NÃO sabe">
+      <Block title="7. Limites do que o app sabe">
         <p>{meta.rules.calling_model.caveat}</p>
         <p className="mt-2 text-sm text-ink-soft">
-          Sem lista de desistentes/inaptos, a posição é a do papel. Se alguém à sua frente
-          cair, você sobe. O app não inventa desistência. Gestante/fim de fila só vale para
-          quem ficou dentro da janela efetiva já convocada e foi adiada (TAF gestante +
-          padrão de skip); gestante além dessa janela não é fim de fila. Não há carimbo
-          oficial de "pediu fim de fila".
+          Sem lista pública de desistentes/inaptos, a posição é a do papel. Se alguém à
+          sua frente cair, você sobe. O app não assume desistências não publicadas.
+          Gestante/fim de fila só vale para quem ficou dentro da janela efetiva já
+          convocada e foi adiada (TAF gestante + padrão de skip); gestante além dessa
+          janela não é fim de fila. Não há carimbo oficial de "pediu fim de fila".
         </p>
         {meta.gap_inference && (
           <div className="mt-3 rounded-xl border border-sea/40 bg-sea/10 px-3 py-3 text-sm space-y-2">

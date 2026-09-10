@@ -768,6 +768,22 @@ def _compute_t1_boundaries(
         counts[seg] = len(xs)
         last[seg] = _boundary_row(xs[-1]) if xs else None
 
+    by_comp: dict[str, list[dict]] = {"Ampla": [], "Negro": [], "PcD": []}
+    for p in merged:
+        meta = p.get("complementar_meta")
+        if not meta:
+            continue
+        seg = meta.get("segment_call")
+        if seg in by_comp:
+            by_comp[seg].append(p)
+
+    last_comp = {}
+    counts_comp = {}
+    for seg, xs in by_comp.items():
+        xs = sorted(xs, key=lambda c: c["rank_geral"])
+        counts_comp[seg] = len(xs)
+        last_comp[seg] = _boundary_row(xs[-1]) if xs else None
+
     first_rem_ampla = next(
         (
             _boundary_row(p)
@@ -817,6 +833,8 @@ def _compute_t1_boundaries(
         "t1_call_rows": len(t1_call),
         "counts_from_call_meta": counts,
         "last_from_call_meta": last,
+        "counts_from_complementar_meta": counts_comp,
+        "last_from_complementar_meta": last_comp,
         "first_remaining_ampla_regular_apto": first_rem_ampla,
         "ampla_skips_inside_t1_window": ampla_skips,
         "ampla_skips_summary": {
@@ -863,6 +881,10 @@ def _compute_t1_boundaries(
         "note": (
             "Últimos da chamada de inspeção/docs (raw/chamada-T1-OIPCE.md). "
             "Não é lista de nomeação/matrícula no curso."
+        ),
+        "complementar_note": (
+            "Últimos da chamada complementar (raw/chamada-complementar-OIPCE.md). "
+            "Reposição por desistência/vaga não preenchida; não é nomeação/matrícula."
         ),
     }
 

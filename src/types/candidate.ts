@@ -95,6 +95,12 @@ export type Meta = {
       string,
       { pedido: number; name: string; rank_geral: number; segment: string; score?: number } | null
     >
+    counts_from_complementar_meta?: Record<string, number>
+    last_from_complementar_meta?: Record<
+      string,
+      { pedido: number; name: string; rank_geral: number; segment: string; score?: number } | null
+    >
+    complementar_note?: string
     first_remaining_ampla_regular_apto?: {
       pedido: number
       name: string

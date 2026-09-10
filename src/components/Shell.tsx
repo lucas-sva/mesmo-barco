@@ -12,20 +12,27 @@ export function Shell({ children }: { children: React.ReactNode }) {
   return (
     <div className="min-h-dvh flex flex-col">
       <header className="sticky top-0 z-20 border-b border-line/80 bg-paper/95 backdrop-blur-md">
-        <div className="mx-auto max-w-5xl px-3 py-2 sm:px-4 sm:py-2.5 flex flex-col gap-1.5 sm:flex-row sm:items-center sm:justify-between sm:gap-3">
+        <div className="mx-auto max-w-5xl px-3 py-2 sm:px-4 sm:py-2.5 flex items-center justify-between gap-2 sm:gap-3">
           <Link
             to="/"
-            className="shrink-0 text-base md:text-lg font-bold tracking-tight text-[#1a2332] no-underline"
+            aria-label="Início"
+            title="Início"
+            className="inline-flex min-h-11 min-w-11 shrink-0 items-center justify-center rounded-md text-[#1a2332] transition-colors hover:bg-black/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink"
           >
-            Mesmo Barco
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              className="h-5 w-5"
+              aria-hidden="true"
+            >
+              <path d="M12 3 2 12h3v8h6v-6h2v6h6v-8h3L12 3z" />
+            </svg>
           </Link>
           <nav
             aria-label="Principal"
-            className="grid grid-cols-4 gap-0.5 min-w-0 sm:flex sm:items-center sm:justify-end sm:gap-1"
+            className="grid grid-cols-3 gap-0.5 min-w-0 flex-1 sm:flex sm:flex-none sm:items-center sm:justify-end sm:gap-1"
           >
-            <NavLink to="/" end className={linkClass}>
-              Buscar
-            </NavLink>
             <NavLink to="/listas" className={linkClass}>
               Listas
             </NavLink>
@@ -36,10 +43,6 @@ export function Shell({ children }: { children: React.ReactNode }) {
               Regras
             </NavLink>
           </nav>
-        </div>
-        <div className="mx-auto max-w-5xl px-4 pb-2 space-y-0.5 text-[11px] text-ink-soft text-center">
-          <p>Ferramenta comunitária com dados públicos do DOE</p>
-          <p>Projeção não é promessa de nomeação</p>
         </div>
       </header>
       <main className="flex-1 mx-auto w-full max-w-5xl px-4 py-6 min-w-0">

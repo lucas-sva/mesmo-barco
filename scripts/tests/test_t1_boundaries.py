@@ -187,6 +187,13 @@ class TestT1CallBoundaries(unittest.TestCase):
         b = self.meta["t1_boundaries"]
         self.assertEqual(b["counts_from_call_meta"]["Ampla"], 562)
         self.assertEqual(b["last_from_call_meta"]["Ampla"]["rank_geral"], 596)
+        self.assertEqual(b["counts_from_complementar_meta"]["Ampla"], 36)
+        self.assertEqual(b["counts_from_complementar_meta"]["Negro"], 15)
+        self.assertEqual(b["counts_from_complementar_meta"]["PcD"], 4)
+        self.assertEqual(b["last_from_complementar_meta"]["Ampla"]["rank_geral"], 648)
+        self.assertEqual(b["last_from_complementar_meta"]["Negro"]["rank_geral"], 1628)
+        self.assertEqual(b["last_from_complementar_meta"]["PcD"]["rank_geral"], 2206)
+        self.assertIn("chamada-complementar", b["complementar_note"])
         self.assertTrue(b["beatriz_carvalho_de_morais_6906"]["already_called"])
         self.assertTrue(b["beatriz_carvalho_de_morais_6906"]["called_override"])
 
