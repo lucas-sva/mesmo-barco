@@ -12,6 +12,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 RAW = ROOT / "raw"
 DATA = ROOT / "data"
+PUBLIC_DATA = ROOT / "public" / "data"
 
 
 def strip_accents(s: str) -> str:
@@ -31,7 +32,6 @@ def norm_name(s: str) -> str:
 _LIST_KEYS = (
     "pedido",
     "name",
-    "name_norm",
     "condition",
     "segment",
     "taf",
@@ -39,12 +39,9 @@ _LIST_KEYS = (
     "rank_geral",
     "rank_pcd",
     "rank_negro",
-    "situation",
     "classified_as",
     "gestante_condicional",
     "queue_status",
-    "t1_call_skipped",
-    "t1_call_skip_reason",
     "called_t1",
     "called_t1_imediata",
     "called_t1_cr",
@@ -56,13 +53,44 @@ _LIST_KEYS = (
     "in_remaining_queue",
 )
 
+# Kept in data/candidates.json for audit/tests; omitted from public ship + list index.
+_SHIP_DROP = frozenset(
+    {
+        "name_norm",  # normalize from name client-side
+        "situation",  # unused in UI
+        "classified_as_166",
+        "situation_prelim_166",
+        "source_scores",
+        "source_ranking",
+        "t1_call_meta",  # audit/tests only
+    }
+)
+
 
 def slim_candidate_for_list(person: dict) -> dict:
-    """Drop per-person detail (full scores, birth, psych, call metas) for list index."""
-    out = {k: person[k] for k in _LIST_KEYS if k in person}
+    """List/sim index: scores.total only; omit null/false/default-regular noise."""
+    out: dict = {}
+    for k in _LIST_KEYS:
+        if k not in person:
+            continue
+        v = person[k]
+        if v is None or v is False:
+            continue
+        if k == "queue_status" and v == "regular":
+            continue
+        if k == "condition" and v == "Regular":
+            continue
+        if k == "taf" and isinstance(v, str) and v.lower() == "apto":
+            continue
+        out[k] = v
     scores = person.get("scores") or {}
     out["scores"] = {"total": scores.get("total")}
     return out
+
+
+def ship_candidate_for_web(person: dict) -> dict:
+    """Full CandidatePage payload without audit-only / unused fields."""
+    return {k: v for k, v in person.items() if k not in _SHIP_DROP}
 
 
 def parse_br_float(s: str) -> float:
@@ -1335,14 +1363,24 @@ def main() -> None:
     )
 
     DATA.mkdir(exist_ok=True)
+    PUBLIC_DATA.mkdir(parents=True, exist_ok=True)
+
+    # Full audit copy (tests + docs): keep every merge field.
     (DATA / "candidates.json").write_text(
         json.dumps(merged, ensure_ascii=False, indent=2), encoding="utf-8"
     )
     list_index = [slim_candidate_for_list(p) for p in merged]
-    (DATA / "candidates-list.json").write_text(
-        json.dumps(list_index, ensure_ascii=False, separators=(",", ":")),
+    list_text = json.dumps(list_index, ensure_ascii=False, separators=(",", ":"))
+    (DATA / "candidates-list.json").write_text(list_text, encoding="utf-8")
+
+    # Public web payloads: strip audit-only fields; compact list index.
+    ship = [ship_candidate_for_web(p) for p in merged]
+    (PUBLIC_DATA / "candidates.json").write_text(
+        json.dumps(ship, ensure_ascii=False, separators=(",", ":")),
         encoding="utf-8",
     )
+    (PUBLIC_DATA / "candidates-list.json").write_text(list_text, encoding="utf-8")
+
     (DATA / "t1_call_order.json").write_text(
         json.dumps(intercalation, ensure_ascii=False, indent=2), encoding="utf-8"
     )
@@ -1355,15 +1393,26 @@ def main() -> None:
     (DATA / "complementar_raw.json").write_text(
         json.dumps(complementar, ensure_ascii=False, indent=2), encoding="utf-8"
     )
+    for name in (
+        "t1_call_order.json",
+        "meta.json",
+        "t1_call_raw.json",
+        "complementar_raw.json",
+    ):
+        (PUBLIC_DATA / name).write_text(
+            (DATA / name).read_text(encoding="utf-8"), encoding="utf-8"
+        )
 
     full_bytes = (DATA / "candidates.json").stat().st_size
+    ship_bytes = (PUBLIC_DATA / "candidates.json").stat().st_size
     list_bytes = (DATA / "candidates-list.json").stat().st_size
     print("=== MERGE STATS ===")
     print(json.dumps(meta["stats"], ensure_ascii=False, indent=2))
     print(
-        f"candidates.json={full_bytes} bytes · "
+        f"data/candidates.json={full_bytes} bytes (audit) · "
+        f"public/candidates.json={ship_bytes} bytes (ship) · "
         f"candidates-list.json={list_bytes} bytes "
-        f"({100 * list_bytes / full_bytes:.0f}% of full)"
+        f"({100 * list_bytes / full_bytes:.0f}% of audit full)"
     )
     rem = sorted(
         [p for p in merged if p["in_remaining_queue"]],

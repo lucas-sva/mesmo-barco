@@ -22,37 +22,36 @@ export type Scores = {
 /**
  * Slim row for Home/Buscar, Listas, and Simular.
  * Emitted as `candidates-list.json` — only list/sim fields (scores.total).
+ * Null/false/default-regular fields are omitted in the JSON.
  */
 export type CandidateListItem = {
   pedido: number
   name: string
-  name_norm: string
-  condition: string
+  condition?: string
   segment: Segment | string
   /** List/sim only need the final note; full subject breakdown lives on Candidate. */
   scores: Pick<Scores, 'total'>
   /** Kept for queueStatusOf fallback when queue_status is missing. */
-  taf: string | null
+  taf?: string | null
   sex: 'M' | 'F'
   rank_geral: number
-  rank_pcd: number | null
-  rank_negro: number | null
-  situation: 'classificado' | 'cadastro_reserva' | string
-  classified_as: 'Ampla' | 'Negro' | 'PcD' | null
+  rank_pcd?: number | null
+  rank_negro?: number | null
+  classified_as?: 'Ampla' | 'Negro' | 'PcD' | null
   gestante_condicional?: boolean
   /** regular | sub_judice | gestante | gestante_fim_fila | inapto */
   queue_status?: string
   t1_call_skipped?: boolean
   t1_call_skip_reason?: 'sub_judice' | 'gestante' | string | null
-  called_t1: boolean
+  called_t1?: boolean
   called_t1_imediata?: boolean
   called_t1_cr?: boolean
   t1_cr_list?: string | null
-  called_complementar: boolean
+  called_complementar?: boolean
   called_override?: boolean
   called_inferred_gap?: boolean
-  already_called: boolean
-  in_remaining_queue: boolean
+  already_called?: boolean
+  in_remaining_queue?: boolean
 }
 
 /** Full record for CandidatePage (lazy-loaded from candidates.json). */
@@ -61,6 +60,9 @@ export type Candidate = CandidateListItem & {
   birth_date: string | null
   psychological: string | null
   social_investigation: string | null
+  /** Present in audit data/; may be absent on the public ship file. */
+  name_norm?: string
+  situation?: 'classificado' | 'cadastro_reserva' | string
   override_meta?: { reason?: string; source?: string }
   gap_inference_meta?: {
     segment: string

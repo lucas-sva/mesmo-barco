@@ -10,7 +10,6 @@ import {
 
 function stub(partial: Partial<Candidate> & Pick<Candidate, 'pedido' | 'rank_geral' | 'name'>): Candidate {
   return {
-    name_norm: '',
     condition: 'Regular',
     segment: 'Ampla',
     birth_date: null,

@@ -48,8 +48,9 @@ npm test            # dados + vitest do simulador
 
 Saídas principais:
 
-- `data/candidates-list.json` — índice slim (busca / listas / simular)
-- `data/candidates.json` — ficha completa por pedido (página do candidato)
+- `data/candidates.json` — ficha completa (auditoria / testes Python)
+- `public/data/candidates.json` — ficha web (sem campos só de auditoria)
+- `data/candidates-list.json` / `public/data/candidates-list.json` — índice slim (busca / listas / simular)
 - `data/meta.json` — regras citadas, estatísticas, lacunas, limites T1
 - `data/t1_call_raw.json` / `complementar_raw.json` — linhas parseadas das chamadas
 

@@ -49,7 +49,6 @@ Vite + React + TypeScript + Tailwind v4 + Fuse.js. Deploy GitHub Pages (R$ 0).
 ```bash
 python3 -m venv .venv && .venv/bin/pip install pypdf
 .venv/bin/python scripts/parse_candidates.py
-cp data/*.json public/data/
 npm install
 npm run dev
 ```

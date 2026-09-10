@@ -8,7 +8,7 @@
     "build": "tsc -b && vite build",
     "lint": "oxlint",
     "preview": "vite preview",
-    "parse": ".venv/bin/python scripts/parse_candidates.py && cp data/*.json public/data/",
+    "parse": ".venv/bin/python scripts/parse_candidates.py",
     "test": ".venv/bin/python -m unittest scripts.tests.test_t1_boundaries -v && vitest run",
     "test:data": ".venv/bin/python -m unittest scripts.tests.test_t1_boundaries -v"
   },

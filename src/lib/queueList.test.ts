@@ -22,7 +22,6 @@ function stub(
   partial: Partial<Candidate> & Pick<Candidate, 'pedido' | 'rank_geral' | 'name'>,
 ): Candidate {
   return {
-    name_norm: '',
     condition: 'Regular',
     segment: 'Ampla',
     birth_date: null,
@@ -64,7 +63,6 @@ function stub(
 const ninja = stub({
   pedido: 289,
   name: 'Jose Ricardo da Silva Lins Filho',
-  name_norm: 'jose ricardo da silva lins filho',
   rank_geral: 1399,
   segment: 'Ampla',
 })
@@ -76,7 +74,6 @@ describe('isNinjaCandidate', () => {
         stub({
           pedido: 1,
           name: 'José Ricardo da Silva Lins Filho',
-          name_norm: 'jose ricardo da silva lins filho',
           rank_geral: 1,
         }),
       ),
@@ -90,7 +87,6 @@ describe('isNinjaCandidate', () => {
         stub({
           pedido: 2,
           name: 'Jose Ricardo Ferreira e Silva',
-          name_norm: 'jose ricardo ferreira e silva',
           rank_geral: 2,
         }),
       ),

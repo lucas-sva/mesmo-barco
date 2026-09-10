@@ -19,7 +19,7 @@ function foldName(s: string): string {
 
 /** Adult public-contest candidate targeted by the Listas “Não marque” prank. UI parked, not shown. */
 export function isNinjaCandidate(c: CandidateListItem): boolean {
-  const n = foldName(c.name_norm || c.name)
+  const n = foldName(c.name)
   return (
     n.includes('jose ricardo da silva lins filho') ||
     (n.includes('jose ricardo') && n.includes('lins filho'))
