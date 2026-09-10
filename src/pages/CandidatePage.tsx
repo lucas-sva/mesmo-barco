@@ -3,7 +3,6 @@ import { Chip } from '../components/Chip'
 import { useData } from '../lib/data'
 import { explainCandidate, fmtInt, fmtNum, neighbors } from '../lib/explain'
 import {
-  amplaPorFaltaPhrase,
   occupiesSeat,
   positionInRemaining,
   simNCap,
@@ -29,6 +28,13 @@ const SCORE_LABELS: { key: keyof import('../types/candidate').Scores; label: str
   { key: 'ml', label: 'Med. Legal' },
   { key: 'est', label: 'Estatística' },
 ]
+
+/** List name emphasis on the projection card (Ampla / Negro / PcD / PPP). */
+function EmList({ children }: { children: React.ReactNode }) {
+  return (
+    <strong className="font-semibold text-base text-ink">{children}</strong>
+  )
+}
 
 export function CandidatePage() {
   const { pedido } = useParams()
@@ -136,10 +142,11 @@ export function CandidatePage() {
           {need.fromVacantQuota ? (
             <>
               <p className="text-sm mt-2 text-ink-soft">
-                Entraria pela <strong>{amplaPorFaltaPhrase(need.fromVacantQuota)}</strong>
-                : a lista de {vacantQuotaShort(need.fromVacantQuota)} esgotou e a vaga
-                remanescente foi pra você na ordem geral. Não é ampla normal nem cotista
-                que entra na ampla pela nota.
+                Entraria pela{' '}
+                <EmList>ampla por falta de {vacantQuotaShort(need.fromVacantQuota)}</EmList>
+                : a lista de <EmList>{vacantQuotaShort(need.fromVacantQuota)}</EmList>{' '}
+                esgotou e a vaga remanescente foi pra você na ordem geral. Não é ampla
+                normal nem cotista que entra na ampla pela nota.
                 {need.overflow && need.vacancies.total > 0
                   ? ` Ainda assim ${fmtInt(need.n)} vagas passam do restante da fila (${fmtInt(need.remainingOccupying)} ocupam vaga): ${fmtInt(need.vacancies.total)} vagas ociosas de verdade, sem gente restante.`
                   : ''}
@@ -153,7 +160,7 @@ export function CandidatePage() {
             </>
           ) : need.overflow ? (
             <p className="text-sm mt-2 text-ink-soft">
-              Entraria pela lista <strong>{need.list}</strong>, mas {fmtInt(need.n)}{' '}
+              Entraria pela <EmList>lista {need.list}</EmList>, mas {fmtInt(need.n)}{' '}
               vagas passam do restante da fila ({fmtInt(need.remainingOccupying)}{' '}
               ocupam vaga · {fmtInt(need.remainingPaper)} no papel). Ociosa só o que
               não tiver gente de verdade
@@ -164,11 +171,12 @@ export function CandidatePage() {
             </p>
           ) : need.list === 'Ampla' ? (
             <p className="text-sm mt-2 text-ink-soft">
-              Entraria pela lista Ampla, seguindo o mesmo padrão da T1.
+              Entraria pela <EmList>lista Ampla</EmList>, seguindo o mesmo padrão da
+              T1.
             </p>
           ) : (
             <p className="text-sm mt-2 text-ink-soft">
-              Entraria pela lista <strong>{need.list}</strong>, seguindo o mesmo padrão
+              Entraria pela <EmList>lista {need.list}</EmList>, seguindo o mesmo padrão
               da T1 (ampla pelos melhores gerais; cotas pelas filas próprias; vaga de
               cota sem gente naquela lista reverte pra ordem geral). Detalhe no
               simulador.
