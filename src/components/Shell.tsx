@@ -10,8 +10,8 @@ const linkClass = ({ isActive }: { isActive: boolean }) =>
 
 export function Shell({ children }: { children: React.ReactNode }) {
   return (
-    <div className="min-h-dvh flex flex-col">
-      <header className="sticky top-0 z-20 border-b border-line/80 bg-paper/95 backdrop-blur-md">
+    <div className="min-h-dvh flex flex-col bg-white">
+      <header className="sticky top-0 z-20 border-b border-line/80 bg-white">
         <div className="mx-auto max-w-5xl px-3 py-2 sm:px-4 sm:py-2.5 flex items-center justify-between gap-2 sm:gap-3">
           <Link
             to="/"
@@ -45,12 +45,15 @@ export function Shell({ children }: { children: React.ReactNode }) {
           </nav>
         </div>
       </header>
-      <main className="flex-1 mx-auto w-full max-w-5xl px-4 py-6 min-w-0">
-        {children}
+      <main className="shell-main flex-1 w-full min-w-0">
+        <div className="mx-auto w-full max-w-5xl px-4 py-6 min-w-0">{children}</div>
       </main>
-      <footer className="border-t border-line/80 py-6 text-center text-xs text-ink-soft space-y-3 px-4">
+      <footer className="border-t border-line/80 bg-white py-6 text-center text-xs text-ink-soft space-y-3 px-4">
         <div className="space-y-1">
-          <p>Feito por Lucas Galdino · código e dados auditáveis no repositório</p>
+          <p>
+            Feito por <strong className="font-bold text-ink">Lucas Galdino</strong> ·
+            código e dados auditáveis no repositório
+          </p>
           <p>Se a banca publicar lista nova, eu atualizo</p>
         </div>
         <div className="flex flex-col items-center gap-2 pt-1">
