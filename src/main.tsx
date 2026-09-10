@@ -4,12 +4,12 @@ import './index.css'
 import App from './App.tsx'
 import { ensureFreshDeploy } from './lib/ensureFreshDeploy'
 
-void ensureFreshDeploy().then((shouldStart) => {
-  if (!shouldStart) return
-  createRoot(document.getElementById('root')!).render(
-    <StrictMode>
-      <App />
-    </StrictMode>,
-  )
-})
+const root = createRoot(document.getElementById('root')!)
+root.render(
+  <StrictMode>
+    <App />
+  </StrictMode>,
+)
 
+// Do not block first paint on version.json — check in parallel; reload only if stale.
+void ensureFreshDeploy()

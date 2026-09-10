@@ -12,6 +12,9 @@ type DataCtx = {
 
 const Ctx = createContext<DataCtx | null>(null)
 
+/** Stable per deploy so browsers can cache multi-MB JSON; busts on new build. */
+const DATA_QS = `v=${encodeURIComponent(__APP_BUILD_ID__)}`
+
 export function DataProvider({ children }: { children: React.ReactNode }) {
   const [candidates, setCandidates] = useState<Candidate[]>([])
   const [meta, setMeta] = useState<Meta | null>(null)
@@ -22,9 +25,11 @@ export function DataProvider({ children }: { children: React.ReactNode }) {
     let cancelled = false
     ;(async () => {
       try {
+        // Default HTTP cache (not no-store): mobile re-visits skip re-download.
+        // Query uses __APP_BUILD_ID__ so a new deploy still busts the cache.
         const [cRes, mRes] = await Promise.all([
-          fetch(`./data/candidates.json?t=${Date.now()}`, { cache: 'no-store' }),
-          fetch(`./data/meta.json?t=${Date.now()}`, { cache: 'no-store' }),
+          fetch(`./data/candidates.json?${DATA_QS}`),
+          fetch(`./data/meta.json?${DATA_QS}`),
         ])
         if (!cRes.ok || !mRes.ok) throw new Error('Falha ao carregar dados')
         const cJson = (await cRes.json()) as Candidate[]

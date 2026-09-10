@@ -1,6 +1,7 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useDeferredValue, useEffect, useMemo, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import { CandidateQueueRow } from '../components/CandidateQueueRow'
+import { VirtualList } from '../components/VirtualList'
 import { useData } from '../lib/data'
 import { fmtInt } from '../lib/explain'
 import {
@@ -11,6 +12,11 @@ import {
   simulateCall,
   splitSeats,
 } from '../lib/simulate'
+import type { SimulatedSeat } from '../types/candidate'
+
+type SimRow =
+  | { kind: 'seat'; seat: SimulatedSeat; seatNum: number | null }
+  | { kind: 'vacant'; list: string; count: number }
 
 export function SimulatePage() {
   const { candidates, loading } = useData()
@@ -31,13 +37,15 @@ export function SimulatePage() {
   }, [candidates.length, maxN])
 
   const nUsed = candidates.length === 0 ? n : Math.max(1, Math.min(n, maxN))
+  // Slider ticks update n immediately; defer heavy simulateCall + list rebuild.
+  const deferredN = useDeferredValue(nUsed)
   const sim = useMemo(
     () =>
-      simulateCall(candidates, nUsed, {
+      simulateCall(candidates, deferredN, {
         includeSubJudice,
         includeGestanteFimFila: true,
       }),
-    [candidates, nUsed, includeSubJudice],
+    [candidates, deferredN, includeSubJudice],
   )
   const split = splitSeats(nUsed)
   const focusCandidate = focusPedido
@@ -58,7 +66,25 @@ export function SimulatePage() {
       : null
   const seatCount = sim.called.filter((s) => s.occupiesSeat !== false).length
   const focusName = focusCandidate?.name ?? `pedido ${focusPedido}`
-  const vagasLabel = nUsed === 1 ? '1 vaga' : `${nUsed} vagas`
+  const vagasLabel = deferredN === 1 ? '1 vaga' : `${deferredN} vagas`
+  const simRows = useMemo((): SimRow[] => {
+    let seatNum = 0
+    const people: SimRow[] = sim.called.map((seat) => {
+      const isGhost = seat.occupiesSeat === false
+      if (!isGhost) seatNum += 1
+      return { kind: 'seat', seat, seatNum: isGhost ? null : seatNum }
+    })
+    const vacant: SimRow[] = (
+      [
+        ['Ampla', sim.vacancies.ampla],
+        ['Negro', sim.vacancies.negro],
+        ['PcD', sim.vacancies.pcd],
+      ] as const
+    )
+      .filter(([, count]) => count > 0)
+      .map(([list, count]) => ({ kind: 'vacant' as const, list, count }))
+    return [...people, ...vacant]
+  }, [sim])
 
   if (loading) return <p className="text-ink-soft">Carregando...</p>
 
@@ -262,57 +288,54 @@ export function SimulatePage() {
 
       <section className="space-y-2">
         <h2 className="font-display text-2xl">Quem entraria</h2>
-        <ul className="space-y-1.5 max-h-[28rem] overflow-auto pr-1">
-          {(() => {
-            let seatNum = 0
-            const people = sim.called.map((s) => {
-              const isGhost = s.occupiesSeat === false
-              const remapped = Boolean(s.fromVacantQuota)
-              const cotistaNota = isCotistaNaAmplaPorNota(s)
-              if (!isGhost) seatNum += 1
-              const pathNote = remapped
-                ? amplaPorFaltaPhrase(s.fromVacantQuota!)
-                : cotistaNota
-                  ? 'cotista na ampla pela nota'
-                  : s.list
+        <VirtualList
+          items={simRows}
+          estimateSize={72}
+          className="max-h-[28rem] pr-1"
+          getKey={(row, i) =>
+            row.kind === 'vacant'
+              ? `vacant-${row.list}`
+              : `${row.seat.candidate.pedido}-${row.seat.list}-${row.seat.occupiesSeat === false ? 'sj' : 'seat'}-${i}`
+          }
+          renderItem={(row) => {
+            if (row.kind === 'vacant') {
+              const { list, count } = row
               return (
-                <CandidateQueueRow
-                  key={`${s.candidate.pedido}-${s.list}-${isGhost ? 'sj' : 'seat'}`}
-                  candidate={s.candidate}
-                  prefix={isGhost ? '·' : `${seatNum}.`}
-                  note={pathNote}
-                  highlighted={focusPedido === String(s.candidate.pedido)}
-                  remapped={remapped}
-                  showSegment={false}
-                />
-              )
-            })
-            const vacantRows = (
-              [
-                ['Ampla', sim.vacancies.ampla],
-                ['Negro', sim.vacancies.negro],
-                ['PcD', sim.vacancies.pcd],
-              ] as const
-            )
-              .filter(([, count]) => count > 0)
-              .map(([list, count]) => (
-                <li key={`vacant-${list}`}>
-                  <div className="flex items-start justify-between gap-2 rounded-lg border border-dashed border-warn/50 bg-warn/5 px-3 py-2.5 text-sm text-left">
-                    <span className="text-[#1a2332]">
-                      <span className="text-ink-soft mr-2">○</span>
-                      {count === 1 ? 'Vaga ociosa' : `${fmtInt(count)} vagas ociosas`}
-                      <span className="text-ink-soft">
-                        {' '}
-                        · {list} · sem candidato restante (ociosa de verdade)
-                      </span>
+                <div className="flex items-start justify-between gap-2 rounded-lg border border-dashed border-warn/50 bg-warn/5 px-3 py-2.5 text-sm text-left">
+                  <span className="text-[#1a2332]">
+                    <span className="text-ink-soft mr-2">○</span>
+                    {count === 1 ? 'Vaga ociosa' : `${fmtInt(count)} vagas ociosas`}
+                    <span className="text-ink-soft">
+                      {' '}
+                      · {list} · sem candidato restante (ociosa de verdade)
                     </span>
-                    <span className="text-xs font-medium text-warn">ociosa</span>
-                  </div>
-                </li>
-              ))
-            return [...people, ...vacantRows]
-          })()}
-        </ul>
+                  </span>
+                  <span className="text-xs font-medium text-warn">ociosa</span>
+                </div>
+              )
+            }
+            const s = row.seat
+            const isGhost = s.occupiesSeat === false
+            const remapped = Boolean(s.fromVacantQuota)
+            const cotistaNota = isCotistaNaAmplaPorNota(s)
+            const pathNote = remapped
+              ? amplaPorFaltaPhrase(s.fromVacantQuota!)
+              : cotistaNota
+                ? 'cotista na ampla pela nota'
+                : s.list
+            return (
+              <CandidateQueueRow
+                as="div"
+                candidate={s.candidate}
+                prefix={isGhost || row.seatNum == null ? '·' : `${row.seatNum}.`}
+                note={pathNote}
+                highlighted={focusPedido === String(s.candidate.pedido)}
+                remapped={remapped}
+                showSegment={false}
+              />
+            )
+          }}
+        />
       </section>
     </div>
   )

@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react'
 import { BrandMark } from '../components/BrandMark'
 import { CandidateQueueRow } from '../components/CandidateQueueRow'
+import { VirtualList } from '../components/VirtualList'
 import { useData } from '../lib/data'
 import { fmtInt } from '../lib/explain'
 import {
@@ -139,20 +140,24 @@ export function ListasPage() {
             </p>
           </div>
         ) : (
-          <ul className="space-y-1.5 max-h-[min(40rem,70dvh)] overflow-auto pr-1">
-            {people.map((c, i) => {
+          <VirtualList
+            items={people}
+            estimateSize={96}
+            className="max-h-[min(40rem,70dvh)] pr-1"
+            getKey={(c) => c.pedido}
+            renderItem={(c, i) => {
               const isNinja = isNinjaCandidate(c)
               return (
                 <CandidateQueueRow
-                  key={c.pedido}
+                  as="div"
                   candidate={c}
                   prefix={`${i + 1}.`}
                   id={isNinja && naoMarque ? NINJA_ROW_ID : undefined}
                   highlighted={isNinja && naoMarque}
                 />
               )
-            })}
-          </ul>
+            }}
+          />
         )}
       </section>
     </div>

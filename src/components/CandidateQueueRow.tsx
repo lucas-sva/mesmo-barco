@@ -12,6 +12,7 @@ export function CandidateQueueRow({
   remapped = false,
   showSegment = true,
   id,
+  as: Comp = 'li',
 }: {
   candidate: Candidate
   prefix?: string
@@ -20,11 +21,13 @@ export function CandidateQueueRow({
   remapped?: boolean
   showSegment?: boolean
   id?: string
+  /** Use `div` inside VirtualList (already a listitem wrapper). */
+  as?: 'li' | 'div'
 }) {
   const status = queueStatusOf(candidate)
   const ghost = isSubJudice(candidate)
   return (
-    <li id={id}>
+    <Comp id={id}>
       <Link
         to={`/candidato/${candidate.pedido}`}
         className={`flex items-start justify-between gap-2 rounded-lg border px-3 py-2.5 text-sm text-left ${
@@ -76,6 +79,6 @@ export function CandidateQueueRow({
           {fmtNum(candidate.scores.total)}
         </span>
       </Link>
-    </li>
+    </Comp>
   )
 }
