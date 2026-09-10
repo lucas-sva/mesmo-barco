@@ -30,7 +30,7 @@ export function CandidateQueueRow({
     <Comp id={id}>
       <Link
         to={`/candidato/${candidate.pedido}`}
-        className={`flex items-start justify-between gap-2 rounded-lg border px-3 py-2.5 text-sm text-left ${
+        className={`flex items-start justify-between gap-2 rounded-lg border px-3 py-1.5 text-sm text-left ${
           highlighted
             ? 'border-sea bg-sea/10'
             : ghost
@@ -47,7 +47,7 @@ export function CandidateQueueRow({
             )}
             {candidate.name}
           </span>
-          <span className="mt-1 flex flex-wrap items-center gap-1">
+          <span className="mt-0.5 flex flex-wrap items-center gap-1">
             {showSegment && <Chip size="sm">{candidate.segment}</Chip>}
             {note && (
               <Chip size="sm" tone={remapped ? 'sea' : 'default'}>

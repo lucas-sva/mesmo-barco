@@ -73,12 +73,12 @@ export function HomePage() {
         </div>
       )}
 
-      <ul className="space-y-2">
+      <ul className="space-y-1">
         {results.map((c) => (
           <li key={c.pedido}>
             <Link
               to={`/candidato/${c.pedido}`}
-              className="block rounded-xl border border-line bg-white/90 px-4 py-3 hover:border-sea/50 hover:bg-white transition"
+              className="block rounded-xl border border-line bg-white/90 px-4 py-1.5 hover:border-sea/50 hover:bg-white transition"
             >
               <div className="flex flex-wrap items-baseline justify-between gap-2">
                 <div>

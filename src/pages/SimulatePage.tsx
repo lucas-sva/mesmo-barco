@@ -290,7 +290,7 @@ export function SimulatePage() {
         <h2 className="font-display text-2xl">Quem entraria</h2>
         <VirtualList
           items={simRows}
-          estimateSize={72}
+          estimateSize={52}
           className="max-h-[28rem] pr-1"
           getKey={(row, i) =>
             row.kind === 'vacant'
@@ -301,7 +301,7 @@ export function SimulatePage() {
             if (row.kind === 'vacant') {
               const { list, count } = row
               return (
-                <div className="flex items-start justify-between gap-2 rounded-lg border border-dashed border-warn/50 bg-warn/5 px-3 py-2.5 text-sm text-left">
+                <div className="flex items-start justify-between gap-2 rounded-lg border border-dashed border-warn/50 bg-warn/5 px-3 py-1.5 text-sm text-left">
                   <span className="text-ink">
                     <span className="text-ink-soft mr-2">○</span>
                     {count === 1 ? 'Vaga ociosa' : `${fmtInt(count)} vagas ociosas`}

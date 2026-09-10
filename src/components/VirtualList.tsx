@@ -16,7 +16,7 @@ type VirtualListProps<T> = {
  */
 export function VirtualList<T>({
   items,
-  estimateSize = 78,
+  estimateSize = 56,
   overscan = 10,
   className = '',
   getKey,

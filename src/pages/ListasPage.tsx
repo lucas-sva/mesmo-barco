@@ -142,7 +142,7 @@ export function ListasPage() {
         ) : (
           <VirtualList
             items={people}
-            estimateSize={96}
+            estimateSize={56}
             className="max-h-[min(40rem,70dvh)] pr-1"
             getKey={(c) => c.pedido}
             renderItem={(c, i) => {
