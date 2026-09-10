@@ -9,14 +9,22 @@ export function HomePage() {
   const { loading, error, search, candidates } = useData()
   const [q, setQ] = useState('')
   const results = useMemo(() => search(q, 25), [search, q])
-  const approvedCounts = useMemo(() => {
+  // Buscar footer: convocados = already in (T1/complementar/gaps);
+  // regular/sub judice = remaining T2 paper queue only (not the whole concurso).
+  const queueCounts = useMemo(() => {
+    let convocados = 0
     let regular = 0
     let subJudice = 0
     for (const c of candidates) {
+      if (c.already_called) {
+        convocados += 1
+        continue
+      }
+      if (!c.in_remaining_queue) continue
       if (isSubJudice(c)) subJudice += 1
       else regular += 1
     }
-    return { regular, subJudice }
+    return { convocados, regular, subJudice }
   }, [candidates])
 
   return (
@@ -49,8 +57,9 @@ export function HomePage() {
         />
         {!loading && candidates.length > 0 && (
           <p className="text-xs text-ink-soft w-full max-w-2xl">
-            {fmtInt(approvedCounts.regular)} aprovados (regular) ·{' '}
-            {fmtInt(approvedCounts.subJudice)} aprovados (sub judice)
+            {fmtInt(queueCounts.convocados)} convocados ·{' '}
+            {fmtInt(queueCounts.regular)} aprovados (regular) ·{' '}
+            {fmtInt(queueCounts.subJudice)} aprovados (sub judice)
           </p>
         )}
       </section>
