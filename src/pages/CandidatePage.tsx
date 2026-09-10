@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { Chip } from '../components/Chip'
 import { useData } from '../lib/data'
@@ -9,6 +10,7 @@ import {
   vacantQuotaShort,
   vacanciesNeededFor,
 } from '../lib/simulate'
+import type { CandidateListItem } from '../types/candidate'
 
 const SCORE_LABELS: { key: keyof import('../types/candidate').Scores; label: string }[] = [
   { key: 'objetiva', label: 'Objetiva' },
@@ -38,11 +40,39 @@ function EmList({ children }: { children: React.ReactNode }) {
 
 export function CandidatePage() {
   const { pedido } = useParams()
-  const { candidates, meta, loading } = useData()
-  const c = candidates.find((x) => String(x.pedido) === pedido)
+  const {
+    candidates,
+    meta,
+    loading,
+    fullCandidates,
+    fullLoading,
+    fullError,
+    ensureFullCandidates,
+  } = useData()
 
-  if (loading) return <p className="text-ink-soft">Carregando...</p>
-  if (!c || !meta) {
+  useEffect(() => {
+    void ensureFullCandidates().catch(() => {
+      /* surfaced via fullError */
+    })
+  }, [ensureFullCandidates])
+
+  const slimHit = candidates.find((x) => String(x.pedido) === pedido)
+  const c = fullCandidates?.find((x) => String(x.pedido) === pedido)
+
+  if (loading || (slimHit && !fullCandidates && fullLoading)) {
+    return <p className="text-ink-soft">Carregando...</p>
+  }
+  if (fullError && !fullCandidates) {
+    return (
+      <div className="space-y-3">
+        <p className="text-warn">{fullError}</p>
+        <Link to="/" className="text-sea underline">
+          Voltar
+        </Link>
+      </div>
+    )
+  }
+  if (!slimHit || !meta) {
     return (
       <div className="space-y-3">
         <p>Candidato não encontrado.</p>
@@ -51,6 +81,9 @@ export function CandidatePage() {
         </Link>
       </div>
     )
+  }
+  if (!c) {
+    return <p className="text-ink-soft">Carregando ficha...</p>
   }
 
   const why = explainCandidate(c, candidates, meta)
@@ -258,7 +291,7 @@ function NeighborList({
   items,
 }: {
   title: string
-  items: import('../types/candidate').Candidate[]
+  items: CandidateListItem[]
 }) {
   if (!items.length) return null
   return (

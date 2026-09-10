@@ -19,17 +19,20 @@ export type Scores = {
   total: number
 }
 
-export type Candidate = {
+/**
+ * Slim row for Home/Buscar, Listas, and Simular.
+ * Emitted as `candidates-list.json` — only list/sim fields (scores.total).
+ */
+export type CandidateListItem = {
   pedido: number
   name: string
   name_norm: string
   condition: string
   segment: Segment | string
-  birth_date: string | null
-  scores: Scores
+  /** List/sim only need the final note; full subject breakdown lives on Candidate. */
+  scores: Pick<Scores, 'total'>
+  /** Kept for queueStatusOf fallback when queue_status is missing. */
   taf: string | null
-  psychological: string | null
-  social_investigation: string | null
   sex: 'M' | 'F'
   rank_geral: number
   rank_pcd: number | null
@@ -47,8 +50,18 @@ export type Candidate = {
   t1_cr_list?: string | null
   called_complementar: boolean
   called_override?: boolean
-  override_meta?: { reason?: string; source?: string }
   called_inferred_gap?: boolean
+  already_called: boolean
+  in_remaining_queue: boolean
+}
+
+/** Full record for CandidatePage (lazy-loaded from candidates.json). */
+export type Candidate = CandidateListItem & {
+  scores: Scores
+  birth_date: string | null
+  psychological: string | null
+  social_investigation: string | null
+  override_meta?: { reason?: string; source?: string }
   gap_inference_meta?: {
     segment: string
     rank_field: string
@@ -56,8 +69,6 @@ export type Candidate = {
     evidence_max_rank: number
     caveat: string
   }
-  already_called: boolean
-  in_remaining_queue: boolean
   source_scores?: string | null
   source_ranking?: string
   complementar_meta?: {
@@ -152,7 +163,7 @@ export type VacantQuota = 'Negro' | 'PcD'
 
 export type SimulatedSeat = {
   list: SeatList
-  candidate: Candidate
+  candidate: CandidateListItem
   seatIndex: number
   /** false = shown for transparency, does not consume a vacancy (sub judice). */
   occupiesSeat?: boolean

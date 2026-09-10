@@ -1,5 +1,5 @@
 import type {
-  Candidate,
+  CandidateListItem,
   SeatList,
   SeatSplit,
   SimulationResult,
@@ -29,15 +29,15 @@ export function splitSeats(n: number): SeatSplit {
   return { ampla, negro, pcd }
 }
 
-export function isNegro(c: Candidate): boolean {
+export function isNegro(c: CandidateListItem): boolean {
   return c.segment === 'Negro' || c.segment === 'Negro e PcD'
 }
 
-export function isPcd(c: Candidate): boolean {
+export function isPcd(c: CandidateListItem): boolean {
   return c.segment === 'PcD' || c.segment === 'Negro e PcD'
 }
 
-export function queueStatusOf(c: Candidate): string {
+export function queueStatusOf(c: CandidateListItem): string {
   if (c.queue_status) return c.queue_status
   if (c.condition === 'Sub judice') return 'sub_judice'
   if ((c.taf || '').toLowerCase() === 'gestante' || c.gestante_condicional) {
@@ -49,17 +49,17 @@ export function queueStatusOf(c: Candidate): string {
 }
 
 /** Sub judice appear on paper but never consume list seats (even if also gestante). */
-export function occupiesSeat(c: Candidate): boolean {
+export function occupiesSeat(c: CandidateListItem): boolean {
   if (c.condition === 'Sub judice') return false
   if (queueStatusOf(c) === 'sub_judice') return false
   return true
 }
 
-export function isSubJudice(c: Candidate): boolean {
+export function isSubJudice(c: CandidateListItem): boolean {
   return c.condition === 'Sub judice' || queueStatusOf(c) === 'sub_judice'
 }
 
-function visibleInSim(c: Candidate, opts: Required<SimulateOpts>): boolean {
+function visibleInSim(c: CandidateListItem, opts: Required<SimulateOpts>): boolean {
   if (isSubJudice(c)) return opts.includeSubJudice
   if (queueStatusOf(c) === 'gestante_fim_fila') return opts.includeGestanteFimFila
   return true
@@ -94,7 +94,7 @@ export function isCotistaNaAmplaPorNota(s: SimulatedSeat): boolean {
  * Sub judice never take seats; optional display rows keep them visible in order.
  */
 export function simulateCall(
-  all: Candidate[],
+  all: CandidateListItem[],
   n: number,
   opts?: SimulateOpts,
 ): SimulationResult {
@@ -243,7 +243,7 @@ export function simulateCall(
 }
 
 /** Paper queue vs people who can actually occupy a T2 seat. */
-export function remainingUniverse(all: Candidate[]) {
+export function remainingUniverse(all: CandidateListItem[]) {
   const rem = all.filter((c) => c.in_remaining_queue)
   return {
     remainingPaper: rem.length,
@@ -255,7 +255,7 @@ export function remainingUniverse(all: Candidate[]) {
  * Max T2 size: remaining people who occupy seats (Ampla+PPP+PcD).
  * Sub judice never raise this cap. Gestante/fim de fila occupy seats (default on).
  */
-export function simNCap(all: Candidate[], opts?: SimulateOpts): number {
+export function simNCap(all: CandidateListItem[], opts?: SimulateOpts): number {
   const includeGestanteFimFila = opts?.includeGestanteFimFila ?? true
   const rem = all.filter((c) => c.in_remaining_queue && occupiesSeat(c))
   const occupying = includeGestanteFimFila
@@ -281,7 +281,7 @@ export type VacanciesNeededResult = {
  * Overflow vs remaining people is a display flag; it does not change n.
  */
 export function vacanciesNeededFor(
-  all: Candidate[],
+  all: CandidateListItem[],
   pedido: number,
   opts?: SimulateOpts & { maxN?: number },
 ): VacanciesNeededResult | null {
@@ -339,7 +339,7 @@ export function vacanciesNeededFor(
 }
 
 /** Full remaining queue for display (includes sub judice). */
-export function remainingQueues(all: Candidate[]) {
+export function remainingQueues(all: CandidateListItem[]) {
   const rem = all.filter((c) => c.in_remaining_queue)
   return {
     ampla: [...rem].sort((a, b) => a.rank_geral - b.rank_geral),
@@ -353,7 +353,7 @@ export function remainingQueues(all: Candidate[]) {
 }
 
 /** Queues that actually consume seats (sub judice excluded). */
-export function seatQueues(all: Candidate[]) {
+export function seatQueues(all: CandidateListItem[]) {
   const rem = all.filter((c) => c.in_remaining_queue && occupiesSeat(c))
   return {
     ampla: [...rem].sort((a, b) => a.rank_geral - b.rank_geral),
@@ -370,7 +370,7 @@ export function seatQueues(all: Candidate[]) {
  * Effective place in line: always ignores sub judice ahead.
  * If the person is sub judice, returns nulls (they do not hold a seat slot).
  */
-export function positionInRemaining(all: Candidate[], c: Candidate) {
+export function positionInRemaining(all: CandidateListItem[], c: CandidateListItem) {
   if (!occupiesSeat(c)) {
     return { amplaPos: null, negroPos: null, pcdPos: null, ignoresSubJudice: true as const }
   }

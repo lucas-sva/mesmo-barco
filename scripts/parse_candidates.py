@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Parse Comunicado 166 + Edital 17 + chamadas -> data/candidates.json"""
+"""Parse Comunicado 166 + Edital 17 + chamadas -> data/candidates.json + candidates-list.json"""
 
 from __future__ import annotations
 
@@ -25,6 +25,44 @@ def norm_name(s: str) -> str:
     s = re.sub(r"[^a-z0-9\s]", " ", s)
     s = re.sub(r"\s+", " ", s).strip()
     return s
+
+
+# Fields for Home/Buscar, Listas, Simular — not CandidatePage detail.
+_LIST_KEYS = (
+    "pedido",
+    "name",
+    "name_norm",
+    "condition",
+    "segment",
+    "taf",
+    "sex",
+    "rank_geral",
+    "rank_pcd",
+    "rank_negro",
+    "situation",
+    "classified_as",
+    "gestante_condicional",
+    "queue_status",
+    "t1_call_skipped",
+    "t1_call_skip_reason",
+    "called_t1",
+    "called_t1_imediata",
+    "called_t1_cr",
+    "t1_cr_list",
+    "called_complementar",
+    "called_override",
+    "called_inferred_gap",
+    "already_called",
+    "in_remaining_queue",
+)
+
+
+def slim_candidate_for_list(person: dict) -> dict:
+    """Drop per-person detail (full scores, birth, psych, call metas) for list index."""
+    out = {k: person[k] for k in _LIST_KEYS if k in person}
+    scores = person.get("scores") or {}
+    out["scores"] = {"total": scores.get("total")}
+    return out
 
 
 def parse_br_float(s: str) -> float:
@@ -1300,6 +1338,11 @@ def main() -> None:
     (DATA / "candidates.json").write_text(
         json.dumps(merged, ensure_ascii=False, indent=2), encoding="utf-8"
     )
+    list_index = [slim_candidate_for_list(p) for p in merged]
+    (DATA / "candidates-list.json").write_text(
+        json.dumps(list_index, ensure_ascii=False, separators=(",", ":")),
+        encoding="utf-8",
+    )
     (DATA / "t1_call_order.json").write_text(
         json.dumps(intercalation, ensure_ascii=False, indent=2), encoding="utf-8"
     )
@@ -1313,8 +1356,15 @@ def main() -> None:
         json.dumps(complementar, ensure_ascii=False, indent=2), encoding="utf-8"
     )
 
+    full_bytes = (DATA / "candidates.json").stat().st_size
+    list_bytes = (DATA / "candidates-list.json").stat().st_size
     print("=== MERGE STATS ===")
     print(json.dumps(meta["stats"], ensure_ascii=False, indent=2))
+    print(
+        f"candidates.json={full_bytes} bytes · "
+        f"candidates-list.json={list_bytes} bytes "
+        f"({100 * list_bytes / full_bytes:.0f}% of full)"
+    )
     rem = sorted(
         [p for p in merged if p["in_remaining_queue"]],
         key=lambda p: p["rank_geral"],

@@ -1,4 +1,4 @@
-import type { Candidate } from '../types/candidate'
+import type { CandidateListItem } from '../types/candidate'
 import {
   isNegro,
   isPcd,
@@ -18,7 +18,7 @@ function foldName(s: string): string {
 }
 
 /** Adult public-contest candidate targeted by the Listas “Não marque” prank. UI parked, not shown. */
-export function isNinjaCandidate(c: Candidate): boolean {
+export function isNinjaCandidate(c: CandidateListItem): boolean {
   const n = foldName(c.name_norm || c.name)
   return (
     n.includes('jose ricardo da silva lins filho') ||
@@ -26,7 +26,7 @@ export function isNinjaCandidate(c: Candidate): boolean {
   )
 }
 
-export function findNinja(all: Candidate[]): Candidate | undefined {
+export function findNinja(all: CandidateListItem[]): CandidateListItem | undefined {
   return all.find(isNinjaCandidate)
 }
 
@@ -34,9 +34,9 @@ export type NaoMarqueOpts = {
   includeSubJudice: boolean
 }
 
-function uniqueByPedido(xs: Candidate[]): Candidate[] {
+function uniqueByPedido(xs: CandidateListItem[]): CandidateListItem[] {
   const seen = new Set<number>()
-  const out: Candidate[] = []
+  const out: CandidateListItem[] = []
   for (const c of xs) {
     if (seen.has(c.pedido)) continue
     seen.add(c.pedido)
@@ -51,7 +51,7 @@ function uniqueByPedido(xs: Candidate[]): Candidate[] {
  * and not every remaining negro if they would not sit yet).
  * If he has no cutoff, fall back to the full remaining occupying Negro queue.
  */
-export function negrosWhoSitAtNinjaCutoff(all: Candidate[]): Candidate[] {
+export function negrosWhoSitAtNinjaCutoff(all: CandidateListItem[]): CandidateListItem[] {
   const ninja = findNinja(all)
   if (!ninja?.in_remaining_queue) return seatQueues(all).negro
 
@@ -75,9 +75,9 @@ export function negrosWhoSitAtNinjaCutoff(all: Candidate[]): Candidate[] {
  * on paper (the Negro sitters already occupy seats).
  */
 export function naoMarqueQueue(
-  all: Candidate[],
+  all: CandidateListItem[],
   opts: NaoMarqueOpts,
-): Candidate[] {
+): CandidateListItem[] {
   const ninja = findNinja(all)
   const ninjaPedido = ninja?.pedido
 
@@ -97,13 +97,13 @@ export function naoMarqueQueue(
 
 export type SegmentFilter = 'Ampla' | 'Negro' | 'PcD'
 
-export function isAmpla(c: Candidate): boolean {
+export function isAmpla(c: CandidateListItem): boolean {
   return !isNegro(c) && !isPcd(c)
 }
 
 /** Negro e PcD matches if Negro OR PcD is selected. None selected = everyone. */
 export function matchesSegmentFilters(
-  c: Candidate,
+  c: CandidateListItem,
   selected: readonly SegmentFilter[],
 ): boolean {
   if (selected.length === 0) return true
@@ -115,7 +115,7 @@ export function matchesSegmentFilters(
   })
 }
 
-function sortKey(c: Candidate, selected: readonly SegmentFilter[]): number {
+function sortKey(c: CandidateListItem, selected: readonly SegmentFilter[]): number {
   const onlyNegro = selected.length === 1 && selected[0] === 'Negro'
   const onlyPcd = selected.length === 1 && selected[0] === 'PcD'
   if (onlyNegro && c.rank_negro != null) return c.rank_negro
@@ -130,9 +130,9 @@ export type RemainingQueueOpts = {
 
 /** Remaining T2 queue only. Gestante/fim de fila always stay. Not a T2 projection. */
 export function remainingQueuePeople(
-  all: Candidate[],
+  all: CandidateListItem[],
   opts: RemainingQueueOpts,
-): Candidate[] {
+): CandidateListItem[] {
   return all
     .filter((c) => c.in_remaining_queue)
     .filter((c) => matchesSegmentFilters(c, opts.segments))

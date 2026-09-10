@@ -1,4 +1,4 @@
-import type { Candidate, Meta } from '../types/candidate'
+import type { Candidate, CandidateListItem, Meta } from '../types/candidate'
 import { positionInRemaining, queueStatusOf } from './simulate'
 
 // Sem travessão longo: usuário pediu pra nunca usar isso nos textos.
@@ -21,7 +21,11 @@ export type WhyBlock = {
   sources: string[]
 }
 
-export function explainCandidate(c: Candidate, all: Candidate[], meta: Meta): WhyBlock {
+export function explainCandidate(
+  c: Candidate,
+  all: CandidateListItem[],
+  meta: Meta,
+): WhyBlock {
   const bullets: string[] = []
   const sources: string[] = []
   const pos = positionInRemaining(all, c)
@@ -174,7 +178,7 @@ export function explainCandidate(c: Candidate, all: Candidate[], meta: Meta): Wh
   }
 }
 
-export function neighbors(all: Candidate[], c: Candidate, n = 4) {
+export function neighbors(all: CandidateListItem[], c: CandidateListItem, n = 4) {
   // Quem já foi chamado "pulou do barco": vizinhos só na fila restante.
   const pool = all
     .filter((x) => x.in_remaining_queue || x.pedido === c.pedido)

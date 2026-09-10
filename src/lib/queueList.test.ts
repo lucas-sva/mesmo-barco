@@ -1,7 +1,7 @@
 import { readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { describe, expect, it } from 'vitest'
-import type { Candidate } from '../types/candidate'
+import type { Candidate, CandidateListItem } from '../types/candidate'
 import {
   findNinja,
   isNinjaCandidate,
@@ -184,8 +184,8 @@ describe('naoMarqueQueue stubs', () => {
 
 describe('naoMarqueQueue with official data', () => {
   const all = JSON.parse(
-    readFileSync(resolve('public/data/candidates.json'), 'utf8'),
-  ) as Candidate[]
+    readFileSync(resolve('public/data/candidates-list.json'), 'utf8'),
+  ) as CandidateListItem[]
 
   it('is Negro sitters at his T2 cutoff + all remaining PcDs + Ricardo last', () => {
     const him = findNinja(all)

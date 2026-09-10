@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { Chip } from './Chip'
 import { fmtNum } from '../lib/explain'
 import { isSubJudice, queueStatusLabel, queueStatusOf } from '../lib/simulate'
-import type { Candidate } from '../types/candidate'
+import type { CandidateListItem } from '../types/candidate'
 
 export function CandidateQueueRow({
   candidate,
@@ -14,7 +14,7 @@ export function CandidateQueueRow({
   id,
   as: Comp = 'li',
 }: {
-  candidate: Candidate
+  candidate: CandidateListItem
   prefix?: string
   note?: string
   highlighted?: boolean

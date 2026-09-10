@@ -31,7 +31,7 @@ export function Shell({ children }: { children: React.ReactNode }) {
           </Link>
           <nav
             aria-label="Principal"
-            className="grid grid-cols-3 gap-0.5 min-w-0 flex-1 sm:flex sm:flex-none sm:items-center sm:justify-end sm:gap-1"
+            className="flex min-w-0 flex-none items-center justify-end gap-0.5 sm:gap-1"
           >
             <NavLink to="/listas" className={linkClass}>
               Listas

@@ -1,5 +1,5 @@
 import Fuse from 'fuse.js'
-import type { Candidate } from '../types/candidate'
+import type { CandidateListItem } from '../types/candidate'
 
 function strip(s: string) {
   return s
@@ -11,7 +11,7 @@ function strip(s: string) {
     .trim()
 }
 
-export function buildSearcher(candidates: Candidate[]) {
+export function buildSearcher(candidates: CandidateListItem[]) {
   const enriched = candidates.map((c) => ({
     ...c,
     _q: strip(c.name),
@@ -29,7 +29,7 @@ export function buildSearcher(candidates: Candidate[]) {
     minMatchCharLength: 2,
   })
 
-  return (query: string, limit = 20): Candidate[] => {
+  return (query: string, limit = 20): CandidateListItem[] => {
     const q = strip(query)
     if (!q) return []
 
@@ -41,7 +41,7 @@ export function buildSearcher(candidates: Candidate[]) {
 
     const results = fuse.search(q, { limit })
     return results.map((r) => {
-      const { _q: _, _pedido: __, ...rest } = r.item as Candidate & {
+      const { _q: _, _pedido: __, ...rest } = r.item as CandidateListItem & {
         _q: string
         _pedido: string
       }
