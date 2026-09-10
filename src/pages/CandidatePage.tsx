@@ -99,9 +99,11 @@ export function CandidatePage() {
             <Chip>
               {c.queue_status === 'gestante_fim_fila'
                 ? 'Gestante / fim de fila'
-                : c.queue_status === 'sub_judice'
-                  ? 'Sub judice'
-                  : c.queue_status}
+                : c.queue_status === 'gestante'
+                  ? 'Gestante'
+                  : c.queue_status === 'sub_judice'
+                    ? 'Sub judice'
+                    : c.queue_status}
             </Chip>
           )}
           {c.t1_call_skipped && <Chip tone="warn">Pulada na inspeção T1</Chip>}

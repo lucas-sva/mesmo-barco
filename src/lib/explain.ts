@@ -112,12 +112,17 @@ export function explainCandidate(c: Candidate, all: Candidate[], meta: Meta): Wh
     sources.push('Edital 17, item 14')
   }
 
-  if (c.queue_status === 'gestante_fim_fila' || c.gestante_condicional || c.taf === 'Gestante') {
+  if (c.queue_status === 'gestante_fim_fila') {
     bullets.push(
-      'TAF gestante: no papel a situação fica condicionada a novo teste (Edital 17, item 13). Na chamada de inspeção/docs da T1, gestantes com rank dentro da janela Ampla foram puladas (ex.: Dayara #583). O app trata isso como "gestante/fim de fila" (hipótese: adiamento operacional; sem DOE explícito de pedido de fim de fila).',
+      'TAF gestante: no papel a situação fica condicionada a novo teste (Edital 17, item 13). Sua classificação cabia na janela efetiva de chamada (T1 inspeção/docs e/ou complementar + entrantes por lacuna documental); gestantes nesse intervalo foram adiadas (ex.: Dayara #583 na T1; Priscila Maria #618 na profundidade da complementar Ampla até #648). O app trata isso como "gestante/fim de fila" (hipótese operacional; sem DOE de pedido de fim de fila).',
     )
     sources.push('Edital 17, item 13')
-    sources.push('Padrão observado em raw/chamada-T1-OIPCE.md')
+    sources.push('Padrão observado em raw/chamada-T1-OIPCE.md e raw/chamada-complementar-OIPCE.md')
+  } else if (c.gestante_condicional || c.taf === 'Gestante' || c.queue_status === 'gestante') {
+    bullets.push(
+      'TAF gestante: no papel a situação fica condicionada a novo teste (Edital 17, item 13). Sua classificação ficou fora da janela efetiva já convocada (T1 + complementar + lacunas documentais), então o app marca só "gestante" — TAF pendente na T2 — sem hipótese de fim de fila por skip na chamada.',
+    )
+    sources.push('Edital 17, item 13')
   }
 
   if (c.t1_call_skipped) {

@@ -1882,7 +1882,7 @@
     "called_inferred_gap": false,
     "already_called": false,
     "in_remaining_queue": true,
-    "queue_status": "gestante_fim_fila",
+    "queue_status": "sub_judice",
     "t1_call_skipped": false,
     "t1_call_skip_reason": null
   },
@@ -10834,7 +10834,7 @@
     "called_inferred_gap": false,
     "already_called": false,
     "in_remaining_queue": true,
-    "queue_status": "gestante_fim_fila",
+    "queue_status": "gestante",
     "t1_call_skipped": false,
     "t1_call_skip_reason": null
   },
@@ -18396,7 +18396,7 @@
     "called_inferred_gap": false,
     "already_called": false,
     "in_remaining_queue": true,
-    "queue_status": "gestante_fim_fila",
+    "queue_status": "sub_judice",
     "t1_call_skipped": false,
     "t1_call_skip_reason": null
   },
@@ -25568,7 +25568,7 @@
     "called_inferred_gap": false,
     "already_called": false,
     "in_remaining_queue": true,
-    "queue_status": "gestante_fim_fila",
+    "queue_status": "sub_judice",
     "t1_call_skipped": false,
     "t1_call_skip_reason": null
   },
@@ -58382,7 +58382,7 @@
     "called_inferred_gap": false,
     "already_called": false,
     "in_remaining_queue": true,
-    "queue_status": "gestante_fim_fila",
+    "queue_status": "gestante",
     "t1_call_skipped": false,
     "t1_call_skip_reason": null
   },
@@ -68386,7 +68386,7 @@
     "called_inferred_gap": false,
     "already_called": false,
     "in_remaining_queue": true,
-    "queue_status": "gestante_fim_fila",
+    "queue_status": "gestante",
     "t1_call_skipped": false,
     "t1_call_skip_reason": null
   },
@@ -74889,7 +74889,7 @@
     "called_inferred_gap": false,
     "already_called": false,
     "in_remaining_queue": true,
-    "queue_status": "gestante_fim_fila",
+    "queue_status": "gestante",
     "t1_call_skipped": false,
     "t1_call_skip_reason": null
   },
@@ -74997,7 +74997,7 @@
     "called_inferred_gap": false,
     "already_called": false,
     "in_remaining_queue": true,
-    "queue_status": "gestante_fim_fila",
+    "queue_status": "gestante",
     "t1_call_skipped": false,
     "t1_call_skip_reason": null
   },
@@ -98172,7 +98172,7 @@
     "called_inferred_gap": false,
     "already_called": false,
     "in_remaining_queue": true,
-    "queue_status": "gestante_fim_fila",
+    "queue_status": "gestante",
     "t1_call_skipped": false,
     "t1_call_skip_reason": null
   },
@@ -107180,7 +107180,7 @@
     "called_inferred_gap": false,
     "already_called": false,
     "in_remaining_queue": true,
-    "queue_status": "gestante_fim_fila",
+    "queue_status": "gestante",
     "t1_call_skipped": false,
     "t1_call_skip_reason": null
   },
@@ -109718,7 +109718,7 @@
     "called_inferred_gap": false,
     "already_called": false,
     "in_remaining_queue": true,
-    "queue_status": "gestante_fim_fila",
+    "queue_status": "gestante",
     "t1_call_skipped": false,
     "t1_call_skip_reason": null
   },
@@ -114145,7 +114145,7 @@
     "called_inferred_gap": false,
     "already_called": false,
     "in_remaining_queue": true,
-    "queue_status": "gestante_fim_fila",
+    "queue_status": "gestante",
     "t1_call_skipped": false,
     "t1_call_skip_reason": null
   },

@@ -514,11 +514,42 @@
       "still_in_queue": 4,
       "marked_called_via_edital_or_override": 5
     },
-    "queue_status_remaining": {
-      "gestante_fim_fila": 14,
-      "sub_judice": 44
+    "ampla_effective_call_max_rank": 648,
+    "complementar_max_segment_rank": {
+      "Ampla": 648,
+      "Negro": 230,
+      "PcD": 56
     },
-    "skip_hypothesis": "Na lista Ampla da inspeção/docs, Sub judice e Gestante com rank dentro da janela preenchida (#1 até o último Ampla chamado) não aparecem. As vagas continuam as mesmas (562 Ampla); a lista só foi mais fundo. Gestante sem TAF completo é tratada no app como 'gestante/fim de fila' (hipótese operacional; sem DOE explícito de pedido de fim de fila).",
+    "gestante_fim_fila_remaining": [
+      {
+        "pedido": 16439,
+        "name": "Dayara Kelly Farias Ferreira",
+        "rank_geral": 583,
+        "segment": "Ampla",
+        "score": 103.5,
+        "queue_status": "gestante_fim_fila",
+        "t1_call_skipped": true,
+        "taf": "Gestante",
+        "condition": "Regular"
+      },
+      {
+        "pedido": 28844,
+        "name": "Priscila Maria Rodrigues da Silva",
+        "rank_geral": 618,
+        "segment": "Ampla",
+        "score": 103.0,
+        "queue_status": "gestante_fim_fila",
+        "t1_call_skipped": false,
+        "taf": "Gestante",
+        "condition": "Regular"
+      }
+    ],
+    "queue_status_remaining": {
+      "gestante_fim_fila": 2,
+      "gestante": 9,
+      "sub_judice": 47
+    },
+    "skip_hypothesis": "Na lista Ampla da inspeção/docs, Sub judice e Gestante com rank dentro da janela preenchida (#1 até o último Ampla da T1) não aparecem; as vagas seguem as mesmas e a lista só vai mais fundo (ex.: Dayara #583). A complementar Ampla e os entrantes por lacuna documental empurram a janela efetiva até o último Ampla convocado nessa profundidade (#648). Gestantes ainda na fila com rank dentro dessa janela são 'gestante/fim de fila' (hipótese operacional de adiamento; sem DOE de pedido de fim de fila). Gestantes além da janela ficam só como 'gestante' (TAF pendente na T2), sem tratamento de fim de fila.",
     "beatriz_carvalho_de_morais_6906": {
       "pedido": 6906,
       "name": "Beatriz Carvalho de Morais",

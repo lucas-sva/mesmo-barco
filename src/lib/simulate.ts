@@ -39,10 +39,11 @@ export function isPcd(c: Candidate): boolean {
 
 export function queueStatusOf(c: Candidate): string {
   if (c.queue_status) return c.queue_status
-  if ((c.taf || '').toLowerCase() === 'gestante' || c.gestante_condicional) {
-    return 'gestante_fim_fila'
-  }
   if (c.condition === 'Sub judice') return 'sub_judice'
+  if ((c.taf || '').toLowerCase() === 'gestante' || c.gestante_condicional) {
+    // Without parse metadata we cannot know if she was inside a call window.
+    return 'gestante'
+  }
   if ((c.taf || '').toLowerCase() === 'inapto') return 'inapto'
   return 'regular'
 }
@@ -390,6 +391,8 @@ export function queueStatusLabel(status: string): string {
       return 'Sub judice'
     case 'gestante_fim_fila':
       return 'Gestante / fim de fila'
+    case 'gestante':
+      return 'Gestante'
     case 'inapto':
       return 'Inapto'
     default:

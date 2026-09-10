@@ -101,7 +101,9 @@ export function HomePage() {
                       : ' · na fila'}
                     {c.queue_status === 'gestante_fim_fila'
                       ? ' · gestante/fim de fila'
-                      : c.queue_status === 'sub_judice'
+                      : c.queue_status === 'gestante'
+                        ? ' · gestante'
+                        : c.queue_status === 'sub_judice'
                         ? ' · sub judice'
                         : ''}
                   </p>

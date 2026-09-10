@@ -82,8 +82,10 @@ Texto humano: `gap_inference_meta.label` / `caveat`
 
 ## Sub judice e gestante
 
-- **Sub judice:** aparecem na ordem da nota; **não ocupam vaga** nem número efetivo. No simulador, filtro só controla visibilidade.
-- **Gestante:** tratadas como adiamento operacional (padrão visto na T1 Ampla). Continuam na fila do papel até haver doc em contrário; não entram no fechamento de lacuna.
+- **Sub judice:** aparecem na ordem da nota; **não ocupam vaga** nem número efetivo. No simulador, filtro só controla visibilidade. Se também for gestante, prevalece sub judice no `queue_status`.
+- **Gestante / fim de fila:** só quem ficou **dentro** da janela efetiva já convocada (T1 inspeção/docs e/ou complementar + lacunas documentais) e foi adiada no mesmo padrão de skip. Continuam na fila do papel; ocupam vaga na projeção (hipótese operacional; sem DOE de "fim de fila").
+- **Gestante (só):** classificação **além** da janela efetiva. TAF pendente na T2; **não** recebem tratamento de fim de fila.
+- Gestantes e sub judice **não** entram no fechamento de lacuna (`called_inferred_gap`).
 
 ## Simulador T2
 

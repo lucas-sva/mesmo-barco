@@ -37,7 +37,7 @@ export type Candidate = {
   situation: 'classificado' | 'cadastro_reserva' | string
   classified_as: 'Ampla' | 'Negro' | 'PcD' | null
   gestante_condicional?: boolean
-  /** regular | sub_judice | gestante_fim_fila | inapto */
+  /** regular | sub_judice | gestante | gestante_fim_fila | inapto */
   queue_status?: string
   t1_call_skipped?: boolean
   t1_call_skip_reason?: 'sub_judice' | 'gestante' | string | null
@@ -110,8 +110,12 @@ export type Meta = {
     }
     queue_status_remaining?: {
       gestante_fim_fila: number
+      gestante?: number
       sub_judice: number
     }
+    ampla_effective_call_max_rank?: number | null
+    complementar_max_segment_rank?: Record<string, number>
+    gestante_fim_fila_remaining?: Array<Record<string, unknown>>
     skip_hypothesis?: string
     beatriz_carvalho_de_morais_6906?: Record<string, unknown> | null
     note: string

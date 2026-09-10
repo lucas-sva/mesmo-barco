@@ -100,11 +100,18 @@ export function HowPage() {
             <p className="font-medium">Quem a T1 Ampla pulou (padrão observado)</p>
             <p>
               {meta.t1_boundaries.ampla_skips_summary.total} nomes com rank dentro da
-              janela Ampla não entraram na inspeção/docs:{' '}
+              janela Ampla da T1 não entraram na inspeção/docs:{' '}
               {meta.t1_boundaries.ampla_skips_summary.sub_judice} sub judice,{' '}
               {meta.t1_boundaries.ampla_skips_summary.gestante} gestante. Ex.: Dayara
-              Kelly (#583, gestante).
+              Kelly (#583, gestante/fim de fila).
             </p>
+            {meta.t1_boundaries.ampla_effective_call_max_rank != null && (
+              <p className="text-ink-soft text-xs">
+                Janela efetiva Ampla (T1 + complementar + lacunas) até #
+                {String(meta.t1_boundaries.ampla_effective_call_max_rank)}. Gestantes
+                nessa profundidade ainda na fila: fim de fila; além dela: só gestante.
+              </p>
+            )}
             <p className="text-ink-soft text-xs">
               {meta.t1_boundaries.skip_hypothesis}
             </p>
@@ -124,9 +131,10 @@ export function HowPage() {
         <p>{meta.rules.calling_model.caveat}</p>
         <p className="mt-2 text-sm text-ink-soft">
           Sem lista de desistentes/inaptos, a posição é a do papel. Se alguém à sua frente
-          cair, você sobe. O app não inventa desistência. Gestante/fim de fila é hipótese
-          operacional (TAF gestante + padrão de skip na T1), não um carimbo oficial de
-          "pediu fim de fila".
+          cair, você sobe. O app não inventa desistência. Gestante/fim de fila só vale para
+          quem ficou dentro da janela efetiva já convocada e foi adiada (TAF gestante +
+          padrão de skip); gestante além dessa janela não é fim de fila. Não há carimbo
+          oficial de "pediu fim de fila".
         </p>
         {meta.gap_inference && (
           <div className="mt-3 rounded-xl border border-sea/40 bg-sea/10 px-3 py-3 text-sm space-y-2">

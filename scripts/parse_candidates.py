@@ -582,33 +582,117 @@ def _boundary_row(c: dict) -> dict:
     }
 
 
+def _is_gestante(p: dict) -> bool:
+    return (p.get("taf") or "").lower() == "gestante" or bool(
+        p.get("gestante_condicional")
+    )
+
+
 def assign_queue_status(p: dict) -> str:
-    """App-facing status for filters: regular | sub_judice | gestante_fim_fila | inapto."""
+    """Base status: regular | sub_judice | gestante | inapto.
+
+    Gestante alone is NOT fim de fila. Only those deferred inside an observed
+    call window are upgraded to gestante_fim_fila in annotate_call_skips.
+    Sub judice wins over gestante (never occupies a seat).
+    """
     taf = (p.get("taf") or "").strip()
     if taf.lower() == "inapto":
         return "inapto"
-    if taf.lower() == "gestante" or p.get("gestante_condicional"):
-        return "gestante_fim_fila"
     if p.get("condition") == "Sub judice":
         return "sub_judice"
+    if _is_gestante(p):
+        return "gestante"
     return "regular"
 
 
-def annotate_t1_call_skips(merged: list[dict]) -> list[dict]:
-    """People whose geral rank sits inside a T1 call window but were not on that list.
-
-    Observed Ampla pattern: Sub judice and Gestante were skipped on the
-    inspeção/docs list; seats were filled by the next names (same seat count,
-    deeper ranks). Hypothesis for gestantes: deferred TAF / fim de fila.
-    We do NOT have a DOE saying 'fim de fila'; the skip is an observed fact.
-    """
-    last_by_seg: dict[str, int] = {}
+def _t1_last_rank_geral_by_segment(merged: list[dict]) -> dict[str, int]:
+    last: dict[str, int] = {}
     for p in merged:
         meta = p.get("t1_call_meta")
         if not meta:
             continue
         seg = meta["segment_call"]
-        last_by_seg[seg] = max(last_by_seg.get(seg, 0), p["rank_geral"])
+        last[seg] = max(last.get(seg, 0), p["rank_geral"])
+    return last
+
+
+def _complementar_max_segment_rank(merged: list[dict]) -> dict[str, int]:
+    """Same segment-rank ceilings used by gap inference (Ampla=rank_geral, etc.)."""
+    specs = [
+        ("Ampla", "rank_geral", "Ampla"),
+        ("Negro", "rank_negro", "Negro"),
+        ("PcD", "rank_pcd", "PcD"),
+    ]
+    out: dict[str, int] = {}
+    for seg_call, field, key in specs:
+        ranks = [
+            p[field]
+            for p in merged
+            if p.get("called_complementar")
+            and (p.get("complementar_meta") or {}).get("segment_call") == seg_call
+            and p.get(field) is not None
+        ]
+        if ranks:
+            out[key] = max(ranks)
+    return out
+
+
+def _segment_rank_for_window(p: dict) -> tuple[str, int] | None:
+    """Which segment list + rank places this person in a call window."""
+    seg = p.get("segment")
+    if seg == "Ampla" and p.get("rank_geral") is not None:
+        return "Ampla", p["rank_geral"]
+    if seg in ("Negro", "Negro e PcD") and p.get("rank_negro") is not None:
+        return "Negro", p["rank_negro"]
+    if seg in ("PcD", "Negro e PcD") and p.get("rank_pcd") is not None:
+        return "PcD", p["rank_pcd"]
+    return None
+
+
+def _effective_window_max(
+    seg_key: str,
+    t1_last_geral: dict[str, int],
+    comp_max: dict[str, int],
+    merged: list[dict],
+) -> int | None:
+    """Deepest observed call for a segment list (T1 inspeção and/or complementar).
+
+    Ampla windows use rank_geral throughout. Negro/PcD complementar uses
+    segment ranks; T1 last is converted via the last called person's segment rank.
+    """
+    caps: list[int] = []
+    if seg_key in comp_max:
+        caps.append(comp_max[seg_key])
+    if seg_key == "Ampla" and "Ampla" in t1_last_geral:
+        caps.append(t1_last_geral["Ampla"])
+    elif seg_key in ("Negro", "PcD") and seg_key in t1_last_geral:
+        field = "rank_negro" if seg_key == "Negro" else "rank_pcd"
+        t1_called = [
+            p
+            for p in merged
+            if p.get("t1_call_meta")
+            and p["t1_call_meta"].get("segment_call") == seg_key
+            and p.get(field) is not None
+        ]
+        if t1_called:
+            caps.append(max(p[field] for p in t1_called))
+    return max(caps) if caps else None
+
+
+def annotate_t1_call_skips(merged: list[dict]) -> list[dict]:
+    """Mark T1 Ampla skips and upgrade window-deferred gestantes to fim de fila.
+
+    Observed pattern: Sub judice and Gestante inside a filled call window do not
+    appear on inspeção/docs (T1) and are also left out of complementar-gap
+    inference — seats go to the next Regular/Apto names. Hypothesis for those
+    gestantes: deferred TAF / fim de fila. Gestantes *beyond* the deepest
+    observed window stay plain 'gestante' (TAF pendente na T2), not fim de fila.
+
+    We do NOT have a DOE saying 'fim de fila'; the skip/deferral is observed.
+    """
+    t1_last = _t1_last_rank_geral_by_segment(merged)
+    comp_max = _complementar_max_segment_rank(merged)
+    ampla_t1_last = t1_last.get("Ampla")
 
     skips: list[dict] = []
     for p in merged:
@@ -616,18 +700,33 @@ def annotate_t1_call_skips(merged: list[dict]) -> list[dict]:
         p["t1_call_skipped"] = False
         p["t1_call_skip_reason"] = None
 
-        # Ampla-segment holes inside Ampla call window
+        # Upgrade gestante → gestante_fim_fila when inside effective call window
+        # and still remaining (same deferral pattern gap inference already uses).
+        if (
+            p.get("queue_status") == "gestante"
+            and not p.get("already_called")
+        ):
+            placed = _segment_rank_for_window(p)
+            if placed:
+                seg_key, r = placed
+                eff = _effective_window_max(seg_key, t1_last, comp_max, merged)
+                if eff is not None and r <= eff:
+                    p["queue_status"] = "gestante_fim_fila"
+
+        # Ampla holes inside the official T1 inspeção/docs window only
         if p.get("segment") != "Ampla":
             continue
-        last = last_by_seg.get("Ampla")
-        if last is None or p["rank_geral"] > last:
+        if ampla_t1_last is None or p["rank_geral"] > ampla_t1_last:
             continue
         if p.get("t1_call_meta"):
             continue
 
         reason = None
-        if p.get("queue_status") == "gestante_fim_fila":
+        if p.get("queue_status") == "gestante_fim_fila" or (
+            p.get("queue_status") == "gestante" and _is_gestante(p)
+        ):
             reason = "gestante"
+            p["queue_status"] = "gestante_fim_fila"
         elif p.get("queue_status") == "sub_judice":
             reason = "sub_judice"
         if not reason:
@@ -682,12 +781,37 @@ def _compute_t1_boundaries(
     )
 
     beatriz = next((p for p in merged if p["pedido"] == 6906), None)
-    gest_remaining = sum(
-        1 for p in merged if p.get("queue_status") == "gestante_fim_fila" and p.get("in_remaining_queue")
+    gest_fim_remaining = sum(
+        1
+        for p in merged
+        if p.get("queue_status") == "gestante_fim_fila" and p.get("in_remaining_queue")
+    )
+    gest_only_remaining = sum(
+        1
+        for p in merged
+        if p.get("queue_status") == "gestante" and p.get("in_remaining_queue")
     )
     sj_remaining = sum(
         1 for p in merged if p.get("queue_status") == "sub_judice" and p.get("in_remaining_queue")
     )
+    comp_max = _complementar_max_segment_rank(merged)
+    ampla_eff = None
+    if last.get("Ampla") and last["Ampla"].get("rank_geral") is not None:
+        ampla_eff = last["Ampla"]["rank_geral"]
+    if "Ampla" in comp_max:
+        ampla_eff = max(ampla_eff or 0, comp_max["Ampla"])
+
+    gest_fim_rows = [
+        {
+            **_boundary_row(p),
+            "queue_status": p["queue_status"],
+            "t1_call_skipped": p.get("t1_call_skipped"),
+            "taf": p.get("taf"),
+            "condition": p.get("condition"),
+        }
+        for p in sorted(merged, key=lambda c: c["rank_geral"])
+        if p.get("queue_status") == "gestante_fim_fila" and p.get("in_remaining_queue")
+    ]
 
     return {
         "t1_call_rows": len(t1_call),
@@ -704,16 +828,24 @@ def _compute_t1_boundaries(
                 1 for s in ampla_skips if s["already_called"]
             ),
         },
+        "ampla_effective_call_max_rank": ampla_eff,
+        "complementar_max_segment_rank": comp_max,
+        "gestante_fim_fila_remaining": gest_fim_rows,
         "queue_status_remaining": {
-            "gestante_fim_fila": gest_remaining,
+            "gestante_fim_fila": gest_fim_remaining,
+            "gestante": gest_only_remaining,
             "sub_judice": sj_remaining,
         },
         "skip_hypothesis": (
             "Na lista Ampla da inspeção/docs, Sub judice e Gestante com rank dentro "
-            "da janela preenchida (#1 até o último Ampla chamado) não aparecem. "
-            "As vagas continuam as mesmas (562 Ampla); a lista só foi mais fundo. "
-            "Gestante sem TAF completo é tratada no app como 'gestante/fim de fila' "
-            "(hipótese operacional; sem DOE explícito de pedido de fim de fila)."
+            "da janela preenchida (#1 até o último Ampla da T1) não aparecem; as "
+            "vagas seguem as mesmas e a lista só vai mais fundo (ex.: Dayara #583). "
+            "A complementar Ampla e os entrantes por lacuna documental empurram a "
+            "janela efetiva até o último Ampla convocado nessa profundidade "
+            f"(#{ampla_eff}). Gestantes ainda na fila com rank dentro dessa janela "
+            "são 'gestante/fim de fila' (hipótese operacional de adiamento; sem DOE "
+            "de pedido de fim de fila). Gestantes além da janela ficam só como "
+            "'gestante' (TAF pendente na T2), sem tratamento de fim de fila."
         ),
         "beatriz_carvalho_de_morais_6906": (
             {

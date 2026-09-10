@@ -86,9 +86,34 @@ class TestT1CallBoundaries(unittest.TestCase):
         self.assertEqual(d["t1_call_skip_reason"], "gestante")
         self.assertTrue(d["in_remaining_queue"])
 
+    def test_priscila_gestante_fim_fila_via_complementar_window(self):
+        """#618 is past T1 Ampla last (#596) but inside complementar depth (#648)."""
+        p = self.by_pedido[28844]
+        self.assertIn("Priscila Maria Rodrigues da Silva", p["name"])
+        self.assertEqual(p["rank_geral"], 618)
+        self.assertEqual(p["taf"], "Gestante")
+        self.assertEqual(p["queue_status"], "gestante_fim_fila")
+        self.assertFalse(p["t1_call_skipped"])  # outside official T1 inspeção window
+        self.assertTrue(p["in_remaining_queue"])
+        self.assertFalse(p["already_called"])
+        eff = self.meta["t1_boundaries"]["ampla_effective_call_max_rank"]
+        self.assertEqual(eff, 648)
+        self.assertLessEqual(p["rank_geral"], eff)
+
+    def test_gestante_beyond_effective_window_is_not_fim_fila(self):
+        g = next(c for c in self.cands if c["rank_geral"] == 685)
+        self.assertIn("Gabriela Araujo Pereira Delgado", g["name"])
+        self.assertEqual(g["taf"], "Gestante")
+        self.assertEqual(g["queue_status"], "gestante")
+        self.assertFalse(g["t1_call_skipped"])
+        self.assertTrue(g["in_remaining_queue"])
+        qs = self.meta["t1_boundaries"]["queue_status_remaining"]
+        self.assertGreaterEqual(qs["gestante"], 1)
+        self.assertGreaterEqual(qs["gestante_fim_fila"], 2)
+
     def test_ampla_skips_counts(self):
         summary = self.meta["t1_boundaries"]["ampla_skips_summary"]
-        self.assertGreaterEqual(summary["gestante"], 1)
+        self.assertEqual(summary["gestante"], 1)  # only Dayara in official T1 window
         self.assertGreaterEqual(summary["sub_judice"], 3)
         self.assertEqual(
             summary["total"], summary["sub_judice"] + summary["gestante"]
