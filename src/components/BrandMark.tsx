@@ -1,5 +1,5 @@
 export function BrandMark({
-  className = 'block w-[min(92vw,520px)] md:w-[min(90vw,640px)] h-auto max-h-none object-contain object-center aspect-[960/524]',
+  className = 'block w-[min(72vw,280px)] md:w-[min(50vw,320px)] h-auto max-h-none object-contain object-center aspect-square',
   src = './logo.webp',
   fallbackSrc = './logo.png',
   alt = 'Mesmo Barco · Projeções T2 Sem Filtro',
@@ -13,8 +13,8 @@ export function BrandMark({
     <img
       src={src.endsWith('.webp') ? fallbackSrc : src}
       alt={alt}
-      width={960}
-      height={524}
+      width={512}
+      height={512}
       decoding="async"
       fetchPriority="high"
       className={className}

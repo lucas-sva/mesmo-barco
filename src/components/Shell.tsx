@@ -11,7 +11,7 @@ const linkClass = ({ isActive }: { isActive: boolean }) =>
 export function Shell({ children }: { children: React.ReactNode }) {
   return (
     <div className="min-h-dvh flex flex-col">
-      <header className="sticky top-0 z-20 border-b border-line/80 bg-paper-2/90 backdrop-blur-md">
+      <header className="sticky top-0 z-20 border-b border-line/80 bg-paper/95 backdrop-blur-md">
         <div className="mx-auto max-w-5xl px-3 py-2 sm:px-4 sm:py-2.5 flex items-center justify-between gap-2 sm:gap-3">
           <Link
             to="/"
