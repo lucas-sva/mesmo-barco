@@ -2,7 +2,7 @@ import { Link, NavLink } from 'react-router-dom'
 
 const linkClass = ({ isActive }: { isActive: boolean }) =>
   [
-    'inline-flex min-h-11 min-w-0 items-center justify-center px-0.5 text-[clamp(9px,2.7vw,14px)] font-medium leading-tight tracking-tight rounded-md transition-colors no-underline whitespace-nowrap sm:min-h-9 sm:px-2.5 sm:text-sm sm:tracking-normal',
+    'inline-flex min-h-10 min-w-0 items-center justify-center px-2 py-1.5 text-[clamp(9px,2.7vw,14px)] font-medium leading-none tracking-tight rounded-md transition-colors no-underline whitespace-nowrap sm:min-h-9 sm:px-2.5 sm:py-1.5 sm:text-sm sm:tracking-normal',
     isActive
       ? 'bg-ink !text-paper-2'
       : 'text-ink-soft hover:text-ink hover:bg-ink/5',
@@ -23,7 +23,7 @@ export function Shell({ children }: { children: React.ReactNode }) {
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
               fill="currentColor"
-              className="h-5 w-5"
+              className="h-7 w-7 sm:h-8 sm:w-8"
               aria-hidden="true"
             >
               <path d="M12 3 2 12h3v8h6v-6h2v6h6v-8h3L12 3z" />
@@ -31,7 +31,7 @@ export function Shell({ children }: { children: React.ReactNode }) {
           </Link>
           <nav
             aria-label="Principal"
-            className="flex min-w-0 flex-none items-center justify-end gap-0.5 sm:gap-1"
+            className="flex min-w-0 flex-none items-center justify-end gap-1.5 sm:gap-2"
           >
             <NavLink to="/listas" className={linkClass}>
               Listas

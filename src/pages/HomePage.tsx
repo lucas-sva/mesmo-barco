@@ -34,9 +34,6 @@ export function HomePage() {
         <p className="text-sm font-medium text-sea uppercase tracking-[0.14em]">
           OIPCE · fila da 2ª turma
         </p>
-        <h1 className="text-3xl md:text-4xl font-bold leading-tight max-w-3xl">
-          Acha seu nome na fila.
-        </h1>
         <p className="text-ink-soft max-w-2xl text-base">
           Projeção com a lista oficial (Edital 17) e as notas do Comunicado 166.
         </p>
