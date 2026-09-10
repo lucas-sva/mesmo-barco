@@ -5,11 +5,12 @@ import { useData } from '../lib/data'
 import { fmtInt } from '../lib/explain'
 import {
   isNinjaCandidate,
+  matchesSegmentFilters,
   naoMarqueQueue,
   remainingQueuePeople,
   type SegmentFilter,
 } from '../lib/queueList'
-import { remainingUniverse } from '../lib/simulate'
+import { isSubJudice } from '../lib/simulate'
 
 const SEGMENT_CHOICES = ['Todos', 'Ampla', 'Negro', 'PcD'] as const
 type SegmentChoice = (typeof SEGMENT_CHOICES)[number]
@@ -25,7 +26,7 @@ function jumpToNinja() {
 export function ListasPage() {
   const { candidates, loading } = useData()
   const [segment, setSegment] = useState<SegmentChoice>('Todos')
-  const [includeSubJudice, setIncludeSubJudice] = useState(true)
+  const [includeSubJudice, setIncludeSubJudice] = useState(false)
   // Feature parked, not shown — ninja/Ricardo builder, logo-cotas swap, jump-to-end stay for later.
   const naoMarque = false
 
@@ -39,7 +40,17 @@ export function ListasPage() {
         : remainingQueuePeople(candidates, { segments, includeSubJudice }),
     [candidates, segments, includeSubJudice, naoMarque],
   )
-  const universe = remainingUniverse(candidates)
+  const approvedCounts = useMemo(() => {
+    let regular = 0
+    let subJudice = 0
+    for (const c of candidates) {
+      if (!c.in_remaining_queue) continue
+      if (!matchesSegmentFilters(c, segments)) continue
+      if (isSubJudice(c)) subJudice += 1
+      else regular += 1
+    }
+    return { regular, subJudice }
+  }, [candidates, segments])
   const ninjaInView = naoMarque && people.some(isNinjaCandidate)
 
   if (loading) return <p className="text-ink-soft">Carregando...</p>
@@ -107,8 +118,8 @@ export function ListasPage() {
         </h2>
         <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
           <p className="text-xs text-ink-soft">
-            {fmtInt(people.length)} nesta vista · {fmtInt(universe.remainingPaper)}{' '}
-            no papel · {fmtInt(universe.remainingOccupying)} ocupam vaga
+            {fmtInt(approvedCounts.regular)} aprovados (regular) ·{' '}
+            {fmtInt(approvedCounts.subJudice)} aprovados (sub judice)
           </p>
           {ninjaInView && (
             <button

@@ -26,11 +26,11 @@ export function Shell({ children }: { children: React.ReactNode }) {
             <NavLink to="/" end className={linkClass}>
               Buscar
             </NavLink>
-            <NavLink to="/simular" className={linkClass}>
-              Simular T2
-            </NavLink>
             <NavLink to="/listas" className={linkClass}>
               Listas
+            </NavLink>
+            <NavLink to="/simular" className={linkClass}>
+              Simular T2
             </NavLink>
             <NavLink to="/como-funciona" className={linkClass}>
               Regras

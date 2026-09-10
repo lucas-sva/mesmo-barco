@@ -162,6 +162,10 @@ export function CandidatePage() {
                 : ''}
               ; não inventamos concorrente.
             </p>
+          ) : need.list === 'Ampla' ? (
+            <p className="text-sm mt-2 text-ink-soft">
+              Entraria pela lista Ampla, seguindo o mesmo padrão da T1.
+            </p>
           ) : (
             <p className="text-sm mt-2 text-ink-soft">
               Entraria pela lista <strong>{need.list}</strong>, seguindo o mesmo padrão

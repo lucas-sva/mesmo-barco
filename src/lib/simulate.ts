@@ -8,7 +8,7 @@ import type {
 } from '../types/candidate'
 
 export type SimulateOpts = {
-  /** Show sub judice in the list (they never consume seats and never raise simNCap). Default true. */
+  /** Show sub judice in the list (they never consume seats and never raise simNCap). Default false. */
   includeSubJudice?: boolean
   /** Seat pool filter. Default true — UI always includes gestante/fim de fila. */
   includeGestanteFimFila?: boolean
@@ -97,7 +97,7 @@ export function simulateCall(
   n: number,
   opts?: SimulateOpts,
 ): SimulationResult {
-  const includeSubJudice = opts?.includeSubJudice ?? true
+  const includeSubJudice = opts?.includeSubJudice ?? false
   const includeGestanteFimFila = opts?.includeGestanteFimFila ?? true
   const filterOpts = { includeSubJudice, includeGestanteFimFila }
   const seats = splitSeats(n)

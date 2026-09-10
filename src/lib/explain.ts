@@ -67,11 +67,6 @@ export function explainCandidate(c: Candidate, all: Candidate[], meta: Meta): Wh
       )
       sources.push('Edital 17, item 14')
     } else {
-      if (pos.amplaPos) {
-        bullets.push(
-          `Posição efetiva na ampla: nº ${pos.amplaPos} (sub judice à frente aparecem na ordem da nota, mas não recebem número de vaga; se o Estado chama N vagas, puxa até completar N pessoas que ocupam assento).`,
-        )
-      }
       if (pos.negroPos) {
         bullets.push(
           `Posição efetiva na cota racial: nº ${pos.negroPos} (rank negro ${c.rank_negro}, sem sub judice na conta).`,
@@ -88,9 +83,13 @@ export function explainCandidate(c: Candidate, all: Candidate[], meta: Meta): Wh
           x.rank_geral < c.rank_geral &&
           (x.condition === 'Sub judice' || x.queue_status === 'sub_judice'),
       ).length
-      if (sjAhead > 0) {
+      if (sjAhead === 1) {
         bullets.push(
-          `Há ${sjAhead} sub judice na sua frente no papel; eles não entram na sua posição efetiva.`,
+          'Há 1 sub judice na sua frente no papel (ele não ocupa vaga, portanto não impacta na sua atual posição na fila).',
+        )
+      } else if (sjAhead > 1) {
+        bullets.push(
+          `Há ${sjAhead} sub judices na sua frente no papel (eles não ocupam vagas, portanto não impactam na sua atual posição na fila).`,
         )
       }
     }

@@ -45,7 +45,22 @@ export function HowPage() {
         <Cite>{meta.rules.quotas.cite_women}</Cite>
       </Block>
 
-      <Block title="5. Como a T1 foi chamada (modelo do app)">
+      <Block title="5. Cota sem gente → ampla">
+        <p>
+          Vaga reservada (PPP/PcD) que não enche não fica ociosa: primeiro tenta o
+          próximo da própria lista de reserva; o que sobrar reverte pra ampla, na
+          ordem geral. O simulador faz exatamente isso.
+        </p>
+        <p className="text-sm text-ink-soft">
+          PPP: item <strong>5.2.6</strong> (próximo da lista de reserva) e{' '}
+          <strong>5.2.6.1</strong> (remanescente → ampla concorrência). PcD: item{' '}
+          <strong>5.1.6.9</strong> (falta de aprovado PcD → demais candidatos na
+          ordem geral). Fonte: Edital nº 1 OIPCE (PC/CE).
+        </p>
+        <Cite>Edital nº 1 OIPCE (PC/CE), itens 5.2.6, 5.2.6.1 e 5.1.6.9</Cite>
+      </Block>
+
+      <Block title="6. Como a T1 foi chamada (modelo do app)">
         <p>{meta.calling_model_observed?.description}</p>
         <Cite>{meta.calling_model_observed?.cite}</Cite>
         <p className="mt-2 text-sm">
@@ -105,7 +120,7 @@ export function HowPage() {
         )}
       </Block>
 
-      <Block title="6. O que o app NÃO sabe">
+      <Block title="7. O que o app NÃO sabe">
         <p>{meta.rules.calling_model.caveat}</p>
         <p className="mt-2 text-sm text-ink-soft">
           Sem lista de desistentes/inaptos, a posição é a do papel. Se alguém à sua frente

@@ -2,12 +2,22 @@ import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { BrandMark } from '../components/BrandMark'
 import { useData } from '../lib/data'
-import { fmtNum } from '../lib/explain'
+import { fmtInt, fmtNum } from '../lib/explain'
+import { isSubJudice } from '../lib/simulate'
 
 export function HomePage() {
-  const { loading, error, search, meta } = useData()
+  const { loading, error, search, candidates } = useData()
   const [q, setQ] = useState('')
   const results = useMemo(() => search(q, 25), [search, q])
+  const approvedCounts = useMemo(() => {
+    let regular = 0
+    let subJudice = 0
+    for (const c of candidates) {
+      if (isSubJudice(c)) subJudice += 1
+      else regular += 1
+    }
+    return { regular, subJudice }
+  }, [candidates])
 
   return (
     <div className="space-y-8">
@@ -37,11 +47,10 @@ export function HomePage() {
           spellCheck={false}
           className="w-full max-w-2xl rounded-xl border border-line bg-white px-4 py-3.5 text-base text-ink shadow-sm outline-none placeholder:text-ink-soft/70 focus:border-sea focus:ring-2 focus:ring-sea/20"
         />
-        {meta && (
+        {!loading && candidates.length > 0 && (
           <p className="text-xs text-ink-soft w-full max-w-2xl">
-            {Number(meta.stats.remaining).toLocaleString('pt-BR')} na fila do papel ·{' '}
-            {Number(meta.stats.t1_total).toLocaleString('pt-BR')} na T1 (imediatas+CR) ·{' '}
-            {Number(meta.stats.complementar_matched)} na complementar
+            {fmtInt(approvedCounts.regular)} aprovados (regular) ·{' '}
+            {fmtInt(approvedCounts.subJudice)} aprovados (sub judice)
           </p>
         )}
       </section>

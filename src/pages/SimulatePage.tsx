@@ -13,12 +13,12 @@ import {
 } from '../lib/simulate'
 
 export function SimulatePage() {
-  const { candidates, meta, loading } = useData()
+  const { candidates, loading } = useData()
   const [params] = useSearchParams()
   const initialN = Number(params.get('n') || 500)
   const focusPedido = params.get('pedido')
   const [n, setN] = useState(Number.isFinite(initialN) && initialN > 0 ? initialN : 500)
-  const [includeSubJudice, setIncludeSubJudice] = useState(true)
+  const [includeSubJudice, setIncludeSubJudice] = useState(false)
 
   const maxN = useMemo(
     () => simNCap(candidates, { includeGestanteFimFila: true }),
@@ -57,7 +57,6 @@ export function SimulatePage() {
         )
       : null
   const seatCount = sim.called.filter((s) => s.occupiesSeat !== false).length
-  const skipSummary = meta?.t1_boundaries?.ampla_skips_summary
   const focusName = focusCandidate?.name ?? `pedido ${focusPedido}`
   const vagasLabel = nUsed === 1 ? '1 vaga' : `${nUsed} vagas`
 
@@ -135,20 +134,13 @@ export function SimulatePage() {
               />
             </div>
           </div>
-          <label className="flex items-start gap-2 text-sm max-w-xs">
+          <label className="flex items-center gap-2 text-sm max-w-xs">
             <input
               type="checkbox"
-              className="mt-1"
               checked={includeSubJudice}
               onChange={(e) => setIncludeSubJudice(e.target.checked)}
             />
-            <span>
-              Incluir sub judice na lista
-              <span className="block text-[11px] text-ink-soft font-normal">
-                Só mostra na lista; não ocupam vaga e não mudam o teto. Posições já
-                descontam.
-              </span>
-            </span>
+            <span>Incluir sub judices</span>
           </label>
         </div>
 
@@ -250,21 +242,6 @@ export function SimulatePage() {
             )}
           </div>
         )}
-
-        {skipSummary && (
-          <p className="text-xs text-ink-soft leading-relaxed rounded-lg border border-line bg-paper px-3 py-2">
-            Na T1 Ampla, {skipSummary.total} nomes com rank dentro da janela foram
-            pulados na inspeção/docs ({skipSummary.sub_judice} sub judice,{' '}
-            {skipSummary.gestante} gestante). Sub judice nunca consomem vaga nesta
-            projeção: só aparecem na lista se o filtro estiver ligado. Gestante/fim
-            de fila sempre entram na conta de vagas.
-          </p>
-        )}
-
-        <p className="text-xs text-ink-soft leading-relaxed">
-          {meta?.calling_model_observed?.description} Fonte:{' '}
-          {meta?.calling_model_observed?.cite}
-        </p>
       </section>
 
       <section className="grid sm:grid-cols-3 gap-3 text-sm">
