@@ -1,5 +1,7 @@
 # Mesmo Barco
 
+[![Visitas (site)](https://hits.sh/lucas-sva.github.io/mesmo-barco.svg?view=today-total&label=Visitas%20(site)&color=0A66C2)](https://lucas-sva.github.io/mesmo-barco/)
+
 App web grátis e auditável pra quem ficou na fila da 2ª turma do **OIPCE**
 (Oficial Investigador da PC/CE). Busca nome, explica a posição, mostra notas e
 simula T2 com a lógica observada na T1.
@@ -12,6 +14,8 @@ Não é site oficial da PC/CE, CEV/UECE ou FUNECE. É ferramenta de colega
 https://lucas-sva.github.io/mesmo-barco/
 
 Push em `main` → Actions (testes + build) → GitHub Pages.
+
+> Contador de visitas via [hits.sh](https://hits.sh/lucas-sva.github.io/mesmo-barco/) (público). O tráfego do GitHub Insights (Views/Unique visitors) é privado aos colaboradores e não dá para expor em badge.
 
 ## Auditar
 
