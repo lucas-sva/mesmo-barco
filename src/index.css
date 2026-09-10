@@ -23,26 +23,10 @@ body {
   margin: 0;
   font-family: var(--font-sans);
   color: var(--color-ink);
-  background: #ffffff;
-}
-
-/* Grunge paper on main content only; nav + footer stay solid white. */
-.shell-main {
-  background-color: #f3efe6;
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.42), rgba(255, 255, 255, 0.42)),
-    url('./assets/bg-paper-mobile.webp');
-  background-size: cover;
-  background-position: center top;
-  background-repeat: no-repeat;
-}
-
-@media (min-width: 1024px) {
-  .shell-main {
-    background-image:
-      linear-gradient(rgba(255, 255, 255, 0.38), rgba(255, 255, 255, 0.38)),
-      url('./assets/bg-paper-desktop.webp');
-  }
+  background:
+    radial-gradient(1200px 600px at 10% -10%, #d7e6e1 0%, transparent 55%),
+    radial-gradient(900px 500px at 100% 0%, #d9e2ef 0%, transparent 50%),
+    var(--color-paper);
 }
 
 * {

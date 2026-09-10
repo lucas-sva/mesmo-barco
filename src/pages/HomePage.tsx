@@ -29,7 +29,7 @@ export function HomePage() {
 
   return (
     <div className="space-y-8">
-      <section className="space-y-4 pt-2 md:pt-6 flex flex-col items-center text-center">
+      <section className="flex flex-col items-center text-center space-y-3">
         <BrandMark />
         <p className="text-sm font-medium text-sea uppercase tracking-[0.14em]">
           OIPCE · fila da 2ª turma
