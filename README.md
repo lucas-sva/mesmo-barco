@@ -1,6 +1,6 @@
 # Mesmo Barco
 
-[![ Acessos no aplicativo: ](https://hits.sh/lucas-sva.github.io/mesmo-barco.svg?view=total&label=Visitas%20(site)&color=0A66C2)]
+[![Visitas (site)](https://hits.sh/lucas-sva.github.io/mesmo-barco.svg?view=total&label=Visitas%20(site)&color=0A66C2)](https://lucas-sva.github.io/mesmo-barco/)
 
 App web grátis e auditável pra quem ficou na fila da 2ª turma do **OIPCE**
 (Oficial Investigador da PC/CE). Busca nome, explica a posição, mostra notas e
