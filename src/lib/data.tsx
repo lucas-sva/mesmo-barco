@@ -23,8 +23,8 @@ export function DataProvider({ children }: { children: React.ReactNode }) {
     ;(async () => {
       try {
         const [cRes, mRes] = await Promise.all([
-          fetch('./data/candidates.json'),
-          fetch('./data/meta.json'),
+          fetch(`./data/candidates.json?t=${Date.now()}`, { cache: 'no-store' }),
+          fetch(`./data/meta.json?t=${Date.now()}`, { cache: 'no-store' }),
         ])
         if (!cRes.ok || !mRes.ok) throw new Error('Falha ao carregar dados')
         const cJson = (await cRes.json()) as Candidate[]
